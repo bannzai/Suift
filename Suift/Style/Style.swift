@@ -6,4 +6,16 @@
 //  Copyright © 2018年 廣瀬雄大. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+public protocol Style {
+    init()
+    init(closure: (inout Self) -> Void)
+}
+
+public extension Style {
+    public init(_ closure: (inout Self) -> Void) {
+        self.init()
+        closure(&self)
+    }
+}
