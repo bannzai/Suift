@@ -8,27 +8,19 @@
 
 import UIKit
 
-public protocol FontSizable {
-    var fontSize: CGFloat { get }
-}
-
-public protocol FontNamable {
-    var fontName: String { get }
-}
-
 public protocol Fontable {
     var font: UIFont { get }
 }
 
 public struct Font: Fontable {
-    let size: FontSizable
-    let name: FontNamable
+    let size: CGFloat
+    let name: String
     
     public var font: UIFont {
-        return UIFont(name: name.fontName, size: size.fontSize)!
+        return UIFont(name: name, size: size)!
     }
     
-    public init(size: FontSizable, name: FontNamable) {
+    public init(size: CGFloat, name: String) {
         self.size = size
         self.name = name
     }
