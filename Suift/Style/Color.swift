@@ -23,7 +23,7 @@ public struct Color {
         public let red: CGFloat
         public let green: CGFloat
         public let blue: CGFloat
-        public init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        public init(red: CGFloat, green: CGFloat, blue: CGFloat) {
             self.red = red
             self.green = green
             self.blue = blue
