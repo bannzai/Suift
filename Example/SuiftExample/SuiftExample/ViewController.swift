@@ -14,12 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var style = ViewStyle()
-        style.backgroundColor = .red
-        
         view.addSubview(
             View(
-                style: style,
+                style: ViewStyle {
+                    $0.backgroundColor = .red
+                },
                 layout: LayoutMaker(
                     parent: view,
                     layouts: [

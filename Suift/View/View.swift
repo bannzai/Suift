@@ -12,6 +12,9 @@ public struct ViewStyle {
     public var backgroundColor: UIColor?
     
     public init() { }
+    public init(_ closure: (inout ViewStyle) -> Void) {
+        closure(&self)
+    }
     public func apply(with view: UIView) {
         view.backgroundColor = backgroundColor
     }
