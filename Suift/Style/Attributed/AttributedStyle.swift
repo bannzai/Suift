@@ -8,12 +8,7 @@
 
 import Foundation
 
-public protocol AttributedTextable {
-    var attributedText: NSAttributedString { get }
-}
-
-
-public enum StringAttribute {
+public enum AttributeStyle {
     case font(UIFont)
     case paragraph(ParagraphStyle)
     case foregroundColor(UIColor)
