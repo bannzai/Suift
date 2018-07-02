@@ -12,6 +12,12 @@ public protocol Colorable {
     var color: UIColor { get }
 }
 
+extension UIColor: Colorable {
+    public var color: UIColor {
+        return self
+    }
+}
+
 public struct Color {
     public struct RGB: Colorable {
         public let red: CGFloat
