@@ -43,7 +43,7 @@ public struct View {
         style.apply(with: view)
     }
     
-    func build() -> UIView {
+    mutating func build() -> UIView {
         return view
     }
 }
