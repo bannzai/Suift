@@ -14,6 +14,7 @@
 		BA5BD42620EA428200EFC3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5BD42420EA428200EFC3F6 /* LaunchScreen.storyboard */; };
 		BA5BD43120EA428200EFC3F6 /* SuiftExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD43020EA428200EFC3F6 /* SuiftExampleTests.swift */; };
 		BA5BD43C20EA428300EFC3F6 /* SuiftExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD43B20EA428300EFC3F6 /* SuiftExampleUITests.swift */; };
+		BA5BD44E20EA822200EFC3F6 /* Suift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BD44D20EA822200EFC3F6 /* Suift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		BA5BD43720EA428300EFC3F6 /* SuiftExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuiftExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BD43B20EA428300EFC3F6 /* SuiftExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiftExampleUITests.swift; sourceTree = "<group>"; };
 		BA5BD43D20EA428300EFC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA5BD44D20EA822200EFC3F6 /* Suift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Suift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5BD44E20EA822200EFC3F6 /* Suift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				BA5BD42F20EA428200EFC3F6 /* SuiftExampleTests */,
 				BA5BD43A20EA428300EFC3F6 /* SuiftExampleUITests */,
 				BA5BD41920EA428000EFC3F6 /* Products */,
+				BA5BD44C20EA822200EFC3F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +127,14 @@
 				BA5BD43D20EA428300EFC3F6 /* Info.plist */,
 			);
 			path = SuiftExampleUITests;
+			sourceTree = "<group>";
+		};
+		BA5BD44C20EA822200EFC3F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA5BD44D20EA822200EFC3F6 /* Suift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
