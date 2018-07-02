@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         view.addSubview(
             View(
                 style: ViewStyle {
-                    $0.backgroundColor = .red
+                    $0.backgroundColor = Color.RGB(red: 255 / 255, green: 100 / 255, blue: 80 / 255)
                 },
                 layout: LayoutMaker(
                     parent: view,
