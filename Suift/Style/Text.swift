@@ -13,15 +13,15 @@ public protocol Textable {
 }
 
 public protocol TextColoable {
-    var textColor: UIColor { get }
+    var textColor: Colorable { get }
 }
 
 public struct Text: Textable, TextColoable {
     public let text: String
-    public let textColor: UIColor
+    public let textColor: Colorable
     public init(
         text: String,
-        textColor: UIColor
+        textColor: Colorable
         ) {
         self.text = text
         self.textColor = textColor
