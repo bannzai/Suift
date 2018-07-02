@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol Colorable {
-    var color: () -> UIColor { get }
+    var color: UIColor { get }
 }
 
 public struct Color {
@@ -23,10 +23,8 @@ public struct Color {
             self.blue = blue
         }
 
-        public var color: () -> UIColor {
-            return {
-                return UIColor(red: self.red, green: self.green, blue: self.blue, alpha: 1)
-            }
+        public var color: UIColor {
+            return UIColor(red: red, green: green, blue: blue, alpha: 1)
         }
     }
     
@@ -42,10 +40,8 @@ public struct Color {
             self.alpha = alpha
         }
         
-        public var color: () -> UIColor {
-            return {
-                return UIColor(red: self.red, green: self.green, blue: self.blue, alpha: self.alpha)
-            }
+        public var color: UIColor {
+            return UIColor(red: red, green: green, blue: blue, alpha: alpha)
         }
     }
 
