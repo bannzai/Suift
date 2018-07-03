@@ -23,6 +23,18 @@ public struct View<V: UIView>: Viewable {
     let structure: ViewStructure<V>
 
     public init(
+        style: ViewStyle,
+        constraint: LayoutMaker
+        ) {
+        self.init(
+            structure: ViewStructure<V>(
+                style: style,
+                constraint: constraint
+            )
+        )
+    }
+    
+    init(
         structure: ViewStructure<V>
         ) {
         self.structure = structure

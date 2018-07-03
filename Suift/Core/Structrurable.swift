@@ -28,5 +28,4 @@ public struct ViewStructure<V: UIView>: Structrurable {
         self.style = style
         self.constraint = constraint
     }
-    
 }
