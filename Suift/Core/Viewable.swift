@@ -10,4 +10,5 @@ import Foundation
 
 public protocol Viewable {
     func view() -> UIView
+    func activate()
 }

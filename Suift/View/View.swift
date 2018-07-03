@@ -20,36 +20,40 @@ public struct ViewStyle {
     }
 }
 
-public struct View: Viewable {
+public struct View {
     public typealias Style = ViewStyle
     
-    let parent: UIView // TODO: Remove
     let _view: UIView = UIView()
     let style: Style
-    let layout: LayoutMaker
+    let constraint: LayoutMaker
 
     public init(
-        parent: UIView,
         style: Style,
-        layout: LayoutMaker
+        constraint: LayoutMaker
         ) {
-        self.parent = parent
         self.style = style
-        self.layout = layout
+        self.constraint = constraint
     }
     
-    public func view() -> UIView {
-        let layouts = layout.layouts()
-        _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        
-        if _view.superview == nil {
-            parent.addSubview(_view)
-        }
-        
-        NSLayoutConstraint.activate( layouts.layout(view: _view) )
-
+    func stylize() {
         style.apply(with: _view)
-        
+    }
+    
+    func layout() {
+        let layouts = constraint.layouts()
+        _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
+        NSLayoutConstraint.activate( layouts.layout(view: _view) )
+    }
+}
+
+extension View: Viewable {
+    public func activate() {
+        stylize()
+        layout()
+    }
+    
+    
+    public func view() -> UIView {
         return _view
     }
 }
