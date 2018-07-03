@@ -9,9 +9,6 @@
 import UIKit
 import Suift
 
-class CustomView: UIView {
-    
-}
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
