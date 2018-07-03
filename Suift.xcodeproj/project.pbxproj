@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34285E20EB33A700FD39C5 /* Viewable.swift */; };
+		BA34286520EBD03C00FD39C5 /* Structrurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34286420EBD03C00FD39C5 /* Structrurable.swift */; };
 		BA5BD3FF20EA423700EFC3F6 /* Suift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BD3F520EA423700EFC3F6 /* Suift.framework */; };
 		BA5BD40420EA423700EFC3F6 /* SuiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD40320EA423700EFC3F6 /* SuiftTests.swift */; };
 		BA5BD40620EA423700EFC3F6 /* Suift.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5BD3F820EA423700EFC3F6 /* Suift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		BA34285E20EB33A700FD39C5 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
+		BA34286420EBD03C00FD39C5 /* Structrurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structrurable.swift; sourceTree = "<group>"; };
 		BA5BD3F520EA423700EFC3F6 /* Suift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Suift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BD3F820EA423700EFC3F6 /* Suift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suift.h; sourceTree = "<group>"; };
 		BA5BD3F920EA423700EFC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
+				BA34286420EBD03C00FD39C5 /* Structrurable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */,
 				BA5BD46420EA88FB00EFC3F6 /* AttributedStyle.swift in Sources */,
 				BA5BD45520EA82F700EFC3F6 /* Font.swift in Sources */,
+				BA34286520EBD03C00FD39C5 /* Structrurable.swift in Sources */,
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
