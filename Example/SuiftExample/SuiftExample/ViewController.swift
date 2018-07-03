@@ -9,6 +9,10 @@
 import UIKit
 import Suift
 
+class CustomView: UIView {
+    
+}
+
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +23,7 @@ class ViewController: UIViewController {
 
 extension ViewController: Buildable {
     func build() -> Viewable {
-        return View(
+        return View<CustomView>(
             style: ViewStyle {
                 $0.backgroundColor = Color.RGB(red: 255 / 255, green: 100 / 255, blue: 80 / 255)
             },
