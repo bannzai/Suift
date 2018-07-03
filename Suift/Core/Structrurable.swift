@@ -20,12 +20,15 @@ public struct ViewStructure<V: UIView>: Structrurable {
     
     let style: Style
     let constraint: LayoutMaker
-    
+    let children: [Viewable]
+
     public init(
         style: Style,
-        constraint: LayoutMaker
+        constraint: LayoutMaker,
+        children: [Viewable]
         ) {
         self.style = style
         self.constraint = constraint
+        self.children = children
     }
 }
