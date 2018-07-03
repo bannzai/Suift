@@ -18,38 +18,30 @@ public struct ViewStyle: Stylable {
     }
 }
 
-public struct View {
-    public typealias Style = ViewStyle
-    
-    let _view: UIView = UIView()
-    let style: Style
-    let constraint: LayoutMaker
+public struct View<V: UIView>: Viewable {
+    let _view = V()
+    let structure: ViewStructure<V>
 
     public init(
-        style: Style,
-        constraint: LayoutMaker
+        structure: ViewStructure<V>
         ) {
-        self.style = style
-        self.constraint = constraint
+        self.structure = structure
     }
     
     func stylize() {
-        style.apply(with: _view)
+        structure.style.apply(with: _view)
     }
     
     func layout() {
-        let layouts = constraint.layouts()
+        let layouts = structure.constraint.layouts()
         _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
         NSLayoutConstraint.activate( layouts.layout(view: _view) )
     }
-}
-
-extension View: Viewable {
+    
     public func activate() {
         stylize()
         layout()
     }
-    
     
     public func view() -> UIView {
         return _view
