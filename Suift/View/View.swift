@@ -20,7 +20,7 @@ public struct ViewStyle {
     }
 }
 
-public struct View {
+public struct View: Buildable {
     public typealias Style = ViewStyle
     
     let parent: UIView // TODO: Remove
