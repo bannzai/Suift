@@ -14,22 +14,14 @@ public protocol Buildable {
 
 extension Buildable where Self: UIViewController {
     public func render() {
-        let subview = build().view()
-        if view == nil {
-            view = subview
-            return
-        }
+        let builder = build()
+        let subview = builder.view()
+        
         if subview.superview == nil {
             view.addSubview(subview)
-            subview.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                 subview.topAnchor.constraint(equalTo: view.topAnchor),
-                 subview.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                 subview.leftAnchor.constraint(equalTo: view.leftAnchor),
-                 subview.rightAnchor.constraint(equalTo: view.rightAnchor)
-                ]
-            )
         }
+        
+        builder.activate()
     }
 }
 

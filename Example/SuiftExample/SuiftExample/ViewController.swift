@@ -10,29 +10,20 @@ import UIKit
 import Suift
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         render()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
 extension ViewController: Buildable {
     func build() -> Viewable {
         return View(
-            parent: view,
             style: ViewStyle {
                 $0.backgroundColor = Color.RGB(red: 255 / 255, green: 100 / 255, blue: 80 / 255)
             },
-            layout: LayoutMaker {
+            constraint: LayoutMaker {
                 return [
                     Layout { $0.centerXAnchor.constraint(equalTo: self.view.centerXAnchor) },
                     Layout { $0.centerYAnchor.constraint(equalTo: self.view.centerYAnchor) },
