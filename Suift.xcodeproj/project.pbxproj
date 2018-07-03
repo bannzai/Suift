@@ -18,6 +18,7 @@
 		BA5BD46420EA88FB00EFC3F6 /* AttributedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46320EA88FB00EFC3F6 /* AttributedStyle.swift */; };
 		BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46720EA894400EFC3F6 /* ParagraphStyle.swift */; };
 		BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46920EA896400EFC3F6 /* AttributedTextable.swift */; };
+		BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		BA5BD46320EA88FB00EFC3F6 /* AttributedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStyle.swift; sourceTree = "<group>"; };
 		BA5BD46720EA894400EFC3F6 /* ParagraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphStyle.swift; sourceTree = "<group>"; };
 		BA5BD46920EA896400EFC3F6 /* AttributedTextable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextable.swift; sourceTree = "<group>"; };
+		BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		BA5BD3F720EA423700EFC3F6 /* Suift */ = {
 			isa = PBXGroup;
 			children = (
+				BA5BD46B20EB0BC300EFC3F6 /* Layout */,
 				BA5BD44F20EA82E200EFC3F6 /* Style */,
 				BA5BD44920EA445700EFC3F6 /* View */,
 				BA5BD3F820EA423700EFC3F6 /* Suift.h */,
@@ -132,6 +135,14 @@
 				BA5BD46920EA896400EFC3F6 /* AttributedTextable.swift */,
 			);
 			path = Attributed;
+			sourceTree = "<group>";
+		};
+		BA5BD46B20EB0BC300EFC3F6 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +259,7 @@
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
+				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
