@@ -13,7 +13,7 @@ public protocol Buildable {
 }
 
 extension Buildable where Self: UIViewController {
-    func render() {
+    public func render() {
         let subview = build().view()
         if view == nil {
             view = subview
