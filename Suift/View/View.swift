@@ -24,12 +24,14 @@ public struct View<V: UIView>: Viewable {
 
     public init(
         style: ViewStyle,
-        constraint: LayoutMaker
+        constraint: LayoutMaker,
+        children: [Viewable] = []
         ) {
         self.init(
             structure: ViewStructure<V>(
                 style: style,
-                constraint: constraint
+                constraint: constraint,
+                children: children
             )
         )
     }
@@ -50,11 +52,22 @@ public struct View<V: UIView>: Viewable {
         NSLayoutConstraint.activate( layouts.layout(view: _view) )
     }
     
+    func activateChildren() {
+        structure
+            .children
+            .forEach {
+                let view = $0.view()
+                _view.addSubview(view)
+                $0.activate()
+        }
+    }
+
     public func activate() {
         stylize()
         layout()
+        activateChildren()
     }
-    
+
     public func view() -> UIView {
         return _view
     }
