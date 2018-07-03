@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol Style {
+public protocol Stylable {
     init()
     init(closure: (inout Self) -> Void)
 }
 
-public extension Style {
-    public init(_ closure: (inout Self) -> Void) {
+public extension Stylable {
+    public init(closure: (inout Self) -> Void) {
         self.init()
         closure(&self)
     }
