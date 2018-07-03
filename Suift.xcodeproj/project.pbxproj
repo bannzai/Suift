@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34285E20EB33A700FD39C5 /* Viewable.swift */; };
 		BA5BD3FF20EA423700EFC3F6 /* Suift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BD3F520EA423700EFC3F6 /* Suift.framework */; };
 		BA5BD40420EA423700EFC3F6 /* SuiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD40320EA423700EFC3F6 /* SuiftTests.swift */; };
 		BA5BD40620EA423700EFC3F6 /* Suift.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5BD3F820EA423700EFC3F6 /* Suift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +20,7 @@
 		BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46720EA894400EFC3F6 /* ParagraphStyle.swift */; };
 		BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46920EA896400EFC3F6 /* AttributedTextable.swift */; };
 		BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */; };
+		BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA34285E20EB33A700FD39C5 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
 		BA5BD3F520EA423700EFC3F6 /* Suift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Suift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BD3F820EA423700EFC3F6 /* Suift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suift.h; sourceTree = "<group>"; };
 		BA5BD3F920EA423700EFC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		BA5BD46720EA894400EFC3F6 /* ParagraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphStyle.swift; sourceTree = "<group>"; };
 		BA5BD46920EA896400EFC3F6 /* AttributedTextable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextable.swift; sourceTree = "<group>"; };
 		BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		BA5BD3F720EA423700EFC3F6 /* Suift */ = {
 			isa = PBXGroup;
 			children = (
+				BA5BD46E20EB1E8D00EFC3F6 /* Core */,
 				BA5BD46B20EB0BC300EFC3F6 /* Layout */,
 				BA5BD44F20EA82E200EFC3F6 /* Style */,
 				BA5BD44920EA445700EFC3F6 /* View */,
@@ -143,6 +148,15 @@
 				BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		BA5BD46E20EB1E8D00EFC3F6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */,
+				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */,
 				BA5BD46420EA88FB00EFC3F6 /* AttributedStyle.swift in Sources */,
 				BA5BD45520EA82F700EFC3F6 /* Font.swift in Sources */,
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
@@ -263,6 +278,7 @@
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
+				BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
