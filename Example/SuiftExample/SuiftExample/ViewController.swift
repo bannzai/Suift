@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                     ]
                 }
                 )
-                .build()
+                .view()
         )
     }
     

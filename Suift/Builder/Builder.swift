@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol Buildable {
+public protocol Viewable {
     associatedtype View: UIView
-    func build() -> View
+    func view() -> View
 }
 
 
