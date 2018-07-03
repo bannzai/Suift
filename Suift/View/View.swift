@@ -8,51 +8,66 @@
 
 import Foundation
 
-public struct ViewStyle {
+public struct ViewStyle: Stylable {
     public var backgroundColor: Colorable?
     
     public init() { }
-    public init(_ closure: (inout ViewStyle) -> Void) {
-        closure(&self)
-    }
+    
     public func apply(with view: UIView) {
         view.backgroundColor = backgroundColor?.color
     }
 }
 
-public struct View {
-    public typealias Style = ViewStyle
-    
-    let _view: UIView = UIView()
-    let style: Style
-    let constraint: LayoutMaker
+public struct View<V: UIView>: Viewable {
+    let _view = V()
+    let structure: ViewStructure<V>
 
     public init(
-        style: Style,
-        constraint: LayoutMaker
+        style: ViewStyle,
+        constraint: LayoutMaker,
+        children: [Viewable] = []
         ) {
-        self.style = style
-        self.constraint = constraint
+        self.init(
+            structure: ViewStructure<V>(
+                style: style,
+                constraint: constraint,
+                children: children
+            )
+        )
+    }
+    
+    init(
+        structure: ViewStructure<V>
+        ) {
+        self.structure = structure
     }
     
     func stylize() {
-        style.apply(with: _view)
+        structure.style.apply(with: _view)
     }
     
     func layout() {
-        let layouts = constraint.layouts()
+        let layouts = structure.constraint.layouts()
         _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
         NSLayoutConstraint.activate( layouts.layout(view: _view) )
     }
-}
+    
+    func activateChildren() {
+        structure
+            .children
+            .forEach {
+                let view = $0.view()
+                _view.addSubview(view)
+                $0.activate()
+        }
+    }
 
-extension View: Viewable {
     public func activate() {
         stylize()
         layout()
+        activateChildren()
     }
-    
-    
+
     public func view() -> UIView {
         return _view
     }

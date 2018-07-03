@@ -20,7 +20,7 @@ extension Buildable where Self: UIViewController {
         if subview.superview == nil {
             view.addSubview(subview)
         }
-        
+
         builder.activate()
     }
 }
