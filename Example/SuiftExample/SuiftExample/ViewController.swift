@@ -14,20 +14,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         view.addSubview(
             View(
+                parent: view,
                 style: ViewStyle {
                     $0.backgroundColor = Color.RGB(red: 255 / 255, green: 100 / 255, blue: 80 / 255)
                 },
-                layout: LayoutMaker(
-                    parent: view,
-                    layouts: [
-                        Layout { $0.topAnchor.constraint(equalTo: self.view.topAnchor) },
-                        Layout { $0.leftAnchor.constraint(equalTo: self.view.leftAnchor) },
-                        Layout { $0.bottomAnchor.constraint(equalTo: self.view.bottomAnchor) },
-                        Layout { $0.rightAnchor.constraint(equalTo: self.view.rightAnchor) },
+                layout: LayoutMaker {
+                     return [
+                        Layout { $0.centerXAnchor.constraint(equalTo: self.view.centerXAnchor) },
+                        Layout { $0.centerYAnchor.constraint(equalTo: self.view.centerYAnchor) },
+                        Layout { $0.widthAnchor.constraint(equalToConstant: 100) },
+                        Layout { $0.heightAnchor.constraint(equalToConstant: 100) },
                     ]
-                )
+                }
                 )
                 .build()
         )

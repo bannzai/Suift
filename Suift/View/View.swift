@@ -20,57 +20,33 @@ public struct ViewStyle {
     }
 }
 
-public struct Layout {
-//    public var left: (UIView) -> NSLayoutConstraint
-//    public var top: (UIView) -> NSLayoutConstraint
-//    public var right: (UIView) -> NSLayoutConstraint
-//    public var bottom: (UIView) -> NSLayoutConstraint
-//    public var centerX: (UIView) -> NSLayoutConstraint
-//    public var centerY: (UIView) -> NSLayoutConstraint
-    public typealias Method = (UIView) -> NSLayoutConstraint
-    
-    public var constraint: Method
-    public init(constraint: @escaping Method) {
-        self.constraint = constraint
-    }
-}
-
-public struct LayoutMaker {
-    let parent: UIView
-    let layouts: [Layout]
-    
-    public init(
-        parent: UIView,
-        layouts: [Layout]
-        ) {
-        self.parent = parent
-        self.layouts = layouts
-    }
-}
-
 public struct View {
     public typealias Style = ViewStyle
     
+    let parent: UIView // TODO: Remove
     let view: UIView = UIView()
     let style: Style
     let layout: LayoutMaker
 
     public init(
+        parent: UIView,
         style: Style,
         layout: LayoutMaker
         ) {
+        self.parent = parent
         self.style = style
         self.layout = layout
     }
     
     public func build() -> UIView {
-        view.translatesAutoresizingMaskIntoConstraints = layout.layouts.isEmpty
+        let layouts = layout.layouts()
+        view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
         
         if view.superview == nil {
-            layout.parent.addSubview(view)
+            parent.addSubview(view)
         }
         
-        NSLayoutConstraint.activate( layout.layouts.map { $0.constraint(view) })
+        NSLayoutConstraint.activate( layouts.layout(view: view) )
 
         style.apply(with: view)
         
