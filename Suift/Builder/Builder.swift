@@ -8,7 +8,15 @@
 
 import Foundation
 
-public protocol Viewable {
+public protocol Buidlable {
+    func build() -> Rootable
+}
+
+public protocol Rootable {
+    
+}
+
+public protocol Viewable: Rootable {
     associatedtype View: UIView
     func view() -> View
 }
