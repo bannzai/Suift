@@ -55,12 +55,6 @@ public struct View<V: UIView>: Viewable {
         }
     }
 
-    public func activate() {
-        stylize()
-        layout()
-        activateChildren()
-    }
-
     public func view() -> UIView {
         return _view
     }
