@@ -9,7 +9,6 @@
 import UIKit
 import Suift
 
-
 class ViewController: UIViewController {
     fileprivate var customView = CustomView()
     override func viewDidLoad() {

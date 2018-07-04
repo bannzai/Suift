@@ -20,7 +20,7 @@ struct CustomViewBuilder: Viewable {
             { view.heightAnchor.constraint(equalToConstant: 10) },
             ]
     }
-    let children: [Viewable] = []
+    let children: [ViewableProxy] = []
 
     func view() -> UIView {
         return customView
