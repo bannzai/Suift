@@ -24,12 +24,12 @@ extension ViewController: Buildable {
             style: ViewStyle {
                 $0.backgroundColor = Color.RGB(red: 200 / 255, green: 100 / 255, blue: 80 / 255)
             },
-            constraint: LayoutMaker {
+            constraint: LayoutMaker { view, superview, views in
                 return [
-                    Layout { $0.centerXAnchor.constraint(equalTo: self.view.centerXAnchor) },
-                    Layout { $0.centerYAnchor.constraint(equalTo: self.view.centerYAnchor) },
-                    Layout { $0.widthAnchor.constraint(equalToConstant: 100) },
-                    Layout { $0.heightAnchor.constraint(equalToConstant: 100) },
+                    Layout { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
+                    Layout { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
+                    Layout { view.widthAnchor.constraint(equalToConstant: 100) },
+                    Layout { view.heightAnchor.constraint(equalToConstant: 100) },
                     ]
             },
             children: [
@@ -37,12 +37,12 @@ extension ViewController: Buildable {
                     style: ViewStyle {
                         $0.backgroundColor = UIColor.blue
                     },
-                    constraint: LayoutMaker {
+                    constraint: LayoutMaker { view, superview, views in
                         return [
-                            Layout { $0.centerXAnchor.constraint(equalTo: self.view.centerXAnchor) },
-                            Layout { $0.centerYAnchor.constraint(equalTo: self.view.centerYAnchor) },
-                            Layout { $0.widthAnchor.constraint(equalToConstant: 50) },
-                            Layout { $0.heightAnchor.constraint(equalToConstant: 50) },
+                            Layout { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
+                            Layout { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
+                            Layout { view.widthAnchor.constraint(equalToConstant: 50) },
+                            Layout { view.heightAnchor.constraint(equalToConstant: 50) },
                         ]
                     },
                     children: [
@@ -50,12 +50,12 @@ extension ViewController: Buildable {
                             style: ViewStyle {
                                 $0.backgroundColor = Color.RGBA(red: 255 / 255, green: 20 / 255, blue: 155 / 255, alpha: 1)
                             },
-                            constraint: LayoutMaker {
+                            constraint: LayoutMaker { view, superview, views in
                                 return [
-                                    Layout { $0.centerXAnchor.constraint(equalTo: self.view.centerXAnchor) },
-                                    Layout { $0.centerYAnchor.constraint(equalTo: self.view.centerYAnchor) },
-                                    Layout { $0.widthAnchor.constraint(equalToConstant: 20) },
-                                    Layout { $0.heightAnchor.constraint(equalToConstant: 20) },
+                                    Layout { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
+                                    Layout { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
+                                    Layout { view.widthAnchor.constraint(equalToConstant: 20) },
+                                    Layout { view.heightAnchor.constraint(equalToConstant: 20) },
                                     ]
                             }
                         ),
@@ -63,12 +63,12 @@ extension ViewController: Buildable {
                             style: ViewStyle {
                                 $0.backgroundColor = Color.RGBA(red: 0.2, green: 0.8, blue: 0, alpha: 0.8)
                             },
-                            constraint: LayoutMaker {
+                            constraint: LayoutMaker { view, superview, views in
                                 return [
-                                    Layout { $0.centerXAnchor.constraint(equalTo: self.view.centerXAnchor) },
-                                    Layout { $0.centerYAnchor.constraint(equalTo: self.view.centerYAnchor) },
-                                    Layout { $0.widthAnchor.constraint(equalToConstant: 10) },
-                                    Layout { $0.heightAnchor.constraint(equalToConstant: 200) },
+                                    Layout { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
+                                    Layout { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
+                                    Layout { view.widthAnchor.constraint(equalToConstant: 10) },
+                                    Layout { view.heightAnchor.constraint(equalToConstant: 200) },
                                     ]
                             }
                         )
