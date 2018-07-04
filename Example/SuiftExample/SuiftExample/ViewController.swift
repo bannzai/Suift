@@ -76,6 +76,7 @@ extension ViewController: Buildable {
                                     ]
                             }
                         ),
+                        BuildableView(),
                     ]
                 )
             ]
