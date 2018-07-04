@@ -20,41 +20,34 @@ public struct ViewStyle: Style {
 
 public struct View<V: UIView>: Viewable {
     let _view = V()
-    let structure: ViewStructure<V>
+    
+    let style: ViewStyle
+    let constraint: LayoutMaker
+    let children: [Viewable]
+    
 
     public init(
         style: ViewStyle,
         constraint: LayoutMaker,
         children: [Viewable] = []
         ) {
-        self.init(
-            structure: ViewStructure<V>(
-                style: style,
-                constraint: constraint,
-                children: children
-            )
-        )
+        self.style = style
+        self.constraint = constraint
+        self.children = children
     }
     
-    init(
-        structure: ViewStructure<V>
-        ) {
-        self.structure = structure
+    public func stylize() {
+        style.apply(with: _view)
     }
     
-    func stylize() {
-        structure.style.apply(with: _view)
-    }
-    
-    func layout() {
-        let layouts = structure.constraint.layouts()
+    public func layout() {
+        let layouts = constraint.layouts()
         _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
         NSLayoutConstraint.activate( layouts.layout(view: _view) )
     }
     
-    func activateChildren() {
-        structure
-            .children
+    public func activateChildren() {
+        children
             .forEach {
                 let view = $0.view()
                 _view.addSubview(view)

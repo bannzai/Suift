@@ -9,8 +9,7 @@
 import Foundation
 
 public protocol Viewable {
-    
-    func stylize(with style: Style)
+    func stylize()
     func layout()
     func activateChildren()
     
