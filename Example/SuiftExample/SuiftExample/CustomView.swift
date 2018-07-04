@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Suift
 
 class CustomView: UIView {
     public required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
