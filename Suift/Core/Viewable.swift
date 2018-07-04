@@ -9,6 +9,19 @@
 import Foundation
 
 public protocol Viewable {
-    func view() -> UIView
+    
+    func stylize(with style: Style)
+    func layout()
+    func activateChildren()
+    
     func activate()
+    func view() -> UIView
+}
+
+extension Viewable {
+    public func activate() {
+        stylize()
+        layout()
+        activateChildren()
+    }
 }
