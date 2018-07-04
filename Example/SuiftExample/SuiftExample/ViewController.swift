@@ -37,6 +37,7 @@ extension ViewController: Buildable {
                     ]
             },
             children: [
+                CustomViewBuilder(),
                 View<UILabel>(
                     style: ViewStyle {
                         $0.backgroundColor = UIColor.blue
@@ -75,7 +76,7 @@ extension ViewController: Buildable {
                                     Layout { view.heightAnchor.constraint(equalToConstant: 200) },
                                     ]
                             }
-                        )
+                        ),
                     ]
                 )
             ]
