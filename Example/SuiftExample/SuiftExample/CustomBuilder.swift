@@ -7,4 +7,22 @@
 //
 
 import UIKit
+import Suift
 
+struct CustomViewBuilder: Viewable {
+    let customView = CustomView()
+    let style = ViewStyle { $0.backgroundColor = UIColor.orange }
+    let constraint = LayoutMaker { view, superview, subviews in
+        return [
+            { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
+            { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
+            { view.widthAnchor.constraint(equalToConstant: 100) },
+            { view.heightAnchor.constraint(equalToConstant: 10) },
+            ]
+    }
+    let children: [ViewableProxy] = []
+
+    func view() -> UIView {
+        return customView
+    }
+}

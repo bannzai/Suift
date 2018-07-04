@@ -9,7 +9,6 @@
 import UIKit
 import Suift
 
-
 class ViewController: UIViewController {
     fileprivate var customView = CustomView()
     override func viewDidLoad() {
@@ -37,6 +36,7 @@ extension ViewController: Buildable {
                     ]
             },
             children: [
+                CustomViewBuilder(),
                 View<UILabel>(
                     style: ViewStyle {
                         $0.backgroundColor = UIColor.blue
@@ -75,7 +75,8 @@ extension ViewController: Buildable {
                                     Layout { view.heightAnchor.constraint(equalToConstant: 200) },
                                     ]
                             }
-                        )
+                        ),
+                        BuildableView(),
                     ]
                 )
             ]

@@ -19,17 +19,18 @@ public struct ViewStyle: Style {
 }
 
 public struct View<V: UIView>: Viewable {
+
     let _view: V
     
-    let style: ViewStyle
-    let constraint: LayoutMaker
-    let children: [Viewable]
+    public let style: ViewStyle
+    public let constraint: LayoutMaker
+    public var children: [ViewableProxy]
     
     public init(
         view: V? = nil,
         style: ViewStyle,
         constraint: LayoutMaker,
-        children: [Viewable] = []
+        children: [ViewableProxy] = []
         ) {
         if let view = view {
             self._view = view
@@ -41,27 +42,6 @@ public struct View<V: UIView>: Viewable {
         self.children = children
     }
     
-    public func stylize() {
-        style.apply(with: _view)
-    }
-    
-    public func layout() {
-        let view = self.view()
-        let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
-        let layouts = constraint.layouts(set)
-        _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        NSLayoutConstraint.activate( layouts.layout(set: set) )
-    }
-    
-    public func activateChildren() {
-        children
-            .forEach {
-                let view = $0.view()
-                _view.addSubview(view)
-                $0.activate()
-        }
-    }
-
     public func view() -> UIView {
         return _view
     }
