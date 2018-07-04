@@ -18,6 +18,12 @@ extension Buildable {
     }
 }
 
+extension Buildable where Self: Viewable {
+    public func proxy() -> Viewable {
+        return self
+    }
+}
+
 extension Buildable where Self: UIViewController {
     public func render() {
         let builder = build()
@@ -25,6 +31,19 @@ extension Buildable where Self: UIViewController {
         
         if subview.superview == nil {
             view.addSubview(subview)
+        }
+
+        builder.activate()
+    }
+}
+
+extension Buildable where Self: UIView {
+    public func render() {
+        let builder = build()
+        let subview = builder.view()
+        
+        if subview.superview == nil {
+            addSubview(subview)
         }
 
         builder.activate()
