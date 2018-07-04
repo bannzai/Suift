@@ -47,7 +47,9 @@ extension Viewable {
         children
             .forEach {
                 let child = $0.view()
-                view.addSubview(child)
+                if child.superview == nil {
+                    view.addSubview(child)
+                }
                 $0.activate()
         }
     }
