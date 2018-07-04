@@ -40,7 +40,8 @@ public struct View<V: UIView>: Viewable {
     }
     
     public func layout() {
-        let set: ViewSetForLayout = (_view, _view.superview!, _view.superview!.subviews)
+        let view = self.view()
+        let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
         let layouts = constraint.layouts(set)
         _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
         NSLayoutConstraint.activate( layouts.layout(set: set) )
