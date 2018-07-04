@@ -19,17 +19,18 @@ public struct ViewStyle: Style {
 }
 
 public struct View<V: UIView>: Viewable {
+
     let _view: V
     
     public let style: ViewStyle
     public let constraint: LayoutMaker
-    public let children: [Viewable]
+    public var children: [ViewableProxy]
     
     public init(
         view: V? = nil,
         style: ViewStyle,
         constraint: LayoutMaker,
-        children: [Viewable] = []
+        children: [ViewableProxy] = []
         ) {
         if let view = view {
             self._view = view

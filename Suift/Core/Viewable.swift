@@ -8,10 +8,10 @@
 
 import Foundation
 
-public protocol Viewable {
+public protocol Viewable: ViewableProxy {
     var style: ViewStyle { get }
     var constraint: LayoutMaker { get }
-    var children: [Viewable] { get }
+    var children: [ViewableProxy] { get }
     
     func stylize()
     func layout()
@@ -19,6 +19,12 @@ public protocol Viewable {
     
     func activate()
     func view() -> UIView
+}
+
+extension Viewable {
+    public func proxy() -> Viewable {
+        return self
+    }
 }
 
 extension Viewable {
@@ -37,6 +43,7 @@ extension Viewable {
     
     public func activateChildren() {
         let view = self.view()
+        let children = self.children.map { $0.proxy() }
         children
             .forEach {
                 let child = $0.view()

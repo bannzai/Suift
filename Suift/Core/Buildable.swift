@@ -8,8 +8,14 @@
 
 import UIKit
 
-public protocol Buildable {
+public protocol Buildable: ViewableProxy {
     func build() -> Viewable
+}
+
+extension Buildable {
+    public func proxy() -> Viewable {
+        return build()
+    }
 }
 
 extension Buildable where Self: UIViewController {
