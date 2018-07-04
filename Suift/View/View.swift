@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ViewStyle: Stylable {
+public struct ViewStyle: Style {
     public var backgroundColor: Colorable?
     
     public init() { }
@@ -19,53 +19,47 @@ public struct ViewStyle: Stylable {
 }
 
 public struct View<V: UIView>: Viewable {
-    let _view = V()
-    let structure: ViewStructure<V>
-
+    let _view: V
+    
+    let style: ViewStyle
+    let constraint: LayoutMaker
+    let children: [Viewable]
+    
     public init(
+        view: V? = nil,
         style: ViewStyle,
         constraint: LayoutMaker,
         children: [Viewable] = []
         ) {
-        self.init(
-            structure: ViewStructure<V>(
-                style: style,
-                constraint: constraint,
-                children: children
-            )
-        )
+        if let view = view {
+            self._view = view
+        } else {
+            self._view = V()
+        }
+        self.style = style
+        self.constraint = constraint
+        self.children = children
     }
     
-    init(
-        structure: ViewStructure<V>
-        ) {
-        self.structure = structure
+    public func stylize() {
+        style.apply(with: _view)
     }
     
-    func stylize() {
-        structure.style.apply(with: _view)
-    }
-    
-    func layout() {
-        let layouts = structure.constraint.layouts()
+    public func layout() {
+        let view = self.view()
+        let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
+        let layouts = constraint.layouts(set)
         _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        NSLayoutConstraint.activate( layouts.layout(view: _view) )
+        NSLayoutConstraint.activate( layouts.layout(set: set) )
     }
     
-    func activateChildren() {
-        structure
-            .children
+    public func activateChildren() {
+        children
             .forEach {
                 let view = $0.view()
                 _view.addSubview(view)
                 $0.activate()
         }
-    }
-
-    public func activate() {
-        stylize()
-        layout()
-        activateChildren()
     }
 
     public func view() -> UIView {

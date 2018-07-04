@@ -8,8 +8,11 @@
 
 import Foundation
 
+public typealias ViewSetForLayout = (view: UIView, superview: UIView, views: [UIView])
+public typealias LayoutFactoryMethod = (ViewSetForLayout) -> NSLayoutConstraint
+
 public protocol Layoutable {
-    @discardableResult func layout(view: UIView) -> [NSLayoutConstraint]
+    func layout(set: ViewSetForLayout) -> [NSLayoutConstraint]
 }
 
 public struct Layout: Layoutable {
@@ -19,47 +22,52 @@ public struct Layout: Layoutable {
     //    public var bottom: (UIView) -> NSLayoutConstraint
     //    public var centerX: (UIView) -> NSLayoutConstraint
     //    public var centerY: (UIView) -> NSLayoutConstraint
-    public typealias Method = (UIView) -> NSLayoutConstraint
-    
-    public var constraint: Method
-    public init(constraint: @escaping Method) {
+
+    public var constraint: () -> NSLayoutConstraint
+    public init(constraint: @escaping () -> NSLayoutConstraint) {
         self.constraint = constraint
     }
     
-    public func layout(view: UIView) -> [NSLayoutConstraint] {
-        return [constraint(view)]
+    public func layout(set: ViewSetForLayout) -> [NSLayoutConstraint] {
+        return [constraint()]
     }
 }
 
 public struct LayoutMaker: Layoutable {
-    let layouts: () -> [Layoutable]
+    let layouts: (ViewSetForLayout) -> [Layoutable]
     
     public init(
         layouts: [Layoutable]
         ) {
-        self.layouts = { layouts }
+        self.layouts = { _ in layouts }
     }
     
     public init(
-        _ closure: @escaping () -> [Layoutable]
+        _ closure: @escaping (ViewSetForLayout) -> [Layoutable]
         ) {
         self.layouts = closure
     }
     
-    public func layout(view: UIView) -> [NSLayoutConstraint] {
-        return layouts().layout(view: view)
+    public init(
+        _ closure: @escaping (ViewSetForLayout) -> [() -> Layoutable]
+        ) {
+        self.layouts = { set in closure(set).map { $0() } }
+    }
+    
+    public func layout(set: ViewSetForLayout) -> [NSLayoutConstraint] {
+        return layouts(set).layout(set: set)
     }
 }
 
 
 extension Array: Layoutable where Element == Layoutable {
-    public func layout(view: UIView) -> [NSLayoutConstraint] {
-        return flatMap { $0.layout(view: view) }
+    public func layout(set: ViewSetForLayout) -> [NSLayoutConstraint] {
+        return flatMap { $0.layout(set: set) }
     }
 }
 
 extension NSLayoutConstraint: Layoutable {
-    public func layout(view: UIView) -> [NSLayoutConstraint] {
+    public func layout(set: ViewSetForLayout) -> [NSLayoutConstraint] {
         return [self]
     }
 }
