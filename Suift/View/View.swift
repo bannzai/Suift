@@ -25,7 +25,6 @@ public struct View<V: UIView>: Viewable {
     let constraint: LayoutMaker
     let children: [Viewable]
     
-
     public init(
         style: ViewStyle,
         constraint: LayoutMaker,
@@ -41,9 +40,10 @@ public struct View<V: UIView>: Viewable {
     }
     
     public func layout() {
-        let layouts = constraint.layouts()
+        let set: ViewSetForLayout = (_view, _view.superview!, _view.superview!.subviews)
+        let layouts = constraint.layouts(set)
         _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        NSLayoutConstraint.activate( layouts.layout(view: _view) )
+        NSLayoutConstraint.activate( layouts.layout(set: set) )
     }
     
     public func activateChildren() {
