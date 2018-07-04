@@ -11,16 +11,20 @@ import Suift
 
 
 class ViewController: UIViewController {
+    fileprivate var customView = CustomView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         render()
+        
+        customView.backgroundColor = .black
     }
 }
 
 extension ViewController: Buildable {
     func build() -> Viewable {
         return View<CustomView>(
+            view: customView,
             style: ViewStyle {
                 $0.backgroundColor = Color.RGB(red: 200 / 255, green: 100 / 255, blue: 80 / 255)
             },

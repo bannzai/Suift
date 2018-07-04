@@ -19,17 +19,23 @@ public struct ViewStyle: Style {
 }
 
 public struct View<V: UIView>: Viewable {
-    let _view = V()
+    let _view: V
     
     let style: ViewStyle
     let constraint: LayoutMaker
     let children: [Viewable]
     
     public init(
+        view: V? = nil,
         style: ViewStyle,
         constraint: LayoutMaker,
         children: [Viewable] = []
         ) {
+        if let view = view {
+            self._view = view
+        } else {
+            self._view = V()
+        }
         self.style = style
         self.constraint = constraint
         self.children = children
