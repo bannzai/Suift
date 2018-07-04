@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ViewStyle: Stylable {
+public struct ViewStyle: Style {
     public var backgroundColor: Colorable?
     
     public init() { }

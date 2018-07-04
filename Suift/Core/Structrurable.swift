@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Structrurable {
-    associatedtype Style: Stylable
+    associatedtype Style: Style
     associatedtype View: UIView
 }
 
