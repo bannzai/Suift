@@ -30,10 +30,10 @@ extension ViewController: Buildable {
             },
             constraint: LayoutMaker { view, superview, views in
                 return [
-                    Layout { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
-                    Layout { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
-                    Layout { view.widthAnchor.constraint(equalToConstant: 100) },
-                    Layout { view.heightAnchor.constraint(equalToConstant: 100) },
+                    { view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) },
+                    { view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) },
+                    { view.widthAnchor.constraint(equalToConstant: 100) },
+                    { view.heightAnchor.constraint(equalToConstant: 100) },
                     ]
             },
             children: [
