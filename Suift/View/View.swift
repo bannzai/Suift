@@ -48,9 +48,9 @@ public struct View<V: UIView>: Viewable {
     public func layout() {
         let view = self.view()
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
-        let layouts = constraint.layouts(set)
-        _view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        NSLayoutConstraint.activate( layouts.layout(set: set) )
+        let layouts = constraint.layout(set: set)
+        view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
+        NSLayoutConstraint.activate( layouts )
     }
     
     public func activateChildren() {
