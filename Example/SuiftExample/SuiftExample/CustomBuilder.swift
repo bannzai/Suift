@@ -20,23 +20,8 @@ struct CustomViewBuilder: Viewable {
             { view.heightAnchor.constraint(equalToConstant: 10) },
             ]
     }
-    
-    func stylize() {
-        style.apply(with: customView)
-    }
-    
-    func layout() {
-        let view = self.view()
-        let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
-        let layouts = constraint.layout(set: set)
-        view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        NSLayoutConstraint.activate( layouts )
-    }
-    
-    func activateChildren() {
-        
-    }
-    
+    let children: [Viewable] = []
+
     func view() -> UIView {
         return customView
     }
