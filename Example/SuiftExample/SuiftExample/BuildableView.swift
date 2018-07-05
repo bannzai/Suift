@@ -44,7 +44,7 @@ class BuildableView: UIView, Viewable {
 }
 
 extension BuildableView: Buildable {
-    func build() -> Viewable {
+    func build() -> Rootable {
         return View<CustomView>(
             style: ViewStyle {
                 $0.backgroundColor = UIColor.yellow

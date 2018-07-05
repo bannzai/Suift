@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: Buildable {
-    func build() -> Viewable {
+    func build() -> Rootable {
         return Button(
                 style: ButtonStyle {
                     $0.viewStyle = ViewStyle {

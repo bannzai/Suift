@@ -24,7 +24,7 @@ class SecondViewController: UIViewController {
 }
 
 extension SecondViewController: Buildable {
-    func build() -> Viewable {
+    func build() -> Rootable {
         return View(
             style: ViewStyle {
                 $0.backgroundColor = UIColor.white
