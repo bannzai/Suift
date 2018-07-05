@@ -28,6 +28,11 @@ class BuildableView: UIView, Viewable {
         render()
     }
     
+    func stylize() {
+        let view = self.view()
+        style.apply(with: view)
+    }
+
     func view() -> UIView {
         return self
     }
