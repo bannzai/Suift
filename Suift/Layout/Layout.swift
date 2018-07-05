@@ -48,11 +48,12 @@ public struct LayoutMaker: Layoutable {
         self.layouts = closure
     }
     
-    public init(
-        layoutableClosure: @escaping (ViewSetForLayout) -> [() -> Layoutable]
-        ) {
-        self.layouts = { set in layoutableClosure(set).map { $0() } }
-    }
+    // FIXME: When not comment out, Does not work code completion for LayoutMaker initalizer (specifity, closure argument. e.g view.topAnchor <- not completion).
+//    public init(
+//        layoutableClosure: @escaping (ViewSetForLayout) -> [() -> Layoutable]
+//        ) {
+//        self.layouts = { set in layoutableClosure(set).map { $0() } }
+//    }
     
     public func layout(set: ViewSetForLayout) -> [NSLayoutConstraint] {
         return layouts(set).layout(set: set)

@@ -29,10 +29,10 @@ extension SecondViewController: Buildable {
             style: ViewStyle { $0.backgroundColor = UIColor.white },
             constraint: LayoutMaker { view, superview, views in
                 return [
-                    { view.topAnchor.constraint(equalTo: superview.topAnchor) },
-                    { view.bottomAnchor.constraint(equalTo: superview.bottomAnchor) },
-                    { view.leftAnchor.constraint(equalTo: superview.leftAnchor) },
-                    { view.rightAnchor.constraint(equalTo: superview.rightAnchor) },
+                     view.topAnchor.constraint(equalTo: superview.topAnchor),
+                     view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+                     view.leftAnchor.constraint(equalTo: superview.leftAnchor),
+                     view.rightAnchor.constraint(equalTo: superview.rightAnchor),
                 ]
             },
             children: [
