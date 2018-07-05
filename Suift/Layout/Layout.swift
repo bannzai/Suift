@@ -43,15 +43,15 @@ public struct LayoutMaker: Layoutable {
     }
     
     public init(
-        _ closure: @escaping (ViewSetForLayout) -> [Layoutable]
+        closure: @escaping (ViewSetForLayout) -> [Layoutable]
         ) {
         self.layouts = closure
     }
     
     public init(
-        _ closure: @escaping (ViewSetForLayout) -> [() -> Layoutable]
+        layoutableClosure: @escaping (ViewSetForLayout) -> [() -> Layoutable]
         ) {
-        self.layouts = { set in closure(set).map { $0() } }
+        self.layouts = { set in layoutableClosure(set).map { $0() } }
     }
     
     public func layout(set: ViewSetForLayout) -> [NSLayoutConstraint] {

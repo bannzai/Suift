@@ -28,7 +28,7 @@ extension ViewController: Buildable {
                         $0.backgroundColor = UIColor.red
                     }
                 },
-                constraint: LayoutMaker { view, superview, views in
+                constraint: LayoutMaker { (view, superview, views) in
                     return [
                         view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) ,
                         view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) ,
