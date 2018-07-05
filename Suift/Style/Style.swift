@@ -10,7 +10,6 @@ import UIKit
 
 public protocol Style {
     init()
-    init(closure: (inout Self) -> Void)
 }
 
 public extension Style {

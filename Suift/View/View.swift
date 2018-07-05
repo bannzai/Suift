@@ -12,17 +12,15 @@ public struct ViewStyle: Style {
     public var backgroundColor: Colorable?
     
     public init() { }
-    
     public func apply(with view: UIView) {
         view.backgroundColor = backgroundColor?.color
     }
 }
 
 public struct View<V: UIView>: Viewable {
-
     let _view: V
     
-    public let style: ViewStyle
+    public let style: ViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
     public var children: [ViewableProxy]
     
@@ -42,6 +40,12 @@ public struct View<V: UIView>: Viewable {
         self.children = children
     }
     
+    // FIXME: move to Viewable
+    public func stylize() {
+        let view = self.view()
+        style.apply(with: view)
+    }
+
     public func view() -> UIView {
         return _view
     }
