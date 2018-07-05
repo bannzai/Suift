@@ -9,11 +9,17 @@
 import UIKit
 
 public struct ButtonStyle: Style {
+    var state: UIControlState = .normal
     public var viewStyle: ViewStyle?
+    public var labelStyle: LabelStyle?
     
     public init() { }
-    public func apply(with view: UIButton) {
-        view.backgroundColor = viewStyle?.backgroundColor?.color
+    public func apply(with button: UIButton) {
+        button.backgroundColor = viewStyle?.backgroundColor?.color
+        
+        if let labelStyle = labelStyle {
+            button.titleLabel?.textColor = labelStyle.textColor?.color ?? button.titleColor(for: state)
+        }
     }
 }
 
@@ -72,8 +78,8 @@ public struct Button<V: UIButton>: Viewable {
         button: V? = nil,
         style: ButtonStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = [],
-        event: ButtonEvent
+        event: ButtonEvent,
+        children: [ViewableProxy] = []
         ) {
         if let button = button {
             self._button = button

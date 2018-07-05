@@ -26,7 +26,9 @@ class SecondViewController: UIViewController {
 extension SecondViewController: Buildable {
     func build() -> Viewable {
         return View(
-            style: ViewStyle { $0.backgroundColor = UIColor.white },
+            style: ViewStyle {
+                $0.backgroundColor = UIColor.white
+            },
             constraint: LayoutMaker { view, superview, views in
                 return [
                      view.topAnchor.constraint(equalTo: superview.topAnchor),
@@ -40,6 +42,9 @@ extension SecondViewController: Buildable {
                     style: ButtonStyle {
                         $0.viewStyle = ViewStyle {
                             $0.backgroundColor = UIColor.red
+                        }
+                        $0.labelStyle = LabelStyle {
+                            $0.textColor = UIColor.white
                         }
                     },
                     constraint: LayoutMaker { view, superview, views in
