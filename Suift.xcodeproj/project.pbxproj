@@ -24,7 +24,6 @@
 		BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */; };
 		BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */; };
 		BA61AD5720EE056400066C03 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5620EE056400066C03 /* Label.swift */; };
-		BA61AD5920EE592500066C03 /* ViewStructurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5820EE592500066C03 /* ViewStructurable.swift */; };
 		BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5A20EE5D5C00066C03 /* Rootable.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		BA5BD46C20EB0BD900EFC3F6 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		BA61AD5620EE056400066C03 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		BA61AD5820EE592500066C03 /* ViewStructurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStructurable.swift; sourceTree = "<group>"; };
 		BA61AD5A20EE5D5C00066C03 /* Rootable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +166,6 @@
 				BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */,
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
-				BA61AD5820EE592500066C03 /* ViewStructurable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 			);
 			path = Core;
@@ -291,7 +288,6 @@
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
-				BA61AD5920EE592500066C03 /* ViewStructurable.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
