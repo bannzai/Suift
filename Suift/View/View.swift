@@ -17,7 +17,7 @@ public struct ViewStyle: Style {
     }
 }
 
-public struct View<V: UIView>: ViewStructurable {
+public struct View<V: UIView>: Rootable {
     let _view: V
     
     public let style: ViewStyle // FIXME: move to Viewable

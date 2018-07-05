@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol Buildable: ViewableProxy {
-    func build() -> Viewable
+    func build() -> Rootable
 }
 
 extension Buildable {
