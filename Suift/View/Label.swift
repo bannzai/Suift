@@ -11,9 +11,12 @@ import UIKit
 public struct LabelStyle: Style {
     public var viewStyle: ViewStyle?
     
+    public var textColor: Colorable?
+    
     public init() { }
-    public func apply(with view: UILabel) {
-        view.backgroundColor = viewStyle?.backgroundColor?.color
+    public func apply(with label: UILabel) {
+        label.backgroundColor = viewStyle?.backgroundColor?.color
+        label.textColor = textColor?.color
     }
 }
 
