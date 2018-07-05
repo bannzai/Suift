@@ -9,7 +9,6 @@
 import Foundation
 
 public protocol Viewable: ViewableProxy {
-    var style: ViewStyle { get }
     var constraint: LayoutMaker { get }
     var children: [ViewableProxy] { get }
     
@@ -28,11 +27,6 @@ extension Viewable {
 }
 
 extension Viewable {
-    public func stylize() {
-        let view = self.view()
-        style.apply(with: view)
-    }
-    
     public func layout() {
         let view = self.view()
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
