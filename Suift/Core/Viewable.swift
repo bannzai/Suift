@@ -9,9 +9,6 @@
 import Foundation
 
 public protocol Viewable: ViewableProxy {
-    var constraint: LayoutMaker { get }
-    var children: [ViewableProxy] { get }
-    
     func stylize()
     func layout()
     func activateChildren()
@@ -27,27 +24,6 @@ extension Viewable {
 }
 
 extension Viewable {
-    public func layout() {
-        let view = self.view()
-        let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
-        let layouts = constraint.layout(set: set)
-        view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
-        NSLayoutConstraint.activate( layouts )
-    }
-    
-    public func activateChildren() {
-        let view = self.view()
-        let children = self.children.map { $0.proxy() }
-        children
-            .forEach {
-                let child = $0.view()
-                if child.superview == nil {
-                    view.addSubview(child)
-                }
-                $0.activate()
-        }
-    }
-    
     public func activate() {
         stylize()
         layout()
