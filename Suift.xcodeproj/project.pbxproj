@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34285E20EB33A700FD39C5 /* Viewable.swift */; };
 		BA34286B20ED18BE00FD39C5 /* ViewableProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */; };
+		BA34287320ED2C4000FD39C5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34287220ED2C4000FD39C5 /* Button.swift */; };
 		BA5BD3FF20EA423700EFC3F6 /* Suift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BD3F520EA423700EFC3F6 /* Suift.framework */; };
 		BA5BD40420EA423700EFC3F6 /* SuiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD40320EA423700EFC3F6 /* SuiftTests.swift */; };
 		BA5BD40620EA423700EFC3F6 /* Suift.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5BD3F820EA423700EFC3F6 /* Suift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		BA34285E20EB33A700FD39C5 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
 		BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewableProxy.swift; sourceTree = "<group>"; };
+		BA34287220ED2C4000FD39C5 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BA5BD3F520EA423700EFC3F6 /* Suift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Suift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BD3F820EA423700EFC3F6 /* Suift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suift.h; sourceTree = "<group>"; };
 		BA5BD3F920EA423700EFC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				BA5BD44A20EA447800EFC3F6 /* View.swift */,
+				BA34287220ED2C4000FD39C5 /* Button.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
+				BA34287320ED2C4000FD39C5 /* Button.swift in Sources */,
 				BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
