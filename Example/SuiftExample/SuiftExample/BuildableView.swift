@@ -10,17 +10,7 @@ import UIKit
 import Suift
 
 class BuildableView: UIView, Viewable {
-    let style: ViewStyle = ViewStyle { $0.backgroundColor = UIColor.brown }
-    let constraint: LayoutMaker = LayoutMaker { view, superview, subviews in
-        return [
-            view.topAnchor.constraint(equalTo: superview.topAnchor),
-            view.leftAnchor.constraint(equalTo: superview.leftAnchor),
-            view.rightAnchor.constraint(equalTo: superview.rightAnchor),
-            view.heightAnchor.constraint(equalToConstant: 30),
-            ]
-    }
-    let children: [ViewableProxy] = []
-    
+
     public required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,8 +20,23 @@ class BuildableView: UIView, Viewable {
     
     func stylize() {
         let view = self.view()
-        style.apply(with: view)
+        ViewStyle { $0.backgroundColor = UIColor.brown }.apply(with: view)
     }
+    
+    func layout() {
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: superview!.topAnchor),
+            leftAnchor.constraint(equalTo: superview!.leftAnchor),
+            rightAnchor.constraint(equalTo: superview!.rightAnchor),
+            heightAnchor.constraint(equalToConstant: 30),
+            ]
+        )
+    }
+    
+    func activateChildren() {
+        // None
+    }
+    
 
     func view() -> UIView {
         return self

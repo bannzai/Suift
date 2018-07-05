@@ -11,15 +11,21 @@ import Suift
 
 struct CustomViewBuilder: Viewable {
     let customView = CustomView()
-    let constraint = LayoutMaker { view, superview, subviews in
-        return [
-            view.centerXAnchor.constraint(equalTo: superview.centerXAnchor),
-            view.centerYAnchor.constraint(equalTo: superview.centerYAnchor),
+
+    func layout() {
+        let view = self.view()
+        NSLayoutConstraint.activate([
+            view.centerXAnchor.constraint(equalTo: view.superview!.centerXAnchor),
+            view.centerYAnchor.constraint(equalTo: view.superview!.centerYAnchor),
             view.widthAnchor.constraint(equalToConstant: 100),
             view.heightAnchor.constraint(equalToConstant: 10),
             ]
+        )
     }
-    let children: [ViewableProxy] = []
+    
+    func activateChildren() {
+        // None
+    }
     
     func stylize() {
         ViewStyle { $0.backgroundColor = UIColor.orange }

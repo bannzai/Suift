@@ -66,7 +66,7 @@ extension UIButton {
     }
 }
 
-public struct Button<V: UIButton>: Viewable {
+public struct Button<V: UIButton>: ViewStructurable {
     let _button: V
     
     public let style: ButtonStyle
