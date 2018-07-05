@@ -72,8 +72,8 @@ public struct Button<V: UIButton>: Viewable {
         button: V? = nil,
         style: ButtonStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = [],
-        event: ButtonEvent
+        event: ButtonEvent,
+        children: [ViewableProxy] = []
         ) {
         if let button = button {
             self._button = button
