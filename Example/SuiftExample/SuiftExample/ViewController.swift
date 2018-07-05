@@ -10,13 +10,13 @@ import UIKit
 import Suift
 
 class ViewController: UIViewController {
-    fileprivate var customView = CustomView()
+    fileprivate let label = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         render()
         
-        customView.backgroundColor = .black
+        label.text = "Yeaaaaa"
     }
 }
 
@@ -41,7 +41,19 @@ extension ViewController: Buildable {
                     closure: { [weak self] (button) in
                         self?.navigationController?.pushViewController(SecondViewController(), animated: true)
                     }
-                )
+                ),
+                children: [
+                    Label(
+                        label: label,
+                        style: LabelStyle { $0.viewStyle = ViewStyle { $0.backgroundColor = Color.RGBA(red: 1, green: 1, blue: 1, alpha: 1)} },
+                        constraint: LayoutMaker { (view, superview, subviews) in
+                            return [
+                                view.centerXAnchor.constraint(equalTo: superview.centerXAnchor),
+                                view.centerYAnchor.constraint(equalTo: superview.centerYAnchor),
+                                ]
+                        }
+                    )
+            ]
         )
     }
 }
