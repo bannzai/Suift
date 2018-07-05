@@ -66,7 +66,7 @@ extension UIButton {
     }
 }
 
-public struct Button<V: UIButton>: ViewStructurable {
+public struct Button<V: UIButton>: Rootable {
     let _button: V
     
     public let style: ButtonStyle

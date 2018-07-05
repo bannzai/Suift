@@ -1,5 +1,5 @@
 //
-//  ViewStructurable.swift
+//  Rootable.swift
 //  Suift
 //
 //  Created by Yudai.Hirose on 2018/07/05.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-public protocol ViewStructurable: Viewable {
+public protocol Rootable: Viewable {
     var constraint: LayoutMaker { get }
     var children: [ViewableProxy] { get }
 }
 
-extension ViewStructurable {
+extension Rootable {
     public func proxy() -> Viewable {
         return self
     }
 }
 
-extension ViewStructurable {
+extension Rootable {
     public func layout() {
         let view = self.view()
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)

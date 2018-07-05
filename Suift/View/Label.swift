@@ -20,7 +20,7 @@ public struct LabelStyle: Style {
     }
 }
 
-public struct Label<V: UILabel>: ViewStructurable {
+public struct Label<V: UILabel>: Rootable {
     let _label: V
     
     public let style: LabelStyle
