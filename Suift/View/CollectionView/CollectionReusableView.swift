@@ -24,7 +24,7 @@ extension CollectionReusableViewStyle: SuiftEquatable {
 }
 
 public struct CollectionReusableView<V: UICollectionReusableView>: Rootable {
-    let _cell: V
+    let _reusableView: V
     
     public let style: CollectionReusableViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
@@ -37,9 +37,9 @@ public struct CollectionReusableView<V: UICollectionReusableView>: Rootable {
         children: [ViewableProxy] = []
         ) {
         if let view = view {
-            self._cell = view
+            self._reusableView = view
         } else {
-            self._cell = V()
+            self._reusableView = V()
         }
         self.style = style
         self.constraint = constraint
@@ -48,10 +48,10 @@ public struct CollectionReusableView<V: UICollectionReusableView>: Rootable {
     
     // FIXME: move to Viewable
     public func stylize() {
-        style.apply(with: _cell)
+        style.apply(with: _reusableView)
     }
     
     public func view() -> UIView {
-        return _cell
+        return _reusableView
     }
 }
