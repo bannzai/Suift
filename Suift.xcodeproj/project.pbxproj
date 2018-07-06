@@ -26,6 +26,7 @@
 		BA61AD5720EE056400066C03 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5620EE056400066C03 /* Label.swift */; };
 		BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5A20EE5D5C00066C03 /* Rootable.swift */; };
 		BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6220EF57C800066C03 /* RootBag.swift */; };
+		BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		BA61AD5620EE056400066C03 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BA61AD5A20EE5D5C00066C03 /* Rootable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootable.swift; sourceTree = "<group>"; };
 		BA61AD6220EF57C800066C03 /* RootBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBag.swift; sourceTree = "<group>"; };
+		BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdateDecidable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 				BA61AD6220EF57C800066C03 /* RootBag.swift */,
+				BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				BA34286B20ED18BE00FD39C5 /* ViewableProxy.swift in Sources */,
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
+				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
