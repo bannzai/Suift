@@ -30,6 +30,7 @@
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
 		BAAB707720EFBC33008CB799 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707620EFBC33008CB799 /* CollectionView.swift */; };
 		BAAB707A20EFBE37008CB799 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707920EFBE37008CB799 /* CollectionViewCell.swift */; };
+		BAAB707C20EFBEA4008CB799 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707B20EFBEA4008CB799 /* CollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		BAAB707620EFBC33008CB799 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		BAAB707920EFBE37008CB799 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		BAAB707B20EFBEA4008CB799 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				BAAB707620EFBC33008CB799 /* CollectionView.swift */,
 				BAAB707920EFBE37008CB799 /* CollectionViewCell.swift */,
+				BAAB707B20EFBEA4008CB799 /* CollectionReusableView.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAAB707C20EFBEA4008CB799 /* CollectionReusableView.swift in Sources */,
 				BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */,
 				BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */,
 				BA5BD46420EA88FB00EFC3F6 /* AttributedStyle.swift in Sources */,
