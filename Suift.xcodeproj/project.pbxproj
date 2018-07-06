@@ -27,6 +27,7 @@
 		BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5A20EE5D5C00066C03 /* Rootable.swift */; };
 		BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6220EF57C800066C03 /* RootBag.swift */; };
 		BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */; };
+		BAAB707520EF7DBB008CB799 /* Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equtable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BA61AD5A20EE5D5C00066C03 /* Rootable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootable.swift; sourceTree = "<group>"; };
 		BA61AD6220EF57C800066C03 /* RootBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBag.swift; sourceTree = "<group>"; };
 		BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdateDecidable.swift; sourceTree = "<group>"; };
+		BAAB707420EF7DBB008CB799 /* Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equtable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		BA5BD3F720EA423700EFC3F6 /* Suift */ = {
 			isa = PBXGroup;
 			children = (
+				BAAB707320EF7DA4008CB799 /* StdLib */,
 				BA5BD46E20EB1E8D00EFC3F6 /* Core */,
 				BA5BD46B20EB0BC300EFC3F6 /* Layout */,
 				BA5BD44F20EA82E200EFC3F6 /* Style */,
@@ -175,6 +178,14 @@
 				BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		BAAB707320EF7DA4008CB799 /* StdLib */ = {
+			isa = PBXGroup;
+			children = (
+				BAAB707420EF7DBB008CB799 /* Equtable.swift */,
+			);
+			path = StdLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
+				BAAB707520EF7DBB008CB799 /* Equtable.swift in Sources */,
 				BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
 				BA34287320ED2C4000FD39C5 /* Button.swift in Sources */,
