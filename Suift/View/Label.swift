@@ -20,9 +20,10 @@ public struct LabelStyle: Style {
     }
 }
 
-extension LabelStyle: CustomEqutable {
-    public func isEqual(compare: Any) -> Bool {
-        return false
+extension LabelStyle: SuiftEquatable {
+    public static func == (lhs: LabelStyle, rhs: LabelStyle) -> Bool {
+        return lhs.viewStyle == rhs.viewStyle &&
+            OptoinalEqual.isEqual(lhs.textColor, rhs.textColor)
     }
 }
 

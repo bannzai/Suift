@@ -23,8 +23,8 @@ public struct ButtonStyle: Style {
     }
 }
 
-extension ButtonStyle: CustomEqutable {
-    public func isEqual(compare: Any) -> Bool {
+extension ButtonStyle: SuiftEquatable {
+    public static func == (lhs: ButtonStyle, rhs: ButtonStyle) -> Bool {
         return false
     }
 }

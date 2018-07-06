@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Fontable {
+public protocol Fontable: WrapperForEquatable {
     var font: UIFont { get }
 }
 
@@ -23,5 +23,11 @@ public struct Font: Fontable {
     public init(size: CGFloat, name: String) {
         self.size = size
         self.name = name
+    }
+}
+
+extension Font: SuiftEquatable {
+    public static func == (lhs: Font, rhs: Font) -> Bool {
+        return lhs.name == rhs.name && lhs.size == rhs.size
     }
 }

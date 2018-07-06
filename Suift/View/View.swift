@@ -17,9 +17,9 @@ public struct ViewStyle: Style {
     }
 }
 
-extension ViewStyle: CustomEqutable {
-    public func isEqual(compare: Any) -> Bool {
-        return false
+extension ViewStyle: SuiftEquatable {
+    public static func == (lhs: ViewStyle, rhs: ViewStyle) -> Bool {
+        return OptoinalEqual.isEqual(lhs.backgroundColor, rhs.backgroundColor)
     }
 }
 
