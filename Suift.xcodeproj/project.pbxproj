@@ -27,6 +27,7 @@
 		BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5A20EE5D5C00066C03 /* Rootable.swift */; };
 		BA61AD5E20EF371000066C03 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5D20EF371000066C03 /* Context.swift */; };
 		BA61AD6120EF38E000066C03 /* ViewReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6020EF38E000066C03 /* ViewReference.swift */; };
+		BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6220EF57C800066C03 /* RootBag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BA61AD5A20EE5D5C00066C03 /* Rootable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootable.swift; sourceTree = "<group>"; };
 		BA61AD5D20EF371000066C03 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		BA61AD6020EF38E000066C03 /* ViewReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReference.swift; sourceTree = "<group>"; };
+		BA61AD6220EF57C800066C03 /* RootBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 				BA61AD5D20EF371000066C03 /* Context.swift */,
+				BA61AD6220EF57C800066C03 /* RootBag.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
+				BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
 				BA34287320ED2C4000FD39C5 /* Button.swift in Sources */,
 				BA61AD5E20EF371000066C03 /* Context.swift in Sources */,
