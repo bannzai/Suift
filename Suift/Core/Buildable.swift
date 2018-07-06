@@ -25,6 +25,12 @@ extension Buildable where Self: Viewable {
     }
 }
 
+extension Buildable {
+    public func clearRenderCache() {
+        rootBag.clear()
+    }
+}
+
 extension Buildable where Self: UIViewController {
     public func render() {
         if let root = rootBag.bag {
