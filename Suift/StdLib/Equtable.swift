@@ -8,6 +8,18 @@
 
 import Foundation
 
-public protocol CustomEqutable {
-    func isEqual(compare: Any) -> Bool
+public typealias SuiftEquatable = WrapperForEquatable & Equatable
+
+public protocol WrapperForEquatable {
+    func _isEqual<T>(compare: T) -> Bool
+}
+
+extension WrapperForEquatable where Self: Equatable {
+    public func _isEqual<T>(compare: T) -> Bool {
+        return isEqual(compare: compare as! Self)
+    }
+    
+    public func isEqual(compare: Self) -> Bool {
+        return self == compare
+    }
 }
