@@ -13,7 +13,7 @@ public protocol Viewable: ViewableProxy {
     func layout()
     func activateChildren()
     
-    func activate()
+    func activate(for view: UIView)
     func view() -> UIView
 }
 
@@ -24,9 +24,11 @@ extension Viewable {
 }
 
 extension Viewable {
-    public func activate() {
+    public func activate(for view: UIView) {
         stylize()
-        layout()
+        if view.constraints.isEmpty {
+            layout()
+        }
         activateChildren()
     }
 }
