@@ -25,8 +25,6 @@
 		BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */; };
 		BA61AD5720EE056400066C03 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5620EE056400066C03 /* Label.swift */; };
 		BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5A20EE5D5C00066C03 /* Rootable.swift */; };
-		BA61AD5E20EF371000066C03 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD5D20EF371000066C03 /* Context.swift */; };
-		BA61AD6120EF38E000066C03 /* ViewReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6020EF38E000066C03 /* ViewReference.swift */; };
 		BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6220EF57C800066C03 /* RootBag.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +60,6 @@
 		BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		BA61AD5620EE056400066C03 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BA61AD5A20EE5D5C00066C03 /* Rootable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootable.swift; sourceTree = "<group>"; };
-		BA61AD5D20EF371000066C03 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
-		BA61AD6020EF38E000066C03 /* ViewReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReference.swift; sourceTree = "<group>"; };
 		BA61AD6220EF57C800066C03 /* RootBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,23 +165,13 @@
 		BA5BD46E20EB1E8D00EFC3F6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				BA61AD5F20EF38D900066C03 /* Internal */,
 				BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */,
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
-				BA61AD5D20EF371000066C03 /* Context.swift */,
 				BA61AD6220EF57C800066C03 /* RootBag.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		BA61AD5F20EF38D900066C03 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				BA61AD6020EF38E000066C03 /* ViewReference.swift */,
-			);
-			path = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +289,6 @@
 				BA5BD45520EA82F700EFC3F6 /* Font.swift in Sources */,
 				BA34286B20ED18BE00FD39C5 /* ViewableProxy.swift in Sources */,
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
-				BA61AD6120EF38E000066C03 /* ViewReference.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
@@ -312,7 +297,6 @@
 				BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
 				BA34287320ED2C4000FD39C5 /* Button.swift in Sources */,
-				BA61AD5E20EF371000066C03 /* Context.swift in Sources */,
 				BA61AD5720EE056400066C03 /* Label.swift in Sources */,
 				BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */,
 			);
