@@ -10,6 +10,8 @@ import UIKit
 import Suift
 
 class SecondViewController: UIViewController {
+    
+    let rootBag: RootBag = RootBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,6 +10,8 @@ import UIKit
 import Suift
 
 class BuildableView: UIView, Viewable {
+    
+    let rootBag: RootBag = RootBag()
 
     public required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     public override init(frame: CGRect) {
