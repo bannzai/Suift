@@ -20,6 +20,12 @@ public struct LabelStyle: Style {
     }
 }
 
+extension LabelStyle: CustomEqutable {
+    public func isEqual(compare: Any) -> Bool {
+        return false
+    }
+}
+
 public struct Label<V: UILabel>: Rootable {
     let _label: V
     

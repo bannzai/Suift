@@ -17,6 +17,12 @@ public struct ViewStyle: Style {
     }
 }
 
+extension ViewStyle: CustomEqutable {
+    public func isEqual(compare: Any) -> Bool {
+        return false
+    }
+}
+
 public struct View<V: UIView>: Rootable {
     let _view: V
     

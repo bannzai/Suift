@@ -23,6 +23,12 @@ public struct ButtonStyle: Style {
     }
 }
 
+extension ButtonStyle: CustomEqutable {
+    public func isEqual(compare: Any) -> Bool {
+        return false
+    }
+}
+
 public class ButtonDelegate {
     public var closure: ((UIButton) -> Void)?
     @objc func done(button: UIButton) {
