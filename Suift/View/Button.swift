@@ -25,7 +25,7 @@ public struct ButtonStyle: Style {
 
 extension ButtonStyle: SuiftEquatable {
     public static func == (lhs: ButtonStyle, rhs: ButtonStyle) -> Bool {
-        return false
+        return lhs.viewStyle == rhs.viewStyle && lhs.viewStyle == rhs.viewStyle
     }
 }
 
