@@ -19,6 +19,17 @@ extension Rootable {
     }
 }
 
+fileprivate extension Rootable {
+    func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
+        let set = viewUpdateSet()
+        return (
+            style: parent.style && set.style,
+            layout: parent.style && set.layout,
+            activateChildren: parent.activateChildren && set.activateChildren
+        )
+    }
+}
+
 extension Rootable {
     public func layout() {
         let view = self.view()
@@ -28,7 +39,7 @@ extension Rootable {
         NSLayoutConstraint.activate( layouts )
     }
     
-    public func activateChildren() {
+    public func activateChildren(parentViewUpdateSet set: ViewUpdateSet) {
         let view = self.view()
         let children = self.children.map { $0.proxy() }
         children
@@ -37,7 +48,7 @@ extension Rootable {
                 if child.superview == nil {
                     view.addSubview(child)
                 }
-                $0.activate()
+                $0.activate(viewUpdateSet: mixViewUpdateStatus(parent: set))
         }
     }
 }

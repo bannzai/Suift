@@ -23,10 +23,10 @@ struct CustomViewBuilder: Viewable {
         )
     }
     
-    func activateChildren() {
-        // None
+    func activateChildren(parentViewUpdateSet set: ViewUpdateSet) {
+        
     }
-    
+
     func stylize() {
         ViewStyle { $0.backgroundColor = UIColor.orange }
             .apply(with: view())

@@ -8,7 +8,8 @@
 
 import UIKit
 
-public protocol Buildable: ViewableProxy {
+public protocol Buildable: ViewableProxy, ViewUpdateDecidable {
+    var rootBag: RootBag { get }
     func build() -> Rootable
 }
 
@@ -24,29 +25,45 @@ extension Buildable where Self: Viewable {
     }
 }
 
+extension Buildable {
+    public func clearRenderCache() {
+        rootBag.clear()
+    }
+}
+
 extension Buildable where Self: UIViewController {
     public func render() {
-        let builder = build()
-        let subview = builder.view()
-        
-        if subview.superview == nil {
-            view.addSubview(subview)
+        if let root = rootBag.bag {
+            root.activate(viewUpdateSet: viewUpdateSet())
+            return
         }
-
-        builder.activate()
+        
+        let root = build()
+        let view = root.view()
+        if view.superview == nil {
+            self.view.addSubview(view)
+        }
+        
+        root.activate(viewUpdateSet: allEnabledViewUpdateSet())
+        rootBag.set(root: root)
     }
 }
 
 extension Buildable where Self: UIView {
     public func render() {
-        let builder = build()
-        let subview = builder.view()
-        
-        if subview.superview == nil {
-            addSubview(subview)
+        if let root = rootBag.bag {
+            root.activate(viewUpdateSet: viewUpdateSet())
+            return
         }
-
-        builder.activate()
+        
+        let root = build()
+        let view = root.view()
+        if view.superview == nil {
+            addSubview(view)
+        }
+        
+        root.activate(viewUpdateSet: allEnabledViewUpdateSet())
+        rootBag.set(root: root)
     }
 }
 

@@ -11,6 +11,8 @@ import Suift
 
 class BuildableView: UIView, Viewable {
 
+    let rootBag: RootBag = RootBag()
+
     public required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,10 +35,9 @@ class BuildableView: UIView, Viewable {
         )
     }
     
-    func activateChildren() {
-        // None
+    func activateChildren(parentViewUpdateSet set: ViewUpdateSet) {
+        
     }
-    
 
     func view() -> UIView {
         return self

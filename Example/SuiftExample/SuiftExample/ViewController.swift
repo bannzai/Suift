@@ -11,6 +11,9 @@ import Suift
 
 class ViewController: UIViewController {
     fileprivate let label = UILabel()
+    
+    let rootBag: RootBag = RootBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
