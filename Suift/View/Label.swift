@@ -20,6 +20,13 @@ public struct LabelStyle: Style {
     }
 }
 
+extension LabelStyle: SuiftEquatable {
+    public static func == (lhs: LabelStyle, rhs: LabelStyle) -> Bool {
+        return lhs.viewStyle == rhs.viewStyle &&
+            OptoinalEqual.isEqual(lhs.textColor, rhs.textColor)
+    }
+}
+
 public struct Label<V: UILabel>: Rootable {
     let _label: V
     

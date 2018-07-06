@@ -17,6 +17,12 @@ public struct ViewStyle: Style {
     }
 }
 
+extension ViewStyle: SuiftEquatable {
+    public static func == (lhs: ViewStyle, rhs: ViewStyle) -> Bool {
+        return OptoinalEqual.isEqual(lhs.backgroundColor, rhs.backgroundColor)
+    }
+}
+
 public struct View<V: UIView>: Rootable {
     let _view: V
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Colorable {
+public protocol Colorable: WrapperForEquatable {
     var color: UIColor { get }
 }
 
@@ -50,6 +50,22 @@ public struct Color {
             return UIColor(red: red, green: green, blue: blue, alpha: alpha)
         }
     }
-
-    
 }
+
+extension Color.RGB: SuiftEquatable {
+    public static func == (lhs: Color.RGB, rhs: Color.RGB) -> Bool {
+        return lhs.red == rhs.red &&
+            lhs.green == rhs.green &&
+            lhs.blue == rhs.blue
+    }
+}
+
+extension Color.RGBA: SuiftEquatable {
+    public static func == (lhs: Color.RGBA, rhs: Color.RGBA) -> Bool {
+        return lhs.red == rhs.red &&
+            lhs.green == rhs.green &&
+            lhs.blue == rhs.blue &&
+            lhs.alpha == rhs.alpha
+    }
+}
+

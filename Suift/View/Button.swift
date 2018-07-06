@@ -23,6 +23,12 @@ public struct ButtonStyle: Style {
     }
 }
 
+extension ButtonStyle: SuiftEquatable {
+    public static func == (lhs: ButtonStyle, rhs: ButtonStyle) -> Bool {
+        return false
+    }
+}
+
 public class ButtonDelegate {
     public var closure: ((UIButton) -> Void)?
     @objc func done(button: UIButton) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Style {
+public protocol Style: WrapperForEquatable {
     init()
 }
 
