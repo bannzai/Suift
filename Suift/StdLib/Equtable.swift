@@ -11,15 +11,15 @@ import Foundation
 public typealias SuiftEquatable = WrapperForEquatable & Equatable
 
 public protocol WrapperForEquatable {
-    func _isEqual<T>(compare: T) -> Bool
+    func isEqual<T>(compare: T) -> Bool
 }
 
 extension WrapperForEquatable where Self: Equatable {
-    public func _isEqual<T>(compare: T) -> Bool {
-        return isEqual(compare: compare as! Self)
+    public func isEqual<T>(compare: T) -> Bool {
+        return _isEqual(compare: compare as! Self)
     }
     
-    public func isEqual(compare: Self) -> Bool {
+    public func _isEqual(compare: Self) -> Bool {
         return self == compare
     }
 }
