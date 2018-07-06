@@ -37,7 +37,7 @@ extension Rootable {
                 if child.superview == nil {
                     view.addSubview(child)
                 }
-                $0.activate()
+                $0.activate(for: child)
         }
     }
 }
