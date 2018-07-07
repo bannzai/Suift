@@ -109,7 +109,7 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         guard
-            let headerFooter = headerOrFooter(for: elementKind, section: indexPath.section),
+            let headerFooter = headerOrFooterOrNil(for: elementKind, section: indexPath.section),
             let delegate = delegate(headerFooter: headerFooter)
             else {
                 return
@@ -123,7 +123,7 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
         guard
-            let headerFooter = headerOrFooter(for: elementKind, section: indexPath.section),
+            let headerFooter = headerOrFooterOrNil(for: elementKind, section: indexPath.section),
             let delegate = delegate(headerFooter: headerFooter)
             else {
                 return
@@ -224,16 +224,20 @@ fileprivate extension CollectionViewComponent {
         return headerFooter as? CollectionViewSectionHeaderFooterDelegateType
     }
     
-    func headerOrFooter(for kind: String, section: Int) -> CollectionViewSectionHeaderFooterViewable? {
-        guard let type = CollectionViewSectionHeaderFooterKind(kind: kind) else {
-            return nil
-        }
-        switch type {
+    func headerOrFooter(for kind: CollectionViewSectionHeaderFooterKind, section: Int) -> CollectionViewSectionHeaderFooterViewable? {
+        switch kind {
         case .header:
             return sections[section].header
         case .footer:
             return sections[section].footer
         }
+    }
+    
+    func headerOrFooterOrNil(for kind: String, section: Int) -> CollectionViewSectionHeaderFooterViewable? {
+        guard let type = CollectionViewSectionHeaderFooterKind(kind: kind) else {
+            return nil
+        }
+        return headerOrFooter(for: type, section: section)
     }
     
     func headerFooterViewFor(headerFooter: CollectionViewSectionHeaderFooterViewable, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionReusableView? {
