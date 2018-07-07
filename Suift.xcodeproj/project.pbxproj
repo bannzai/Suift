@@ -34,6 +34,7 @@
 		BAAB707F20F05416008CB799 /* CollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707E20F05416008CB799 /* CollectionViewComponent.swift */; };
 		BAAB708120F05448008CB799 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB708020F05448008CB799 /* CollectionViewSection.swift */; };
 		BAAB708320F0544F008CB799 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB708220F0544F008CB799 /* CollectionViewItem.swift */; };
+		BAAB708520F057FD008CB799 /* CollectionViewSectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB708420F057FD008CB799 /* CollectionViewSectionHeaderFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		BAAB707E20F05416008CB799 /* CollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewComponent.swift; sourceTree = "<group>"; };
 		BAAB708020F05448008CB799 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
 		BAAB708220F0544F008CB799 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		BAAB708420F057FD008CB799 /* CollectionViewSectionHeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionHeaderFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				BAAB707E20F05416008CB799 /* CollectionViewComponent.swift */,
 				BAAB708020F05448008CB799 /* CollectionViewSection.swift */,
 				BAAB708220F0544F008CB799 /* CollectionViewItem.swift */,
+				BAAB708420F057FD008CB799 /* CollectionViewSectionHeaderFooter.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
 				BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */,
 				BAAB708320F0544F008CB799 /* CollectionViewItem.swift in Sources */,
+				BAAB708520F057FD008CB799 /* CollectionViewSectionHeaderFooter.swift in Sources */,
 				BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
 				BAAB708120F05448008CB799 /* CollectionViewSection.swift in Sources */,
