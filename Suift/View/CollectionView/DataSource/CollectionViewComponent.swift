@@ -13,6 +13,7 @@ public class CollectionViewComponent: NSObject {
     public weak var collectionView: UICollectionView?
     public var sections: [CollectionViewSectionType] = []
     public var didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)?
+    public var indexTitles: ((UICollectionView) -> [String])?
     
     func itemFor(indexPath: IndexPath) -> CollectionViewItemType {
         return sections[indexPath.section].items[indexPath.item]
@@ -67,7 +68,7 @@ extension CollectionViewComponent: UICollectionViewDataSource {
     }
 
     public func indexTitles(for collectionView: UICollectionView) -> [String]? {
-        fatalError("Not yet implement")
+        return indexTitles?(collectionView)
     }
     
     public func collectionView(_ collectionView: UICollectionView, indexPathForIndexTitle title: String, at index: Int) -> IndexPath {
