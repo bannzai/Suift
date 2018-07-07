@@ -16,12 +16,20 @@ public protocol CollectionViewItemType {
 public protocol CollectionViewItemDelegatable {
     func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
     func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize?
+    
     func canMoveItem(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    
     func willDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
     func didEndDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
+    
     func shouldHighlight(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
     func didHighlight(collectionView: UICollectionView, indexPath: IndexPath)
     func didUnhighlight(collectionView: UICollectionView, indexPath: IndexPath)
+    
+    func shouldSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func shouldDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func didSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath)
+    func didDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath)
 }
 
 public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
@@ -32,12 +40,20 @@ public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItem
     
     public var configureCell: ((Cell, ItemArgument) -> Void)?
     public var sizeFor: ((ItemArgument) -> CGSize)?
+    
     public var canMoveItem: ((ItemArgument) -> Bool)?
+
     public var willDisplay: ((Cell, ItemArgument) -> Void)?
     public var didEndDisplay: ((Cell, ItemArgument) -> Void)?
+    
     public var shouldHighlight: ((ItemArgument) -> Bool)?
     public var didHighlight: ((ItemArgument) -> Void)?
     public var didUnhighlight: ((ItemArgument) -> Void)?
+
+    public var shouldSelectItemAt: ((ItemArgument) -> Bool)?
+    public var shouldDeselectItemAt: ((ItemArgument) -> Bool)?
+    public var didSelectItemAt: ((ItemArgument) -> Void)?
+    public var didDeselectItemAt: ((ItemArgument) -> Void)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
@@ -72,4 +88,21 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
     public func didUnhighlight(collectionView: UICollectionView, indexPath: IndexPath) {
         didUnhighlight?((self, collectionView, indexPath))
     }
+    
+    public func shouldSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return shouldSelectItemAt?((self, collectionView, indexPath))
+    }
+    
+    public func shouldDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return shouldDeselectItemAt?((self, collectionView, indexPath))
+    }
+    
+    public func didSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath) {
+        didSelectItemAt?((self, collectionView, indexPath))
+    }
+    
+    public func didDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath) {
+        didDeselectItemAt?((self, collectionView, indexPath))
+    }
+    
 }
