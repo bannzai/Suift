@@ -17,6 +17,8 @@ public protocol CollectionViewItemDelegatable {
     func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
     func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize?
     func canMoveItem(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func willDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
+    func didEndDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
 }
 
 public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
@@ -28,6 +30,8 @@ public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItem
     public var configureCell: ((Cell, ItemArgument) -> Void)?
     public var sizeFor: ((ItemArgument) -> CGSize)?
     public var canMoveItem: ((ItemArgument) -> Bool)?
+    public var willDisplay: ((Cell, ItemArgument) -> Void)?
+    public var didEndDisplay: ((Cell, ItemArgument) -> Void)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
@@ -41,5 +45,13 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
     
     public func canMoveItem(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
         return canMoveItem?((self, collectionView, indexPath))
+    }
+    
+    public func willDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath) {
+        willDisplay?(cell as! Cell, (self, collectionView, indexPath))
+    }
+    
+    public func didEndDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath) {
+        didEndDisplay?(cell as! Cell, (self, collectionView, indexPath))
     }
 }
