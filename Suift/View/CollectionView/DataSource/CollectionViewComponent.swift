@@ -204,7 +204,14 @@ extension CollectionViewComponent: UICollectionViewDelegate {
 
 extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        fatalError("Not yet implement")
+        if let size = itemDelegate(indexPath: indexPath)?
+            .sizeFor(collectionView: collectionView, indexPath: indexPath) {
+            return size
+        }
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            return layout.itemSize
+        }
+        return .zero
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
