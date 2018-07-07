@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+
+public protocol CollectionViewSectionType {
+    var items: [CollectionViewItemType] { get set }
+}
+
+public struct CollectionViewSection: CollectionViewSectionType {
+    public var items: [CollectionViewItemType]
+}
