@@ -37,6 +37,21 @@ extension CollectionViewComponent: UICollectionViewDataSource {
     
     
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let type = CollectionViewSectionHeaderFooterKind(kind: kind) else {
+            fatalError("Unknown kind: \(kind)")
+        }
+        switch type {
+        case .header:
+            if let header = sections[indexPath.section].header,
+                let view = headerFooterViewFor(headerFooter: header, collectionView: collectionView, indexPath: indexPath) {
+                return view
+            }
+        case .footer:
+            if let footer = sections[indexPath.section].footer,
+                let view = headerFooterViewFor(headerFooter: footer, collectionView: collectionView, indexPath: indexPath) {
+                return view
+            }
+        }
         fatalError()
     }
     
@@ -87,14 +102,19 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         fatalError()
     }
-    
-    
+
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         fatalError()
     }
     
     public func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
-        fatalError()
+        guard
+            let headerFooter = headerOrFooter(for: elementKind, section: indexPath.section),
+            let delegate = delegate(headerFooter: headerFooter)
+            else {
+                return
+        }
+        delegate.willDisplay(collectionView, view: view, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -102,7 +122,13 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
-        fatalError()
+        guard
+            let headerFooter = headerOrFooter(for: elementKind, section: indexPath.section),
+            let delegate = delegate(headerFooter: headerFooter)
+            else {
+                return
+        }
+        delegate.didEndDisplay(collectionView, view: view, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
@@ -171,10 +197,68 @@ extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        fatalError()
+        if let header = sections[section].header,
+            let size = sectionHeaderFooterSizeFor(headerFooter: header, collectionView: collectionView, section: section) {
+            return size
+        }
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            return layout.headerReferenceSize
+        }
+        return .zero
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        fatalError()
+        if let footer = sections[section].header,
+            let size = sectionHeaderFooterSizeFor(headerFooter: footer, collectionView: collectionView, section: section) {
+            return size
+        }
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            return layout.headerReferenceSize
+        }
+        return .zero
+    }
+}
+
+fileprivate extension CollectionViewComponent {
+    func delegate(headerFooter: CollectionViewSectionHeaderFooterViewable) -> CollectionViewSectionHeaderFooterDelegateType? {
+        return headerFooter as? CollectionViewSectionHeaderFooterDelegateType
+    }
+    
+    func headerOrFooter(for kind: String, section: Int) -> CollectionViewSectionHeaderFooterViewable? {
+        guard let type = CollectionViewSectionHeaderFooterKind(kind: kind) else {
+            return nil
+        }
+        switch type {
+        case .header:
+            return sections[section].header
+        case .footer:
+            return sections[section].footer
+        }
+    }
+    
+    func headerFooterViewFor(headerFooter: CollectionViewSectionHeaderFooterViewable, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionReusableView? {
+        // Dequeue
+        if let identifier = headerFooter.reuseIdentifier {
+            let view = dequeueReusableSupplementaryView(collectionView: collectionView, kind: headerFooter.kind.kind, identifier: identifier, indexPath: indexPath)
+            if let delegate = delegate(headerFooter: headerFooter) {
+                delegate.configureView(collectionView, view: view, section: indexPath.section)
+            }
+            return view
+        }
+        
+        return nil
+    }
+    
+    func sectionHeaderFooterSizeFor(headerFooter: CollectionViewSectionHeaderFooterViewable, collectionView: UICollectionView, section: Int) -> CGSize? {
+        if let delegate = delegate(headerFooter: headerFooter),
+            let size = delegate.sizeFor(collectionView, section: section) {
+            return size
+        }
+        
+        return headerFooter.size
+    }
+
+    func dequeueReusableSupplementaryView(collectionView: UICollectionView, kind: String, identifier: String, indexPath: IndexPath) -> UICollectionReusableView {
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
     }
 }
