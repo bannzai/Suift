@@ -98,19 +98,25 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        fatalError("Not yet implement")
+        let shouldSelect = itemDelegate(indexPath: indexPath)?
+            .shouldSelect(collectionView: collectionView, indexPath: indexPath)
+        return shouldSelect ?? false
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        fatalError("Not yet implement")
+        let shouldSelect = itemDelegate(indexPath: indexPath)?
+            .shouldDeselect(collectionView: collectionView, indexPath: indexPath)
+        return shouldSelect ?? false
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        fatalError("Not yet implement")
+        itemDelegate(indexPath: indexPath)?
+            .didSelect(collectionView: collectionView, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        fatalError("Not yet implement")
+        itemDelegate(indexPath: indexPath)?
+            .didDeselect(collectionView: collectionView, indexPath: indexPath)
     }
 
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
