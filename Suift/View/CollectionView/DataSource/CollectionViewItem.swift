@@ -32,10 +32,13 @@ public protocol CollectionViewItemDelegatable {
     func didDeselect(collectionView: UICollectionView, indexPath: IndexPath)
     
     func shouldShowMenu(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func canPerformAction(collectionView: UICollectionView, action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool?
+    func performAction(collectionView: UICollectionView, action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?)
 }
 
 public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
     public typealias ItemArgument = (item: CollectionViewItem<Cell>, collectionView: UICollectionView, indexPath: IndexPath)
+    public typealias PerformActionArgument = (item: CollectionViewItem<Cell>, collectionView: UICollectionView, action: Selector, indexPath: IndexPath, sender: Any?)
 
     public var reusableIdentifier: String
     public var size: CGSize?
@@ -58,6 +61,8 @@ public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItem
     public var didDeselect: ((ItemArgument) -> Void)?
     
     public var shouldShowMenu: ((ItemArgument) -> Bool)?
+    public var canPerformAction: ((PerformActionArgument) -> Bool)?
+    public var performAction: ((PerformActionArgument) -> Void)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
@@ -113,4 +118,11 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
         return shouldShowMenu?((self, collectionView, indexPath))
     }
     
+    public func canPerformAction(collectionView: UICollectionView, action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool? {
+        return canPerformAction?((self, collectionView, action, indexPath, sender))
+    }
+    
+    public func performAction(collectionView: UICollectionView, action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+        performAction?((self, collectionView, action, indexPath, sender))
+    }
 }
