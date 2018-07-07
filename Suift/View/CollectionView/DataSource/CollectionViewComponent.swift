@@ -215,15 +215,42 @@ extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        fatalError("Not yet implement")
+        if let inset = sectionDelegate(section: section)?
+            .inset(collectionView: collectionView, collectionViewLayout: collectionViewLayout, section: section) {
+            return inset
+        }
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            return layout.sectionInset
+        }
+
+        return .zero
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        fatalError("Not yet implement")
+        if let spacing = sectionDelegate(section: section)?
+            .minimumLineSpacing(collectionView: collectionView, collectionViewLayout: collectionViewLayout, section: section) {
+            return spacing
+        }
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            return layout.minimumLineSpacing
+        }
+        
+        return 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        fatalError("Not yet implement")
+        if let spacing = sectionDelegate(section: section)?
+            .minimumInteritemSpacing(collectionView: collectionView, collectionViewLayout: collectionViewLayout, section: section) {
+            return spacing
+        }
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            return layout.minimumInteritemSpacing
+        }
+        
+        return 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -250,6 +277,14 @@ extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
 }
 
 fileprivate extension CollectionViewComponent {
+    func sectionDelegate(section: Int) -> CollectionViewSectionDelegatable? {
+        return sectionDelegate(section: sections[section])
+    }
+    
+    func sectionDelegate(section: CollectionViewSectionType) -> CollectionViewSectionDelegatable? {
+        return section as? CollectionViewSectionDelegatable
+    }
+    
     func itemDelegate(indexPath: IndexPath) -> CollectionViewItemDelegatable? {
         return itemDelegate(item: sections[indexPath.section].items[indexPath.item])
     }
