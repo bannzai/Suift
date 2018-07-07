@@ -30,6 +30,8 @@ public protocol CollectionViewItemDelegatable {
     func shouldDeselect(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
     func didSelect(collectionView: UICollectionView, indexPath: IndexPath)
     func didDeselect(collectionView: UICollectionView, indexPath: IndexPath)
+    
+    func shouldShowMenu(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
 }
 
 public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
@@ -54,6 +56,8 @@ public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItem
     public var shouldDeselect: ((ItemArgument) -> Bool)?
     public var didSelect: ((ItemArgument) -> Void)?
     public var didDeselect: ((ItemArgument) -> Void)?
+    
+    public var shouldShowMenu: ((ItemArgument) -> Bool)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
@@ -103,6 +107,10 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
     
     public func didDeselect(collectionView: UICollectionView, indexPath: IndexPath) {
         didDeselect?((self, collectionView, indexPath))
+    }
+    
+    public func shouldShowMenu(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return shouldShowMenu?((self, collectionView, indexPath))
     }
     
 }
