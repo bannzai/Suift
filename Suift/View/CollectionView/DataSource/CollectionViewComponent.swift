@@ -30,13 +30,11 @@ extension CollectionViewComponent: UICollectionViewDataSource {
         (item as? CollectionViewItemDelegatable)?.configureCell(collectionView: collectionView, cell: cell, indexPath: indexPath)
         return cell
     }
-    
-    
+
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
-    
-    
+
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let type = CollectionViewSectionHeaderFooterKind(kind: kind) else {
             fatalError("Unknown kind: \(kind)")
@@ -56,16 +54,18 @@ extension CollectionViewComponent: UICollectionViewDataSource {
         fatalError()
     }
     
-    
     public func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        fatalError()
+        let canMoveItem = itemDelegate(indexPath: indexPath)?
+            .canMoveItem(collectionView: collectionView, indexPath: indexPath)
+        return canMoveItem ?? false
     }
     
     public func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        fatalError()
+        let item = sections[sourceIndexPath.section].remove(for: sourceIndexPath.item)
+        sections[destinationIndexPath.section].insert(item, to: destinationIndexPath.item)
+        didMoveItem?(sourceIndexPath, destinationIndexPath)
     }
-    
-    
+
     public func indexTitles(for collectionView: UICollectionView) -> [String]? {
         fatalError()
     }
@@ -111,7 +111,7 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         guard
             let headerFooter = headerOrFooterOrNil(for: elementKind, section: indexPath.section),
-            let delegate = delegate(headerFooter: headerFooter)
+            let delegate = headerFooterDelegate(headerFooter: headerFooter)
             else {
                 return
         }
@@ -125,7 +125,7 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
         guard
             let headerFooter = headerOrFooterOrNil(for: elementKind, section: indexPath.section),
-            let delegate = delegate(headerFooter: headerFooter)
+            let delegate = headerFooterDelegate(headerFooter: headerFooter)
             else {
                 return
         }
@@ -221,7 +221,15 @@ extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
 }
 
 fileprivate extension CollectionViewComponent {
-    func delegate(headerFooter: CollectionViewSectionHeaderFooterViewable) -> CollectionViewSectionHeaderFooterDelegateType? {
+    func itemDelegate(indexPath: IndexPath) -> CollectionViewItemDelegatable? {
+        return itemDelegate(item: sections[indexPath.section].items[indexPath.item])
+    }
+    
+    func itemDelegate(item: CollectionViewItemType) -> CollectionViewItemDelegatable? {
+        return item as? CollectionViewItemDelegatable
+    }
+    
+    func headerFooterDelegate(headerFooter: CollectionViewSectionHeaderFooterViewable) -> CollectionViewSectionHeaderFooterDelegateType? {
         return headerFooter as? CollectionViewSectionHeaderFooterDelegateType
     }
     
@@ -245,7 +253,7 @@ fileprivate extension CollectionViewComponent {
         // Dequeue
         if let identifier = headerFooter.reuseIdentifier {
             let view = dequeueReusableSupplementaryView(collectionView: collectionView, kind: headerFooter.kind.kind, identifier: identifier, indexPath: indexPath)
-            if let delegate = delegate(headerFooter: headerFooter) {
+            if let delegate = headerFooterDelegate(headerFooter: headerFooter) {
                 delegate.configureView(collectionView, view: view, section: indexPath.section)
             }
             return view
@@ -255,7 +263,7 @@ fileprivate extension CollectionViewComponent {
     }
     
     func sectionHeaderFooterSizeFor(headerFooter: CollectionViewSectionHeaderFooterViewable, collectionView: UICollectionView, section: Int) -> CGSize? {
-        if let delegate = delegate(headerFooter: headerFooter),
+        if let delegate = headerFooterDelegate(headerFooter: headerFooter),
             let size = delegate.sizeFor(collectionView, section: section) {
             return size
         }
