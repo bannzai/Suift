@@ -150,7 +150,9 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        fatalError("Not yet implement")
+        let shouldShowMenu = itemDelegate(indexPath: indexPath)?
+            .shouldShowMenu(collectionView: collectionView, indexPath: indexPath)
+        return shouldShowMenu ?? false
     }
     
     public func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
