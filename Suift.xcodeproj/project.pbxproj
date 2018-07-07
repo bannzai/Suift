@@ -31,6 +31,9 @@
 		BAAB707720EFBC33008CB799 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707620EFBC33008CB799 /* CollectionView.swift */; };
 		BAAB707A20EFBE37008CB799 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707920EFBE37008CB799 /* CollectionViewCell.swift */; };
 		BAAB707C20EFBEA4008CB799 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707B20EFBEA4008CB799 /* CollectionReusableView.swift */; };
+		BAAB707F20F05416008CB799 /* CollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707E20F05416008CB799 /* CollectionViewComponent.swift */; };
+		BAAB708120F05448008CB799 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB708020F05448008CB799 /* CollectionViewSection.swift */; };
+		BAAB708320F0544F008CB799 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB708220F0544F008CB799 /* CollectionViewItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		BAAB707620EFBC33008CB799 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		BAAB707920EFBE37008CB799 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BAAB707B20EFBEA4008CB799 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		BAAB707E20F05416008CB799 /* CollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewComponent.swift; sourceTree = "<group>"; };
+		BAAB708020F05448008CB799 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
+		BAAB708220F0544F008CB799 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,11 +204,22 @@
 		BAAB707820EFBE19008CB799 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				BAAB707D20F053F6008CB799 /* DataSource */,
 				BAAB707620EFBC33008CB799 /* CollectionView.swift */,
 				BAAB707920EFBE37008CB799 /* CollectionViewCell.swift */,
 				BAAB707B20EFBEA4008CB799 /* CollectionReusableView.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		BAAB707D20F053F6008CB799 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				BAAB707E20F05416008CB799 /* CollectionViewComponent.swift */,
+				BAAB708020F05448008CB799 /* CollectionViewSection.swift */,
+				BAAB708220F0544F008CB799 /* CollectionViewItem.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,14 +341,17 @@
 				BAAB707720EFBC33008CB799 /* CollectionView.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
+				BAAB707F20F05416008CB799 /* CollectionViewComponent.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
 				BAAB707A20EFBE37008CB799 /* CollectionViewCell.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
 				BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */,
+				BAAB708320F0544F008CB799 /* CollectionViewItem.swift in Sources */,
 				BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */,
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
+				BAAB708120F05448008CB799 /* CollectionViewSection.swift in Sources */,
 				BA34287320ED2C4000FD39C5 /* Button.swift in Sources */,
 				BA61AD5720EE056400066C03 /* Label.swift in Sources */,
 				BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */,
