@@ -10,33 +10,36 @@ import Foundation
 
 public protocol CollectionViewItemType {
     var reusableIdentifier: String { get set }
+    var size: CGSize? { get set }
 }
 
 public protocol CollectionViewItemDelegatable {
     func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
-    func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize
-
+    func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize?
+    func canMoveItem(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
 }
 
-public struct CollectionViewItem<T: UICollectionViewCell>: CollectionViewItemType {
-    public typealias CollectionViewItemInfomation = (CollectionViewItem: CollectionViewItem<T>, collectionView: UICollectionView, indexPath: IndexPath)
+public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
+    public typealias ItemArgument = (item: CollectionViewItem<Cell>, collectionView: UICollectionView, indexPath: IndexPath)
+
     public var reusableIdentifier: String
+    public var size: CGSize?
     
-    public var configureCell: ((T, CollectionViewItemInfomation) -> Void)?
-    public var sizeFor: ((CollectionViewItemInfomation) -> CGSize)?
+    public var configureCell: ((Cell, ItemArgument) -> Void)?
+    public var sizeFor: ((ItemArgument) -> CGSize)?
+    public var canMoveItem: ((ItemArgument) -> Bool)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
     public func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath) {
-        configureCell?(cell as! T, (self, collectionView, indexPath))
+        configureCell?(cell as! Cell, (self, collectionView, indexPath))
+    }
+
+    public func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize? {
+        return sizeFor?((self, collectionView, indexPath)) ?? size
     }
     
-    public func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize {
-        guard let size = sizeFor?((self, collectionView, indexPath)) else {
-            return .zero
-        }
-        
-        return size
+    public func canMoveItem(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return canMoveItem?((self, collectionView, indexPath))
     }
-    
 }
