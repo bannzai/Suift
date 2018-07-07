@@ -11,8 +11,14 @@ import Foundation
 
 public protocol CollectionViewSectionType {
     var items: [CollectionViewItemType] { get set }
+    
+    var header: CollectionViewSectionHeaderFooterType? { get }
+    var footer: CollectionViewSectionHeaderFooterType? { get }
 }
 
 public struct CollectionViewSection: CollectionViewSectionType {
     public var items: [CollectionViewItemType]
+    
+    public var header: CollectionViewSectionHeaderFooterType?
+    public var footer: CollectionViewSectionHeaderFooterType?
 }

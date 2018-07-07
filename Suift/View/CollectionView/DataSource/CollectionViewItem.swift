@@ -15,6 +15,7 @@ public protocol CollectionViewItemType {
 public protocol CollectionViewItemDelegatable {
     func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
     func sizeFor(collectionView: UICollectionView, indexPath: IndexPath) -> CGSize
+
 }
 
 public struct CollectionViewItem<T: UICollectionViewCell>: CollectionViewItemType {
@@ -37,4 +38,5 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
         
         return size
     }
+    
 }

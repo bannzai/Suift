@@ -105,9 +105,6 @@ extension CollectionViewComponent: UICollectionViewDelegate {
         fatalError()
     }
     
-    
-    
-    
     public func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         fatalError()
     }
