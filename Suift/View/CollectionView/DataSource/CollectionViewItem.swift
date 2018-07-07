@@ -19,6 +19,9 @@ public protocol CollectionViewItemDelegatable {
     func canMoveItem(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
     func willDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
     func didEndDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath)
+    func shouldHighlight(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func didHighlight(collectionView: UICollectionView, indexPath: IndexPath)
+    func didUnhighlight(collectionView: UICollectionView, indexPath: IndexPath)
 }
 
 public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
@@ -32,6 +35,9 @@ public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItem
     public var canMoveItem: ((ItemArgument) -> Bool)?
     public var willDisplay: ((Cell, ItemArgument) -> Void)?
     public var didEndDisplay: ((Cell, ItemArgument) -> Void)?
+    public var shouldHighlight: ((ItemArgument) -> Bool)?
+    public var didHighlight: ((ItemArgument) -> Void)?
+    public var didUnhighlight: ((ItemArgument) -> Void)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
@@ -53,5 +59,17 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
     
     public func didEndDisplay(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath) {
         didEndDisplay?(cell as! Cell, (self, collectionView, indexPath))
+    }
+    
+    public func shouldHighlight(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return shouldHighlight?((self, collectionView, indexPath))
+    }
+    
+    public func didHighlight(collectionView: UICollectionView, indexPath: IndexPath) {
+        didHighlight?((self, collectionView, indexPath))
+    }
+    
+    public func didUnhighlight(collectionView: UICollectionView, indexPath: IndexPath) {
+        didUnhighlight?((self, collectionView, indexPath))
     }
 }
