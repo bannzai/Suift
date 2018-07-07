@@ -14,6 +14,9 @@ public protocol CollectionViewSectionType {
     
     var header: CollectionViewSectionHeaderFooterViewable? { get }
     var footer: CollectionViewSectionHeaderFooterViewable? { get }
+    
+    mutating func remove(for item: Int) -> CollectionViewItemType
+    mutating func insert(_ item: CollectionViewItemType, to index: Int)
 }
 
 public struct CollectionViewSection: CollectionViewSectionType {
@@ -21,4 +24,13 @@ public struct CollectionViewSection: CollectionViewSectionType {
     
     public var header: CollectionViewSectionHeaderFooterViewable?
     public var footer: CollectionViewSectionHeaderFooterViewable?
+    
+    public mutating func remove(for item: Int) -> CollectionViewItemType {
+        return items.remove(at: item)
+    }
+    
+    public mutating func insert(_ item: CollectionViewItemType, to index: Int) {
+        items.insert(item, at: index)
+    }
 }
+
