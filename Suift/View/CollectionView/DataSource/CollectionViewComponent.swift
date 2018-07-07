@@ -110,7 +110,8 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
 
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        fatalError("Not yet implement")
+        itemDelegate(indexPath: indexPath)?
+            .willDisplay(collectionView: collectionView, cell: cell, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
@@ -124,7 +125,8 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        fatalError("Not yet implement")
+        itemDelegate(indexPath: indexPath)?
+            .didEndDisplay(collectionView: collectionView, cell: cell, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
