@@ -156,11 +156,14 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        fatalError("Not yet implement")
+        let canPerformAction = itemDelegate(indexPath: indexPath)?
+            .canPerformAction(collectionView: collectionView, action: action, forItemAt: indexPath, withSender: sender)
+        return canPerformAction ?? false
     }
     
     public func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        fatalError("Not yet implement")
+        itemDelegate(indexPath: indexPath)?
+            .performAction(collectionView: collectionView, action: action, forItemAt: indexPath, withSender: sender)
     }
     
     public func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
