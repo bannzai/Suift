@@ -26,10 +26,10 @@ public protocol CollectionViewItemDelegatable {
     func didHighlight(collectionView: UICollectionView, indexPath: IndexPath)
     func didUnhighlight(collectionView: UICollectionView, indexPath: IndexPath)
     
-    func shouldSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
-    func shouldDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
-    func didSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath)
-    func didDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath)
+    func shouldSelect(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func shouldDeselect(collectionView: UICollectionView, indexPath: IndexPath) -> Bool?
+    func didSelect(collectionView: UICollectionView, indexPath: IndexPath)
+    func didDeselect(collectionView: UICollectionView, indexPath: IndexPath)
 }
 
 public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItemType {
@@ -50,10 +50,10 @@ public struct CollectionViewItem<Cell: UICollectionViewCell>: CollectionViewItem
     public var didHighlight: ((ItemArgument) -> Void)?
     public var didUnhighlight: ((ItemArgument) -> Void)?
 
-    public var shouldSelectItemAt: ((ItemArgument) -> Bool)?
-    public var shouldDeselectItemAt: ((ItemArgument) -> Bool)?
-    public var didSelectItemAt: ((ItemArgument) -> Void)?
-    public var didDeselectItemAt: ((ItemArgument) -> Void)?
+    public var shouldSelect: ((ItemArgument) -> Bool)?
+    public var shouldDeselect: ((ItemArgument) -> Bool)?
+    public var didSelect: ((ItemArgument) -> Void)?
+    public var didDeselect: ((ItemArgument) -> Void)?
 }
 
 extension CollectionViewItem: CollectionViewItemDelegatable {
@@ -89,20 +89,20 @@ extension CollectionViewItem: CollectionViewItemDelegatable {
         didUnhighlight?((self, collectionView, indexPath))
     }
     
-    public func shouldSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
-        return shouldSelectItemAt?((self, collectionView, indexPath))
+    public func shouldSelect(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return shouldSelect?((self, collectionView, indexPath))
     }
     
-    public func shouldDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
-        return shouldDeselectItemAt?((self, collectionView, indexPath))
+    public func shouldDeselect(collectionView: UICollectionView, indexPath: IndexPath) -> Bool? {
+        return shouldDeselect?((self, collectionView, indexPath))
     }
     
-    public func didSelectItemAt(collectionView: UICollectionView, indexPath: IndexPath) {
-        didSelectItemAt?((self, collectionView, indexPath))
+    public func didSelect(collectionView: UICollectionView, indexPath: IndexPath) {
+        didSelect?((self, collectionView, indexPath))
     }
     
-    public func didDeselectItemAt(collectionView: UICollectionView, indexPath: IndexPath) {
-        didDeselectItemAt?((self, collectionView, indexPath))
+    public func didDeselect(collectionView: UICollectionView, indexPath: IndexPath) {
+        didDeselect?((self, collectionView, indexPath))
     }
     
 }
