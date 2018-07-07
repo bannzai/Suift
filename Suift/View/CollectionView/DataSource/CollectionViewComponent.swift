@@ -51,7 +51,7 @@ extension CollectionViewComponent: UICollectionViewDataSource {
                 return view
             }
         }
-        fatalError()
+        fatalError("")
     }
     
     public func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
@@ -67,45 +67,45 @@ extension CollectionViewComponent: UICollectionViewDataSource {
     }
 
     public func indexTitles(for collectionView: UICollectionView) -> [String]? {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, indexPathForIndexTitle title: String, at index: Int) -> IndexPath {
-        fatalError()
+        fatalError("Not yet implement")
     }
 }
 
 extension CollectionViewComponent: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        fatalError()
+        fatalError("Not yet implement")
     }
 
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
@@ -119,7 +119,7 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
@@ -133,68 +133,68 @@ extension CollectionViewComponent: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     
     public func collectionView(_ collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     
     public func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     
     public func collectionView(_ collectionView: UICollectionView, shouldSpringLoadItemAt indexPath: IndexPath, with context: UISpringLoadedInteractionContext) -> Bool {
-        fatalError()
+        fatalError("Not yet implement")
     }
 }
 
 extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        fatalError()
+        fatalError("Not yet implement")
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
