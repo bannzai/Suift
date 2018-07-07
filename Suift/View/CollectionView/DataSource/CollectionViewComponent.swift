@@ -82,15 +82,19 @@ extension CollectionViewComponent: UICollectionViewDataSource {
 
 extension CollectionViewComponent: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        fatalError("Not yet implement")
+        let shouldHighlight = itemDelegate(indexPath: indexPath)?
+            .shouldHighlight(collectionView: collectionView, indexPath: indexPath)
+        return shouldHighlight ?? false
     }
     
     public func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        fatalError("Not yet implement")
+         itemDelegate(indexPath: indexPath)?
+            .didHighlight(collectionView: collectionView, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        fatalError("Not yet implement")
+        itemDelegate(indexPath: indexPath)?
+            .didUnhighlight(collectionView: collectionView, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
