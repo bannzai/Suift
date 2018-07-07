@@ -12,6 +12,7 @@ import Foundation
 public class CollectionViewComponent: NSObject {
     public weak var collectionView: UICollectionView?
     public var sections: [CollectionViewSectionType] = []
+    public var didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)?
     
     func itemFor(indexPath: IndexPath) -> CollectionViewItemType {
         return sections[indexPath.section].items[indexPath.item]
