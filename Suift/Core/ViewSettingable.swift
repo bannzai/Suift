@@ -8,13 +8,13 @@
 
 import Foundation
 
-public protocol ViewSettingable {
+public protocol ViewSettingable: ViewUpdateDecidable {
     var constraint: LayoutMaker { get }
     var children: [ViewableProxy] { get }
 }
 
 // For Rootable
-extension ViewSettingable where Self: Viewable {
+extension ViewSettingable {
     fileprivate func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
         let set = viewUpdateSet()
         return (
@@ -24,6 +24,9 @@ extension ViewSettingable where Self: Viewable {
         )
     }
     
+}
+
+extension ViewSettingable {
     public func layout(for view: UIView) {
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
         let layouts = constraint.layout(set: set)
