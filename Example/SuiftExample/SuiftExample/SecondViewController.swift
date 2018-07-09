@@ -12,11 +12,17 @@ import Suift
 class SecondViewController: UIViewController {
     
     let rootBag: RootBag = RootBag()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         render()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
 
     deinit {
@@ -27,44 +33,104 @@ class SecondViewController: UIViewController {
 
 extension SecondViewController: Buildable {
     func build() -> Rootable {
-        return View(
-            style: ViewStyle {
-                $0.backgroundColor = UIColor.white
+        return CollectionView(
+            view: collectionView,
+            style: CollectionViewStyle {
+                $0.viewStyle = ViewStyle {
+                    $0.backgroundColor = UIColor.white
+                }
             },
             constraint: LayoutMaker { view, superview, views in
                 return [
-                     view.topAnchor.constraint(equalTo: superview.topAnchor),
-                     view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
-                     view.leftAnchor.constraint(equalTo: superview.leftAnchor),
-                     view.rightAnchor.constraint(equalTo: superview.rightAnchor),
-                ]
+                    view.topAnchor.constraint(equalTo: superview.topAnchor),
+                    view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+                    view.leftAnchor.constraint(equalTo: superview.leftAnchor),
+                    view.rightAnchor.constraint(equalTo: superview.rightAnchor),
+                    ]
             },
-            children: [
-                Button(
-                    style: ButtonStyle {
-                        $0.viewStyle = ViewStyle {
-                            $0.backgroundColor = UIColor.red
+            source: CollectionViewSource(elements: [1,2,3]) { (integer) -> [CollectionViewSection] in
+                    return [
+                        CollectionViewSectionImpl(
+                            elements: ["hoge", "fuga", "piyo"],
+                            itemsClosure: { (string) -> [CollectionViewItem] in
+                                return [
+                                    CollectionViewCell(
+                                        identifier: "CollectionViewCell",
+                                        style: CollectionViewCellStyle {
+                                            $0.viewStyle = ViewStyle {
+                                                $0.backgroundColor = UIColor.gray
+                                            }
+                                        },
+                                        constraint: LayoutMaker { view, superview, subviews in
+                                            return []
+                                        },
+                                        children: [
+                                            Label(
+                                                style: LabelStyle {
+                                                    $0.viewStyle = ViewStyle {
+                                                        $0.backgroundColor = UIColor.blue
+                                                    }
+                                                },
+                                                constraint: LayoutMaker { view, superview, subviews in
+                                                    return [
+                                                        view.topAnchor.constraint(equalTo: superview.topAnchor),
+                                                        view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+                                                        view.leftAnchor.constraint(equalTo: superview.leftAnchor),
+                                                        view.rightAnchor.constraint(equalTo: superview.rightAnchor),
+                                                        ]
+                                                }
+                                            )
+                                        ],
+                                        configureCell: { (cell, itemInfo) in
+                                            cell.backgroundColor = .red
+                                    },
+                                        sizeFor: { (itemInfo) -> CGSize in
+                                            return CGSize(width: 200, height: 200)
+                                    })
+                                ]
                         }
-                        $0.labelStyle = LabelStyle {
-                            $0.textColor = UIColor.white
-                        }
-                    },
-                    constraint: LayoutMaker { view, superview, views in
-                        return [
-                            view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) ,
-                            view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) ,
-                            view.widthAnchor.constraint(equalToConstant: 200),
-                            view.heightAnchor.constraint(equalToConstant: 50),
-                            ]
-                    },
-                    event: ButtonEvent(
-                        events: .touchUpInside,
-                        closure: { [weak self] (button) in
-                            self?.navigationController?.pushViewController(SecondViewController(), animated: true)
-                        }
-                    )
-                )
-            ]
+                        )
+                    ]
+            }
         )
+        //        return View(
+        //            style: ViewStyle {
+        //                $0.backgroundColor = UIColor.white
+        //            },
+        //            constraint: LayoutMaker { view, superview, views in
+        //                return [
+        //                     view.topAnchor.constraint(equalTo: superview.topAnchor),
+        //                     view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+        //                     view.leftAnchor.constraint(equalTo: superview.leftAnchor),
+        //                     view.rightAnchor.constraint(equalTo: superview.rightAnchor),
+        //                ]
+        //            },
+        //            children: [
+        //                Button(
+        //                    style: ButtonStyle {
+        //                        $0.viewStyle = ViewStyle {
+        //                            $0.backgroundColor = UIColor.red
+        //                        }
+        //                        $0.labelStyle = LabelStyle {
+        //                            $0.textColor = UIColor.white
+        //                        }
+        //                    },
+        //                    constraint: LayoutMaker { view, superview, views in
+        //                        return [
+        //                            view.centerXAnchor.constraint(equalTo: superview.centerXAnchor) ,
+        //                            view.centerYAnchor.constraint(equalTo: superview.centerYAnchor) ,
+        //                            view.widthAnchor.constraint(equalToConstant: 200),
+        //                            view.heightAnchor.constraint(equalToConstant: 50),
+        //                            ]
+        //                    },
+        //                    event: ButtonEvent(
+        //                        events: .touchUpInside,
+        //                        closure: { [weak self] (button) in
+        //                            self?.navigationController?.pushViewController(SecondViewController(), animated: true)
+        //                        }
+        //                    )
+        //                )
+        //            ]
+        //        )
     }
 }
