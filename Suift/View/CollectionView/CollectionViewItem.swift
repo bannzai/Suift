@@ -63,6 +63,55 @@ public struct CollectionViewItemImpl<Cell: UICollectionViewCell>: CollectionView
     public var shouldShowMenu: ((ItemArgument) -> Bool)?
     public var canPerformAction: ((PerformActionArgument) -> Bool)?
     public var performAction: ((PerformActionArgument) -> Void)?
+    
+    public init(
+        identifier: String,
+        
+        configureCell: ((Cell, ItemArgument) -> Void)?,
+        sizeFor: ((ItemArgument) -> CGSize)?,
+        
+        canMoveItem: ((ItemArgument) -> Bool)? = nil,
+        
+        willDisplay: ((Cell, ItemArgument) -> Void)? = nil,
+        didEndDisplay: ((Cell, ItemArgument) -> Void)? = nil,
+        
+        shouldHighlight: ((ItemArgument) -> Bool)? = nil,
+        didHighlight: ((ItemArgument) -> Void)? = nil,
+        didUnhighlight: ((ItemArgument) -> Void)? = nil,
+        
+        shouldSelect: ((ItemArgument) -> Bool)? = nil,
+        shouldDeselect: ((ItemArgument) -> Bool)? = nil,
+        didSelect: ((ItemArgument) -> Void)? = nil,
+        didDeselect: ((ItemArgument) -> Void)? = nil,
+        
+        shouldShowMenu: ((ItemArgument) -> Bool)? = nil,
+        canPerformAction: ((PerformActionArgument) -> Bool)? = nil,
+        performAction: ((PerformActionArgument) -> Void)? = nil
+        ) {
+        
+        self.identifier = identifier
+        
+        self.configureCell = configureCell
+        self.sizeFor = sizeFor
+        
+        self.canMoveItem = canMoveItem
+        
+        self.willDisplay = willDisplay
+        self.didEndDisplay = didEndDisplay
+        
+        self.shouldHighlight = shouldHighlight
+        self.didHighlight = didHighlight
+        self.didUnhighlight = didUnhighlight
+        
+        self.shouldSelect = shouldSelect
+        self.shouldDeselect = shouldDeselect
+        self.didSelect = didSelect
+        self.didDeselect = didDeselect
+        
+        self.shouldShowMenu = shouldShowMenu
+        self.canPerformAction = canPerformAction
+        self.performAction = performAction
+    }
 }
 
 extension CollectionViewItemImpl {
