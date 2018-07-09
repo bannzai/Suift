@@ -10,6 +10,7 @@
 		BA2952F920F3484700710FBE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2952F820F3484700710FBE /* CollectionView.swift */; };
 		BA2952FB20F3489700710FBE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2952FA20F3489700710FBE /* CollectionViewCell.swift */; };
 		BA2952FD20F348BF00710FBE /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2952FC20F348BF00710FBE /* CollectionReusableView.swift */; };
+		BA29530120F3497D00710FBE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29530020F3497D00710FBE /* Reusable.swift */; };
 		BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34285E20EB33A700FD39C5 /* Viewable.swift */; };
 		BA34286B20ED18BE00FD39C5 /* ViewableProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */; };
 		BA34287320ED2C4000FD39C5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34287220ED2C4000FD39C5 /* Button.swift */; };
@@ -47,6 +48,7 @@
 		BA2952F820F3484700710FBE /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		BA2952FA20F3489700710FBE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BA2952FC20F348BF00710FBE /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		BA29530020F3497D00710FBE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		BA34285E20EB33A700FD39C5 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
 		BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewableProxy.swift; sourceTree = "<group>"; };
 		BA34287220ED2C4000FD39C5 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				BA2952F720F3483B00710FBE /* CollectionView */,
+				BA29530020F3497D00710FBE /* Reusable.swift */,
 			);
 			path = Reuse;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
 				BA2952FB20F3489700710FBE /* CollectionViewCell.swift in Sources */,
+				BA29530120F3497D00710FBE /* Reusable.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
