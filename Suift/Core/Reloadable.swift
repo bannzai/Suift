@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Reloadable: class {
+public protocol Reloadable {
     func reload()
 }
 

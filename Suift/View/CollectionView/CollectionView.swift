@@ -28,13 +28,15 @@ public struct CollectionView<V: UICollectionView>: Rootable {
     
     public let style: CollectionViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
-    public var children: [ViewableProxy]
+    public let children: [ViewableProxy]
+    public let source: CollectionViewSource
     
     public init(
         view: V? = nil,
         style: CollectionViewStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = []
+        children: [ViewableProxy] = [],
+        source: CollectionViewSource
         ) {
         if let view = view {
             self._collectionView = view
@@ -44,14 +46,22 @@ public struct CollectionView<V: UICollectionView>: Rootable {
         self.style = style
         self.constraint = constraint
         self.children = children
+        self.source = source
+        self.source.collectionView = _collectionView
     }
     
     // FIXME: move to Viewable
     public func stylize(for view: UIView) {
         style.apply(with: _collectionView)
     }
-    
+
     public func view() -> UIView {
         return _collectionView
+    }
+}
+
+extension CollectionView: Reloadable {
+    public func reload() {
+        source.reload()
     }
 }

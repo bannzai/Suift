@@ -9,7 +9,13 @@
 import Foundation
 
 public class CollectionViewSource: NSObject {
-    public weak var collectionView: UICollectionView?
+    public weak var collectionView: UICollectionView? {
+        didSet {
+            if let collectionView = collectionView {
+                setup(for: collectionView)
+            }
+        }
+    }
     public var sections: [CollectionViewSection]
     
     public var didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)?
@@ -17,14 +23,12 @@ public class CollectionViewSource: NSObject {
     public var indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)?
 
     public init(
-        collectionView: UICollectionView,
         sections: [CollectionViewSection],
         
         didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)? = nil,
         indexTitles: ((UICollectionView) -> [String])? = nil,
         indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)? = nil
         ) {
-        self.collectionView = collectionView
         self.sections = sections
         
         self.didMoveItem = didMoveItem
@@ -32,12 +36,9 @@ public class CollectionViewSource: NSObject {
         self.indexTitle = indexTitle
 
         super.init()
-        
-        setup(for: collectionView)
     }
     
     public init<E>(
-        collectionView: UICollectionView,
         elements: [E],
         sectionsClosure: ((E) -> [CollectionViewSection]),
 
@@ -45,7 +46,6 @@ public class CollectionViewSource: NSObject {
         indexTitles: ((UICollectionView) -> [String])? = nil,
         indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)? = nil
         ) {
-        self.collectionView = collectionView
         self.sections = elements.flatMap { sectionsClosure($0) }
 
         self.didMoveItem = didMoveItem
@@ -53,8 +53,6 @@ public class CollectionViewSource: NSObject {
         self.indexTitle = indexTitle
         
         super.init()
-        
-        setup(for: collectionView)
     }
 }
 
