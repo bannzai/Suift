@@ -36,12 +36,16 @@ public protocol CollectionViewItemDelegatable {
 }
 
 
-public struct CollectionViewItemImpl<Cell: UICollectionViewCell>: CollectionViewItem {
-    public typealias ItemArgument = (item: CollectionViewItemImpl<Cell>, collectionView: UICollectionView, indexPath: IndexPath)
-    public typealias PerformActionArgument = (item: CollectionViewItemImpl<Cell>, collectionView: UICollectionView, action: Selector, indexPath: IndexPath, sender: Any?)
+public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem {
+    public typealias ItemArgument = (item: CollectionViewCell<Cell>, collectionView: UICollectionView, indexPath: IndexPath)
+    public typealias PerformActionArgument = (item: CollectionViewCell<Cell>, collectionView: UICollectionView, action: Selector, indexPath: IndexPath, sender: Any?)
     
     public let identifier: String
     
+    public let style: CollectionViewCellStyle // FIXME: move to Viewable
+    public let constraint: LayoutMaker
+    public let children: [ViewableProxy]
+
     public var configureCell: ((Cell, ItemArgument) -> Void)?
     public var sizeFor: ((ItemArgument) -> CGSize)?
     
@@ -66,6 +70,10 @@ public struct CollectionViewItemImpl<Cell: UICollectionViewCell>: CollectionView
     public init(
         identifier: String,
         
+        style: CollectionViewCellStyle,
+        constraint: LayoutMaker,
+        children: [ViewableProxy],
+
         configureCell: ((Cell, ItemArgument) -> Void)?,
         sizeFor: ((ItemArgument) -> CGSize)?,
         
@@ -90,6 +98,10 @@ public struct CollectionViewItemImpl<Cell: UICollectionViewCell>: CollectionView
         
         self.identifier = identifier
         
+        self.style = style
+        self.constraint = constraint
+        self.children = children
+        
         self.configureCell = configureCell
         self.sizeFor = sizeFor
         
@@ -113,14 +125,20 @@ public struct CollectionViewItemImpl<Cell: UICollectionViewCell>: CollectionView
     }
 }
 
-extension CollectionViewItemImpl {
+extension CollectionViewCell: ViewSettingable {
+    public func stylize(for view: UIView) {
+        style.apply(with: view as! Cell)
+    }
+}
+
+extension CollectionViewCell {
     public func register() {
         
     }
 }
 
 
-extension CollectionViewItemImpl: CollectionViewItemDelegatable {
+extension CollectionViewCell: CollectionViewItemDelegatable {
     public func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath) {
         configureCell?(cell as! Cell, (self, collectionView, indexPath))
     }
