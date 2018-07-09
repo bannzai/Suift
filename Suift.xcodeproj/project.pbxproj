@@ -39,6 +39,7 @@
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
 		BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */; };
 		BAF6DFC320F3718600721A61 /* ViewStylizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC220F3718600721A61 /* ViewStylizable.swift */; };
+		BAF6DFC520F3727100721A61 /* Reloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC420F3727100721A61 /* Reloadable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingable.swift; sourceTree = "<group>"; };
 		BAF6DFC220F3718600721A61 /* ViewStylizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylizable.swift; sourceTree = "<group>"; };
+		BAF6DFC420F3727100721A61 /* Reloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reloadable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
 				BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
+				BAF6DFC420F3727100721A61 /* Reloadable.swift */,
 				BAF6DFC220F3718600721A61 /* ViewStylizable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 				BA61AD6220EF57C800066C03 /* RootBag.swift */,
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF6DFC520F3727100721A61 /* Reloadable.swift in Sources */,
 				BA2952FD20F348BF00710FBE /* CollectionReusableView.swift in Sources */,
 				BA34285F20EB33A700FD39C5 /* Viewable.swift in Sources */,
 				BA61AD5B20EE5D5C00066C03 /* Rootable.swift in Sources */,
