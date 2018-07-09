@@ -38,6 +38,7 @@
 		BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */; };
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
 		BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */; };
+		BAF6DFC320F3718600721A61 /* ViewStylizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC220F3718600721A61 /* ViewStylizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdateDecidable.swift; sourceTree = "<group>"; };
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingable.swift; sourceTree = "<group>"; };
+		BAF6DFC220F3718600721A61 /* ViewStylizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
 				BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
+				BAF6DFC220F3718600721A61 /* ViewStylizable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 				BA61AD6220EF57C800066C03 /* RootBag.swift */,
 				BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */,
@@ -369,6 +372,7 @@
 				BA5BD45320EA82F300EFC3F6 /* Color.swift in Sources */,
 				BA34287320ED2C4000FD39C5 /* Button.swift in Sources */,
 				BA61AD5720EE056400066C03 /* Label.swift in Sources */,
+				BAF6DFC320F3718600721A61 /* ViewStylizable.swift in Sources */,
 				BA29530720F352F100710FBE /* CollectionViewItem.swift in Sources */,
 				BA5BD47020EB1E9400EFC3F6 /* Buildable.swift in Sources */,
 			);

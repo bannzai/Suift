@@ -8,8 +8,7 @@
 
 import Foundation
 
-public protocol Viewable: ViewableProxy, ViewUpdateDecidable {
-    func stylize(for view: UIView)
+public protocol Viewable: ViewStylizable, ViewableProxy, ViewUpdateDecidable {
     func layout(for view: UIView)
     func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet)
     

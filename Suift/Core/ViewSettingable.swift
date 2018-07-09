@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ViewSettingable: ViewUpdateDecidable {
+public protocol ViewSettingable: ViewStylizable, ViewUpdateDecidable {
     var constraint: LayoutMaker { get }
     var children: [ViewableProxy] { get }
 }
