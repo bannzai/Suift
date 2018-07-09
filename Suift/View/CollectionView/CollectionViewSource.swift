@@ -15,11 +15,7 @@ public class CollectionViewSource: NSObject {
     public var didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)?
     public var indexTitles: ((UICollectionView) -> [String])?
     public var indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)?
-    
-    func item(for indexPath: IndexPath) -> CollectionViewItem {
-        return sections[indexPath.section].items[indexPath.item]
-    }
-    
+
     public init(
         collectionView: UICollectionView,
         sections: [CollectionViewSection],
@@ -39,9 +35,15 @@ public class CollectionViewSource: NSObject {
         
         setup()
     }
-    
+}
+
+internal extension CollectionViewSource {
     func setup() {
         collectionView?.dataSource = self
         collectionView?.delegate = self
+    }
+    
+    func item(for indexPath: IndexPath) -> CollectionViewItem {
+        return sections[indexPath.section].items[indexPath.item]
     }
 }
