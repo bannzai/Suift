@@ -22,36 +22,3 @@ extension CollectionViewCellStyle: SuiftEquatable {
         return lhs.viewStyle == rhs.viewStyle
     }
 }
-
-//public struct CollectionViewCell<V: UICollectionViewCell> {
-//    let _cell: V
-//
-//    public let style: CollectionViewCellStyle // FIXME: move to Viewable
-//    public let constraint: LayoutMaker
-//    public let children: [ViewableProxy]
-//
-//    public init(
-//        view: V? = nil,
-//        style: CollectionViewCellStyle,
-//        constraint: LayoutMaker,
-//        children: [ViewableProxy] = []
-//        ) {
-//        if let view = view {
-//            self._cell = view
-//        } else {
-//            self._cell = V()
-//        }
-//        self.style = style
-//        self.constraint = constraint
-//        self.children = children
-//    }
-//
-//    // FIXME: move to Viewable
-//    public func stylize() {
-//        style.apply(with: _cell)
-//    }
-//
-//    public func view() -> UIView {
-//        return _cell
-//    }
-//}
