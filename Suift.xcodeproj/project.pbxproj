@@ -102,12 +102,12 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		BA2952FE20F3494500710FBE /* Reusable */ = {
+		BA2952FE20F3494500710FBE /* Reuse */ = {
 			isa = PBXGroup;
 			children = (
 				BA2952F720F3483B00710FBE /* CollectionView */,
 			);
-			path = Reusable;
+			path = Reuse;
 			sourceTree = "<group>";
 		};
 		BA5BD3EB20EA423700EFC3F6 = {
@@ -154,7 +154,7 @@
 		BA5BD44920EA445700EFC3F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BA2952FE20F3494500710FBE /* Reusable */,
+				BA2952FE20F3494500710FBE /* Reuse */,
 				BA5BD44A20EA447800EFC3F6 /* View.swift */,
 				BA34287220ED2C4000FD39C5 /* Button.swift */,
 				BA61AD5620EE056400066C03 /* Label.swift */,
