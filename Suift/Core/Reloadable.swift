@@ -13,5 +13,9 @@ public protocol Reloadable {
 }
 
 public protocol CollectionViewReloadable: Reloadable, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var collectionView: UICollectionView? { get set }
+}
+
+extension CollectionViewReloadable {
     
 }
