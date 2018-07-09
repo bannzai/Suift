@@ -35,6 +35,27 @@ public class CollectionViewSource: NSObject {
         
         setup()
     }
+    
+    public init<E>(
+        collectionView: UICollectionView,
+        elements: [E],
+        sectionsClosure: ((E) -> [CollectionViewSection]),
+
+        didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)? = nil,
+        indexTitles: ((UICollectionView) -> [String])? = nil,
+        indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)? = nil
+        ) {
+        self.collectionView = collectionView
+        self.sections = elements.flatMap { sectionsClosure($0) }
+
+        self.didMoveItem = didMoveItem
+        self.indexTitles = indexTitles
+        self.indexTitle = indexTitle
+        
+        super.init()
+        
+        setup()
+    }
 }
 
 internal extension CollectionViewSource {
