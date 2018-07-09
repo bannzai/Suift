@@ -40,7 +40,6 @@ public struct CollectionViewItemImpl<Cell: UICollectionViewCell>: CollectionView
     public typealias ItemArgument = (item: CollectionViewItemImpl<Cell>, collectionView: UICollectionView, indexPath: IndexPath)
     public typealias PerformActionArgument = (item: CollectionViewItemImpl<Cell>, collectionView: UICollectionView, action: Selector, indexPath: IndexPath, sender: Any?)
     
-    
     public let identifier: String
     
     public var configureCell: ((Cell, ItemArgument) -> Void)?
