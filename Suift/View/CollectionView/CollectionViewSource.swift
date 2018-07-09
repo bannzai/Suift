@@ -11,6 +11,7 @@ import Foundation
 public class CollectionViewSource: NSObject {
     public weak var collectionView: UICollectionView?
     public var sections: [CollectionViewSection]
+    
     public var didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)?
     public var indexTitles: ((UICollectionView) -> [String])?
     public var indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)?
@@ -21,11 +22,19 @@ public class CollectionViewSource: NSObject {
     
     public init(
         collectionView: UICollectionView,
-        sections: [CollectionViewSection]
+        sections: [CollectionViewSection],
+        
+        didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)? = nil,
+        indexTitles: ((UICollectionView) -> [String])? = nil,
+        indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)? = nil
         ) {
         self.collectionView = collectionView
         self.sections = sections
         
+        self.didMoveItem = didMoveItem
+        self.indexTitles = indexTitles
+        self.indexTitle = indexTitle
+
         super.init()
         
         setup()
