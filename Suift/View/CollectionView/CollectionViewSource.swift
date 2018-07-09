@@ -8,11 +8,6 @@
 
 import Foundation
 
-public protocol CollectionViewSourcable {
-    func source() -> CollectionViewSource
-}
-
-
 public class CollectionViewSource: NSObject {
     public weak var collectionView: UICollectionView?
     public var sections: [CollectionViewSection]
@@ -25,22 +20,19 @@ public class CollectionViewSource: NSObject {
     }
     
     public init(
+        collectionView: UICollectionView,
         sections: [CollectionViewSection]
         ) {
+        self.collectionView = collectionView
         self.sections = sections
+        
+        super.init()
+        
+        setup()
     }
-}
-
-extension CollectionViewSource: CollectionViewSourcable {
-    public func source() -> CollectionViewSource {
-        return self
-    }
-}
-
-extension Array: CollectionViewSourcable where Element == CollectionViewSection {
-    public func source() -> CollectionViewSource {
-        return CollectionViewSource(
-            sections: self
-        )
+    
+    func setup() {
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
     }
 }
