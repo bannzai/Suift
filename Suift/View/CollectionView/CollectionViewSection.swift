@@ -55,6 +55,28 @@ public struct CollectionViewSectionImpl: CollectionViewSection {
         self.minimumInteritemSpacing = minimumInteritemSpacing
     }
     
+    public init<E>(
+        elements: [E],
+        itemsClosure: ((E) -> [CollectionViewItem]),
+        
+        header: CollectionViewSectionHeaderFooterViewable? = nil,
+        footer: CollectionViewSectionHeaderFooterViewable? = nil,
+        
+        inset: ((SectionArgument) -> UIEdgeInsets)? = nil,
+        minimumLineSpacing: ((SectionArgument) -> CGFloat)? = nil,
+        minimumInteritemSpacing: ((SectionArgument) -> CGFloat)? = nil
+        ) {
+        self.items = elements.flatMap { itemsClosure($0) }
+        
+        self.header = header
+        self.footer = footer
+        
+        self.inset = inset
+        self.minimumLineSpacing = minimumLineSpacing
+        self.minimumInteritemSpacing = minimumInteritemSpacing
+    }
+
+    
     public mutating func remove(for item: Int) -> CollectionViewItem {
         return items.remove(at: item)
     }
