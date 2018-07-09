@@ -33,7 +33,7 @@ public class CollectionViewSource: NSObject {
 
         super.init()
         
-        setup()
+        setup(for: collectionView)
     }
     
     public init<E>(
@@ -54,7 +54,7 @@ public class CollectionViewSource: NSObject {
         
         super.init()
         
-        setup()
+        setup(for: collectionView)
     }
 }
 
@@ -65,9 +65,14 @@ extension CollectionViewSource: CollectionViewReloadable {
 }
 
 internal extension CollectionViewSource {
-    func setup() {
-        collectionView?.dataSource = self
-        collectionView?.delegate = self
+    func setup(for collectionView: UICollectionView) {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        sections
+            .flatMap { $0.items.map { $0 } }
+            .forEach { $0.register(to: collectionView) }
+        
     }
     
     func item(for indexPath: IndexPath) -> CollectionViewItem {

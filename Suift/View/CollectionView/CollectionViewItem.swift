@@ -132,8 +132,8 @@ extension CollectionViewCell: ViewSettingable {
 }
 
 extension CollectionViewCell {
-    public func register() {
-        
+    public func register(to collectionView: UICollectionView) {
+        collectionView.register(Cell.self, forCellWithReuseIdentifier: identifier)
     }
 }
 
