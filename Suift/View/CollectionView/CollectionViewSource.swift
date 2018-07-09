@@ -58,6 +58,12 @@ public class CollectionViewSource: NSObject {
     }
 }
 
+extension CollectionViewSource: CollectionViewReloadable {
+    public func reload() {
+        collectionView?.reloadData()
+    }
+}
+
 internal extension CollectionViewSource {
     func setup() {
         collectionView?.dataSource = self
