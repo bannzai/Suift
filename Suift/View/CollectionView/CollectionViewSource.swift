@@ -40,11 +40,12 @@ public class CollectionViewSource: NSObject {
     
     public init<E>(
         elements: [E],
-        sectionsClosure: ((E) -> [CollectionViewSection]),
 
         didMoveItem: ((_ sourceIndexPath: IndexPath, _ destinationIndexPath: IndexPath) -> Void)? = nil,
         indexTitles: ((UICollectionView) -> [String])? = nil,
-        indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)? = nil
+        indexTitle: ((_ collectionView: UICollectionView, _ title: String, _ index: Int) -> IndexPath)? = nil,
+        
+        sectionsClosure: ((E) -> [CollectionViewSection])
         ) {
         self.sections = elements.flatMap { sectionsClosure($0) }
 
