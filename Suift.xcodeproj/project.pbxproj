@@ -108,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				BA29530020F3497D00710FBE /* Reusable.swift */,
-				BA2952F720F3483B00710FBE /* CollectionView */,
 			);
 			path = Reuse;
 			sourceTree = "<group>";
@@ -157,6 +156,7 @@
 		BA5BD44920EA445700EFC3F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BA2952F720F3483B00710FBE /* CollectionView */,
 				BA2952FE20F3494500710FBE /* Reuse */,
 				BA5BD44A20EA447800EFC3F6 /* View.swift */,
 				BA34287220ED2C4000FD39C5 /* Button.swift */,
