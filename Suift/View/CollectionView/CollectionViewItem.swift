@@ -74,8 +74,8 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
         constraint: LayoutMaker,
         children: [ViewableProxy],
 
-        configureCell: ((Cell, ItemArgument) -> Void)?,
-        sizeFor: ((ItemArgument) -> CGSize)?,
+        configureCell: ((Cell, ItemArgument) -> Void)? = nil,
+        sizeFor: ((ItemArgument) -> CGSize)? = nil,
         
         canMoveItem: ((ItemArgument) -> Bool)? = nil,
         

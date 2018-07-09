@@ -57,14 +57,15 @@ public struct CollectionViewSectionImpl: CollectionViewSection {
     
     public init<E>(
         elements: [E],
-        itemsClosure: ((E) -> [CollectionViewItem]),
         
         header: CollectionViewSectionHeaderFooterViewable? = nil,
         footer: CollectionViewSectionHeaderFooterViewable? = nil,
         
         inset: ((SectionArgument) -> UIEdgeInsets)? = nil,
         minimumLineSpacing: ((SectionArgument) -> CGFloat)? = nil,
-        minimumInteritemSpacing: ((SectionArgument) -> CGFloat)? = nil
+        minimumInteritemSpacing: ((SectionArgument) -> CGFloat)? = nil,
+        
+        itemsClosure: ((E) -> [CollectionViewItem])
         ) {
         self.items = elements.flatMap { itemsClosure($0) }
         
