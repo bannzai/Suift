@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol Rootable: ViewSettingable {
+public protocol Rootable: ViewSettingable, Viewable {
     
 }

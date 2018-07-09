@@ -8,19 +8,13 @@
 
 import Foundation
 
-public protocol ViewSettingable: Viewable {
+public protocol ViewSettingable {
     var constraint: LayoutMaker { get }
     var children: [ViewableProxy] { get }
 }
 
-extension ViewSettingable {
-    public func proxy() -> Viewable {
-        return self
-    }
-}
-
-fileprivate extension ViewSettingable {
-    func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
+extension ViewSettingable where Self: Viewable {
+    fileprivate func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
         let set = viewUpdateSet()
         return (
             style: parent.style && set.style,
@@ -28,9 +22,7 @@ fileprivate extension ViewSettingable {
             activateChildren: parent.activateChildren && set.activateChildren
         )
     }
-}
-
-extension ViewSettingable {
+    
     public func layout() {
         let view = self.view()
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
