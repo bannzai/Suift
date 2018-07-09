@@ -37,6 +37,7 @@
 		BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6220EF57C800066C03 /* RootBag.swift */; };
 		BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */; };
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
+		BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		BA61AD6220EF57C800066C03 /* RootBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBag.swift; sourceTree = "<group>"; };
 		BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdateDecidable.swift; sourceTree = "<group>"; };
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
+		BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */,
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
+				BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 				BA61AD6220EF57C800066C03 /* RootBag.swift */,
@@ -349,6 +352,7 @@
 				BA5BD45720EA82FB00EFC3F6 /* Text.swift in Sources */,
 				BA2952F920F3484700710FBE /* CollectionView.swift in Sources */,
 				BA29530320F3525400710FBE /* CollectionViewSource.swift in Sources */,
+				BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
