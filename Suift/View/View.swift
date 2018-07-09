@@ -47,8 +47,7 @@ public struct View<V: UIView>: Rootable {
     }
     
     // FIXME: move to Viewable
-    public func stylize() {
-        let view = self.view()
+    public func stylize(for view: UIView) {
         style.apply(with: view)
     }
 

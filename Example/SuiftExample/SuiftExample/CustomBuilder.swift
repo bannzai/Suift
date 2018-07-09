@@ -12,8 +12,7 @@ import Suift
 struct CustomViewBuilder: Viewable {
     let customView = CustomView()
 
-    func layout() {
-        let view = self.view()
+    func layout(for view: UIView) {
         NSLayoutConstraint.activate([
             view.centerXAnchor.constraint(equalTo: view.superview!.centerXAnchor),
             view.centerYAnchor.constraint(equalTo: view.superview!.centerYAnchor),
@@ -23,13 +22,13 @@ struct CustomViewBuilder: Viewable {
         )
     }
     
-    func activateChildren(parentViewUpdateSet set: ViewUpdateSet) {
-        
+    func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
+        // none
     }
 
-    func stylize() {
+    func stylize(for view: UIView) {
         ViewStyle { $0.backgroundColor = UIColor.orange }
-            .apply(with: view())
+            .apply(with: customView)
     }
     
     func view() -> UIView {

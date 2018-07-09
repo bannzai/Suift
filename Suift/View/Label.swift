@@ -50,9 +50,8 @@ public struct Label<V: UILabel>: Rootable {
         self.children = children
     }
     
-    public func stylize() {
-        let view = self.view() as! V
-        style.apply(with: view)
+    public func stylize(for view: UIView) {
+        style.apply(with: _label)
     }
     
     public func view() -> UIView {

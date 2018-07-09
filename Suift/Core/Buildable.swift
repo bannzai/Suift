@@ -33,8 +33,10 @@ extension Buildable {
 
 extension Buildable where Self: UIViewController {
     public func render() {
+
         if let root = rootBag.bag {
-            root.activate(viewUpdateSet: viewUpdateSet())
+            let view = root.view()
+            root.activate(for: view, viewUpdateSet: viewUpdateSet())
             return
         }
         
@@ -44,7 +46,7 @@ extension Buildable where Self: UIViewController {
             self.view.addSubview(view)
         }
         
-        root.activate(viewUpdateSet: allEnabledViewUpdateSet())
+        root.activate(for: view, viewUpdateSet: allEnabledViewUpdateSet())
         rootBag.set(root: root)
     }
 }
@@ -52,7 +54,8 @@ extension Buildable where Self: UIViewController {
 extension Buildable where Self: UIView {
     public func render() {
         if let root = rootBag.bag {
-            root.activate(viewUpdateSet: viewUpdateSet())
+            let view = root.view()
+            root.activate(for: view, viewUpdateSet: viewUpdateSet())
             return
         }
         
@@ -62,7 +65,7 @@ extension Buildable where Self: UIView {
             addSubview(view)
         }
         
-        root.activate(viewUpdateSet: allEnabledViewUpdateSet())
+        root.activate(for: view, viewUpdateSet: allEnabledViewUpdateSet())
         rootBag.set(root: root)
     }
 }

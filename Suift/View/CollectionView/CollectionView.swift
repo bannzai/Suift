@@ -47,7 +47,7 @@ public struct CollectionView<V: UICollectionView>: Rootable {
     }
     
     // FIXME: move to Viewable
-    public func stylize() {
+    public func stylize(for view: UIView) {
         style.apply(with: _collectionView)
     }
     

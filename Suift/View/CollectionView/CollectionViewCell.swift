@@ -23,7 +23,7 @@ extension CollectionViewCellStyle: SuiftEquatable {
     }
 }
 
-public struct CollectionViewCell<V: UICollectionViewCell>: Rootable {
+public struct CollectionViewCell<V: UICollectionViewCell> {
     let _cell: V
     
     public let style: CollectionViewCellStyle // FIXME: move to Viewable

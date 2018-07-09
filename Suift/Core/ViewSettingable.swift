@@ -13,6 +13,7 @@ public protocol ViewSettingable {
     var children: [ViewableProxy] { get }
 }
 
+// For Rootable
 extension ViewSettingable where Self: Viewable {
     fileprivate func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
         let set = viewUpdateSet()
@@ -23,16 +24,14 @@ extension ViewSettingable where Self: Viewable {
         )
     }
     
-    public func layout() {
-        let view = self.view()
+    public func layout(for view: UIView) {
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
         let layouts = constraint.layout(set: set)
         view.translatesAutoresizingMaskIntoConstraints = layouts.isEmpty
         NSLayoutConstraint.activate( layouts )
     }
     
-    public func activateChildren(parentViewUpdateSet set: ViewUpdateSet) {
-        let view = self.view()
+    public func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
         let children = self.children.map { $0.proxy() }
         children
             .forEach {
@@ -40,7 +39,7 @@ extension ViewSettingable where Self: Viewable {
                 if child.superview == nil {
                     view.addSubview(child)
                 }
-                $0.activate(viewUpdateSet: mixViewUpdateStatus(parent: set))
+                $0.activate(for: child, viewUpdateSet: mixViewUpdateStatus(parent: set))
         }
     }
 }

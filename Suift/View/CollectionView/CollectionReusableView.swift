@@ -12,8 +12,8 @@ public struct CollectionReusableViewStyle: Style {
     public var viewStyle: ViewStyle?
     
     public init() { }
-    public func apply(with cell: UICollectionReusableView) {
-        cell.backgroundColor = viewStyle?.backgroundColor?.color
+    public func apply(with reusableView: UICollectionReusableView) {
+        reusableView.backgroundColor = viewStyle?.backgroundColor?.color
     }
 }
 
@@ -47,7 +47,7 @@ public struct CollectionReusableView<V: UICollectionReusableView>: Rootable {
     }
     
     // FIXME: move to Viewable
-    public func stylize() {
+    public func stylize(for view: UIView) {
         style.apply(with: _reusableView)
     }
     

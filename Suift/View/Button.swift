@@ -100,9 +100,8 @@ public struct Button<V: UIButton>: Rootable {
         _button.register(event: event)
     }
 
-    public func stylize() {
-        let view = self.view() as! V
-        style.apply(with: view)
+    public func stylize(for view: UIView) {
+        style.apply(with: view as! V)
     }
 
     public func view() -> UIView {
