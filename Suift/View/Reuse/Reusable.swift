@@ -10,4 +10,6 @@ import Foundation
 
 public protocol Reusable {
     var identifier: String { get }
+    func register()
+    func dequeue(for indexPath: IndexPath)
 }
