@@ -8,6 +8,21 @@
 
 import UIKit
 
+public struct CollectionViewCellStyle: Style {
+    public var viewStyle: ViewStyle?
+    
+    public init() { }
+    public func apply(with cell: UICollectionViewCell) {
+        cell.backgroundColor = viewStyle?.backgroundColor?.color
+    }
+}
+
+extension CollectionViewCellStyle: SuiftEquatable {
+    public static func == (lhs: CollectionViewCellStyle, rhs: CollectionViewCellStyle) -> Bool {
+        return lhs.viewStyle == rhs.viewStyle
+    }
+}
+
 public protocol CollectionViewItem: Reusable {
     
 }

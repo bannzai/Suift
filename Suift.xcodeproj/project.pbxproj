@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BA2952F920F3484700710FBE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2952F820F3484700710FBE /* CollectionView.swift */; };
-		BA2952FB20F3489700710FBE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2952FA20F3489700710FBE /* CollectionViewCell.swift */; };
 		BA2952FD20F348BF00710FBE /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2952FC20F348BF00710FBE /* CollectionReusableView.swift */; };
 		BA29530120F3497D00710FBE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29530020F3497D00710FBE /* Reusable.swift */; };
 		BA29530320F3525400710FBE /* CollectionViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29530220F3525400710FBE /* CollectionViewSource.swift */; };
@@ -54,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		BA2952F820F3484700710FBE /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
-		BA2952FA20F3489700710FBE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BA2952FC20F348BF00710FBE /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		BA29530020F3497D00710FBE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		BA29530220F3525400710FBE /* CollectionViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSource.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				BA2952F820F3484700710FBE /* CollectionView.swift */,
-				BA2952FA20F3489700710FBE /* CollectionViewCell.swift */,
 				BA2952FC20F348BF00710FBE /* CollectionReusableView.swift */,
 				BA29530220F3525400710FBE /* CollectionViewSource.swift */,
 				BA29530820F3602B00710FBE /* CollectionViewSource+UICollectionViewDataSource.swift */,
@@ -364,7 +361,6 @@
 				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
 				BA29530B20F3608E00710FBE /* CollectionViewHeaderFooter.swift in Sources */,
-				BA2952FB20F3489700710FBE /* CollectionViewCell.swift in Sources */,
 				BA29530120F3497D00710FBE /* Reusable.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
