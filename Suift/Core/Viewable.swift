@@ -20,6 +20,7 @@ extension Viewable {
     }
 }
 
+// MARK: - ViewLayoutable, ViewChildActivatable, ViewStylizable
 extension Viewable {
     public func activate(for view: UIView, viewUpdateSet set: ViewUpdateSet) {
         if set.style {
