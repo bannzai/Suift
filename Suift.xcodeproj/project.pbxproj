@@ -38,6 +38,7 @@
 		BA7C1F7820FF6661005CDE74 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F7720FF6661005CDE74 /* NSObjectExtension.swift */; };
 		BA7C1F8420FF6944005CDE74 /* ViewLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8320FF6944005CDE74 /* ViewLayoutable.swift */; };
 		BA7C1F8620FF6961005CDE74 /* ViewChildActivatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8520FF6961005CDE74 /* ViewChildActivatable.swift */; };
+		BA7C1F8820FF6A9C005CDE74 /* ViewActivatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8720FF6A9C005CDE74 /* ViewActivatable.swift */; };
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
 		BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */; };
 		BAF6DFC320F3718600721A61 /* ViewStylizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC220F3718600721A61 /* ViewStylizable.swift */; };
@@ -89,6 +90,7 @@
 		BA7C1F7720FF6661005CDE74 /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		BA7C1F8320FF6944005CDE74 /* ViewLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayoutable.swift; sourceTree = "<group>"; };
 		BA7C1F8520FF6961005CDE74 /* ViewChildActivatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChildActivatable.swift; sourceTree = "<group>"; };
+		BA7C1F8720FF6A9C005CDE74 /* ViewActivatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewActivatable.swift; sourceTree = "<group>"; };
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingable.swift; sourceTree = "<group>"; };
 		BAF6DFC220F3718600721A61 /* ViewStylizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylizable.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				BA5BD46F20EB1E9400EFC3F6 /* Buildable.swift */,
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
+				BA7C1F8720FF6A9C005CDE74 /* ViewActivatable.swift */,
 				BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BAF6DFC420F3727100721A61 /* Reloadable.swift */,
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7C1F8820FF6A9C005CDE74 /* ViewActivatable.swift in Sources */,
 				BAF6DFC520F3727100721A61 /* Reloadable.swift in Sources */,
 				BA7C1F7820FF6661005CDE74 /* NSObjectExtension.swift in Sources */,
 				BA2952FD20F348BF00710FBE /* CollectionReusableView.swift in Sources */,
