@@ -8,6 +8,22 @@
 
 import Foundation
 
-public protocol Rootable: ViewSettingable, Viewable {
+public protocol Rootable: ViewLayoutable, ViewChildActivatable, ViewSettingable, Viewable {
     
+}
+
+
+// MARK: - ViewLayoutable, ViewChildActivatable, ViewStylizable
+extension Rootable {
+    public func activate(for view: UIView, viewUpdateSet set: ViewUpdateSet) {
+        if set.style {
+            stylize(for: view)
+        }
+        if set.layout {
+            layout(for: view)
+        }
+        if set.activateChildren {
+            activateChildren(for: view, parentViewUpdateSet: set)
+        }
+    }
 }
