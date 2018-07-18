@@ -36,6 +36,8 @@
 		BA61AD6320EF57C800066C03 /* RootBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6220EF57C800066C03 /* RootBag.swift */; };
 		BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */; };
 		BA7C1F7820FF6661005CDE74 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F7720FF6661005CDE74 /* NSObjectExtension.swift */; };
+		BA7C1F8420FF6944005CDE74 /* ViewLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8320FF6944005CDE74 /* ViewLayoutable.swift */; };
+		BA7C1F8620FF6961005CDE74 /* ViewChildActivatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8520FF6961005CDE74 /* ViewChildActivatable.swift */; };
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
 		BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */; };
 		BAF6DFC320F3718600721A61 /* ViewStylizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC220F3718600721A61 /* ViewStylizable.swift */; };
@@ -85,6 +87,8 @@
 		BA61AD6220EF57C800066C03 /* RootBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBag.swift; sourceTree = "<group>"; };
 		BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdateDecidable.swift; sourceTree = "<group>"; };
 		BA7C1F7720FF6661005CDE74 /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		BA7C1F8320FF6944005CDE74 /* ViewLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayoutable.swift; sourceTree = "<group>"; };
+		BA7C1F8520FF6961005CDE74 /* ViewChildActivatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChildActivatable.swift; sourceTree = "<group>"; };
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingable.swift; sourceTree = "<group>"; };
 		BAF6DFC220F3718600721A61 /* ViewStylizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylizable.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BAF6DFC420F3727100721A61 /* Reloadable.swift */,
 				BAF6DFC220F3718600721A61 /* ViewStylizable.swift */,
+				BA7C1F8320FF6944005CDE74 /* ViewLayoutable.swift */,
+				BA7C1F8520FF6961005CDE74 /* ViewChildActivatable.swift */,
 				BA34286A20ED18BE00FD39C5 /* ViewableProxy.swift */,
 				BA61AD6220EF57C800066C03 /* RootBag.swift */,
 				BA61AD6420EF6CC500066C03 /* ViewUpdateDecidable.swift */,
@@ -365,9 +371,11 @@
 				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
 				BA29530B20F3608E00710FBE /* CollectionViewHeaderFooter.swift in Sources */,
+				BA7C1F8420FF6944005CDE74 /* ViewLayoutable.swift in Sources */,
 				BA29530120F3497D00710FBE /* Reusable.swift in Sources */,
 				BA5BD46D20EB0BD900EFC3F6 /* Layout.swift in Sources */,
 				BA5BD46820EA894400EFC3F6 /* ParagraphStyle.swift in Sources */,
+				BA7C1F8620FF6961005CDE74 /* ViewChildActivatable.swift in Sources */,
 				BA5BD45120EA82EE00EFC3F6 /* Style.swift in Sources */,
 				BA29530920F3602B00710FBE /* CollectionViewSource+UICollectionViewDataSource.swift in Sources */,
 				BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */,
