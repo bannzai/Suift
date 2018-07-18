@@ -8,29 +8,13 @@
 
 import Foundation
 
-public protocol Viewable: ViewLayoutable, ViewChildActivatable, ViewStylizable, ViewableProxy, ViewUpdateDecidable {
-    func activate(for view: UIView, viewUpdateSet set: ViewUpdateSet)
+public protocol Viewable: ViewActivatableProxy, ViewUpdateDecidable {
     func view() -> UIView
 }
 
-// MARK: - ViewableProxy
-extension Viewable {
-    public func proxy() -> Viewable {
+// MARK: - ViewActivatableProxy
+extension Viewable where Self: ViewActivatable {
+    public func viewActivatable() -> ViewActivatable {
         return self
-    }
-}
-
-// MARK: - ViewLayoutable, ViewChildActivatable, ViewStylizable
-extension Viewable {
-    public func activate(for view: UIView, viewUpdateSet set: ViewUpdateSet) {
-        if set.style {
-            stylize(for: view)
-        }
-        if set.layout {
-            layout(for: view)
-        }
-        if set.activateChildren {
-            activateChildren(for: view, parentViewUpdateSet: set)
-        }
     }
 }

@@ -28,14 +28,14 @@ public struct CollectionView<V: UICollectionView>: Rootable {
     
     public let style: CollectionViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
-    public let children: [ViewableProxy]
+    public let children: [ViewActivatableProxy]
     public let source: CollectionViewSource
     
     public init(
         view: V? = nil,
         style: CollectionViewStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = [],
+        children: [ViewActivatableProxy] = [],
         source: CollectionViewSource
         ) {
         if let view = view {

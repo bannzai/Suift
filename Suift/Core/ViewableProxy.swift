@@ -1,5 +1,5 @@
 //
-//  ViewableProxy.swift
+//  ViewActivatableProxy.swift
 //  Suift
 //
 //  Created by Yudai.Hirose on 2018/07/05.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ViewableProxy {
-    func proxy() -> Viewable
+public protocol ViewActivatableProxy {
+    func viewActivatable() -> ViewActivatable
 }
 

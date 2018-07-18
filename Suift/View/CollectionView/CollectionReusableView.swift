@@ -28,13 +28,13 @@ public struct CollectionReusableView<V: UICollectionReusableView>: Rootable {
     
     public let style: CollectionReusableViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
-    public var children: [ViewableProxy]
+    public var children: [ViewActivatableProxy]
     
     public init(
         view: V? = nil,
         style: CollectionReusableViewStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = []
+        children: [ViewActivatableProxy] = []
         ) {
         if let view = view {
             self._reusableView = view

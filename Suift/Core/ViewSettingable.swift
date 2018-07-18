@@ -10,7 +10,7 @@ import Foundation
 
 public protocol ViewSettingable: ViewStylizable, ViewUpdateDecidable {
     var constraint: LayoutMaker { get }
-    var children: [ViewableProxy] { get }
+    var children: [ViewActivatableProxy] { get }
 }
 
 // For Rootable
@@ -26,7 +26,7 @@ extension ViewSettingable {
     
 }
 
-extension ViewSettingable {
+extension ViewSettingable where Self: ViewActivatable, Self: Viewable {
     public func layout(for view: UIView) {
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
         let layouts = constraint.layout(set: set)
@@ -35,7 +35,7 @@ extension ViewSettingable {
     }
     
     public func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
-        let children = self.children.map { $0.proxy() }
+        let children = self.children.map { $0.viewActivatable() }
         children
             .forEach {
                 let child = $0.view()

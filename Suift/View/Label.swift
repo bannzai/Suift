@@ -32,13 +32,13 @@ public struct Label<V: UILabel>: Rootable {
     
     public let style: LabelStyle
     public let constraint: LayoutMaker
-    public let children: [ViewableProxy]
+    public let children: [ViewActivatableProxy]
 
     public init(
         label: V? = nil,
         style: LabelStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = []
+        children: [ViewActivatableProxy] = []
         ) {
         if let label = label {
             self._label = label

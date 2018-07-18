@@ -8,19 +8,19 @@
 
 import UIKit
 
-public protocol Buildable: ViewableProxy, ViewUpdateDecidable {
+public protocol Buildable: ViewActivatableProxy, ViewUpdateDecidable {
     var rootBag: RootBag { get }
     func build() -> Rootable
 }
 
 extension Buildable {
-    public func proxy() -> Viewable {
+    public func viewActivatable() -> Viewable {
         return build()
     }
 }
 
 extension Buildable where Self: Viewable {
-    public func proxy() -> Viewable {
+    public func viewActivatable() -> Viewable {
         return self
     }
 }
