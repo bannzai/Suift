@@ -11,10 +11,3 @@ import Foundation
 public protocol Viewable: ViewUpdateDecidable {
     func view() -> UIView
 }
-
-// MARK: - ViewActivatableProxy
-extension Viewable where Self: ViewActivatable {
-    public func viewActivatable() -> ViewActivatable {
-        return self
-    }
-}

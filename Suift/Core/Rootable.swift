@@ -27,10 +27,3 @@ extension Rootable {
         }
     }
 }
-
-// MARK: - ViewActivatableProxy
-extension Rootable where Self: ViewActivatable {
-    public func viewActivatable() -> ViewActivatable {
-        return self
-    }
-}
