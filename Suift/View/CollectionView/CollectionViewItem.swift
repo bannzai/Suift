@@ -59,7 +59,7 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
     
     public let style: CollectionViewCellStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
-    public let children: [ViewActivatableProxy]
+    public let children: [ViewChildable]
 
     public var configureCell: ((Cell, ItemArgument) -> Void)?
     public var sizeFor: ((ItemArgument) -> CGSize)?
@@ -87,7 +87,7 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
         
         style: CollectionViewCellStyle,
         constraint: LayoutMaker,
-        children: [ViewActivatableProxy],
+        children: [ViewChildable],
 
         configureCell: ((Cell, ItemArgument) -> Void)? = nil,
         sizeFor: ((ItemArgument) -> CGSize)? = nil,

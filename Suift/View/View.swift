@@ -28,13 +28,13 @@ public struct View<V: UIView>: Rootable {
     
     public let style: ViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
-    public var children: [ViewActivatableProxy]
+    public var children: [ViewChildable]
     
     public init(
         view: V? = nil,
         style: ViewStyle,
         constraint: LayoutMaker,
-        children: [ViewActivatableProxy] = []
+        children: [ViewChildable] = []
         ) {
         if let view = view {
             self._view = view

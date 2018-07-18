@@ -77,7 +77,7 @@ public struct Button<V: UIButton>: Rootable {
     
     public let style: ButtonStyle
     public let constraint: LayoutMaker
-    public let children: [ViewActivatableProxy]
+    public let children: [ViewChildable]
     public let delegate: ButtonDelegate
     
     public init(
@@ -85,7 +85,7 @@ public struct Button<V: UIButton>: Rootable {
         style: ButtonStyle,
         constraint: LayoutMaker,
         event: ButtonEvent,
-        children: [ViewActivatableProxy] = []
+        children: [ViewChildable] = []
         ) {
         if let button = button {
             self._button = button

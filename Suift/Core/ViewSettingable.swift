@@ -10,7 +10,7 @@ import Foundation
 
 public protocol ViewSettingable: ViewStylizable, ViewUpdateDecidable {
     var constraint: LayoutMaker { get }
-    var children: [ViewActivatableProxy] { get }
+    var children: [ViewChildable] { get }
 }
 
 // For Rootable
