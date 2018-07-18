@@ -83,7 +83,7 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
     public var performAction: ((PerformActionArgument) -> Void)?
     
     public init(
-        identifier: String,
+        identifier: String? = nil,
         
         style: CollectionViewCellStyle,
         constraint: LayoutMaker,
@@ -111,7 +111,7 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
         performAction: ((PerformActionArgument) -> Void)? = nil
         ) {
         
-        self.identifier = identifier
+        self.identifier = identifier ?? Cell.className
         
         self.style = style
         self.constraint = constraint
