@@ -8,21 +8,9 @@
 
 import UIKit
 
-public protocol Buildable: ViewActivatableProxy, ViewUpdateDecidable {
+public protocol Buildable: ViewUpdateDecidable {
     var rootBag: RootBag { get }
     func build() -> Rootable
-}
-
-extension Buildable {
-    public func viewActivatable() -> Viewable {
-        return build()
-    }
-}
-
-extension Buildable where Self: Viewable {
-    public func viewActivatable() -> Viewable {
-        return self
-    }
 }
 
 extension Buildable {

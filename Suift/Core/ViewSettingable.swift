@@ -26,7 +26,7 @@ extension ViewSettingable {
     
 }
 
-extension ViewSettingable where Self: ViewActivatable, Self: Viewable {
+extension ViewSettingable where Self: ViewActivatable {
     public func layout(for view: UIView) {
         let set: ViewSetForLayout = (view, view.superview!, view.superview!.subviews)
         let layouts = constraint.layout(set: set)
@@ -35,7 +35,6 @@ extension ViewSettingable where Self: ViewActivatable, Self: Viewable {
     }
     
     public func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
-        let children = self.children.map { $0.viewActivatable() }
         children
             .forEach {
                 let child = $0.view()

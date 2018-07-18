@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Rootable: ViewLayoutable, ViewChildActivatable, ViewSettingable, Viewable {
+public protocol Rootable: ViewLayoutable, ViewChildActivatable, ViewSettingable, Viewable, ViewActivatable {
     
 }
 

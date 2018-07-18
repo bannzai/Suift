@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Viewable: ViewActivatableProxy, ViewUpdateDecidable {
+public protocol Viewable: ViewUpdateDecidable {
     func view() -> UIView
 }
 
