@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum CollectionViewSectionHeaderFooterKind: String {
+public enum CollectionViewSectionHeaderFooterKind {
     case header
     case footer
     
@@ -82,7 +82,7 @@ open class CollectionViewSectionHeaderFooter<View: UICollectionReusableView>: Co
 
 extension CollectionViewSectionHeaderFooter: CollectionViewReusable {
     public func register(to collectionView: UICollectionView) {
-        collectionView.register(View.self, forSupplementaryViewOfKind: kind.rawValue, withReuseIdentifier: identifier)
+        collectionView.register(View.self, forSupplementaryViewOfKind: kind.kind, withReuseIdentifier: identifier)
     }
 }
 
