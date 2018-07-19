@@ -143,20 +143,10 @@ extension CollectionViewCell: ViewStylizable {
     }
 }
 
-extension CollectionViewCell: ViewChildActivatable, ViewUpdateDecidable {
-    public func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
-        children
-            .forEach {
-                let child = $0.view()
-                if child.superview == nil {
-                    view.addSubview(child)
-                }
-                $0.activate(for: child, viewUpdateSet: mixViewUpdateStatus(parent: set))
-        }
-    }
-}
+// MARK: - Mixin
+extension CollectionViewCell: ViewChildActivatable, ViewUpdateDecidable { }
 
-extension CollectionViewCell {
+extension CollectionViewCell: CollectionViewReusable {
     public func register(to collectionView: UICollectionView) {
         collectionView.register(Cell.self, forCellWithReuseIdentifier: identifier)
     }
