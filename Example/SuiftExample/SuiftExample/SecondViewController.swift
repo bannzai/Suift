@@ -47,19 +47,19 @@ extension SecondViewController: Buildable {
                     view.rightAnchor.constraint(equalTo: superview.rightAnchor),
                     ]
             },
-            source: CollectionViewSource(elements: [1,2,3]) { (integer) -> [CollectionViewSection] in
+            source: CollectionViewSource(elements: [1,2,3]) { integer in
                 return [
                     CollectionViewSection(
                         elements: ["hoge", "fuga", "piyo"],
                         header: CollectionViewSectionHeaderFooter(
                             kind: .header,
-                            configureView: { (reusableView, info) in
+                            configureView: { reusableView, info in
                                 reusableView.backgroundColor = .yellow
                         },
-                            sizeFor: { (info) -> CGSize? in
+                            sizeFor: { info -> CGSize? in
                                 return CGSize(width: UIScreen.main.bounds.width, height: 100)
                         }),
-                        itemsClosure: { (string) -> [CollectionViewItem] in
+                        itemsClosure: { string in
                             return [
                                 CollectionViewCell(
                                     identifier: "CollectionViewCell",
@@ -85,10 +85,10 @@ extension SecondViewController: Buildable {
                                             }
                                         )
                                     ],
-                                    configureCell: { (cell, itemInfo) in
+                                    configureCell: { (cell, _) in
                                         cell.backgroundColor = .red
                                 },
-                                    sizeFor: { (itemInfo) -> CGSize in
+                                    sizeFor: { _ -> CGSize in
                                         return CGSize(width: 200, height: 200)
                                 })
                             ]
