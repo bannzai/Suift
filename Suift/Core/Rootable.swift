@@ -13,7 +13,7 @@ public protocol Rootable: ViewLayoutable, ViewChildActivatable, ViewSettingable,
 }
 
 
-// MARK: - ViewLayoutable, ViewChildActivatable, ViewStylizable
+// MARK: - ViewActivatable with ViewLayoutable, ViewChildActivatable, ViewStylizable
 extension Rootable {
     public func activate(for view: UIView, viewUpdateSet set: ViewUpdateSet) {
         if set.style {
