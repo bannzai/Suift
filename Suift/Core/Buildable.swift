@@ -21,20 +21,13 @@ extension Buildable {
 
 extension Buildable where Self: UIViewController {
     public func render() {
-
         if let root = rootBag.bag {
-            let view = root.view()
-            root.activate(for: view, viewUpdateSet: viewUpdateSet())
+            root.render()
             return
         }
         
         let root = build()
-        let view = root.view()
-        if view.superview == nil {
-            self.view.addSubview(view)
-        }
-        
-        root.activate(for: view, viewUpdateSet: allEnabledViewUpdateSet())
+        root.renderFirst(parentView: self.view)
         rootBag.set(root: root)
     }
 }
@@ -42,18 +35,12 @@ extension Buildable where Self: UIViewController {
 extension Buildable where Self: UIView {
     public func render() {
         if let root = rootBag.bag {
-            let view = root.view()
-            root.activate(for: view, viewUpdateSet: viewUpdateSet())
+            root.render()
             return
         }
         
         let root = build()
-        let view = root.view()
-        if view.superview == nil {
-            addSubview(view)
-        }
-        
-        root.activate(for: view, viewUpdateSet: allEnabledViewUpdateSet())
+        root.renderFirst(parentView: self)
         rootBag.set(root: root)
     }
 }
