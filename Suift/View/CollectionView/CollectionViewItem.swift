@@ -58,7 +58,6 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
     public let identifier: String
     
     public let style: CollectionViewCellStyle // FIXME: move to Viewable
-    public let constraint: LayoutMaker
     public let children: [ViewChildable]
 
     public var configureCell: ((Cell, ItemArgument) -> Void)?
@@ -86,7 +85,6 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
         identifier: String? = nil,
         
         style: CollectionViewCellStyle,
-        constraint: LayoutMaker,
         children: [ViewChildable],
 
         configureCell: ((Cell, ItemArgument) -> Void)? = nil,
@@ -114,7 +112,6 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
         self.identifier = identifier ?? Cell.className
         
         self.style = style
-        self.constraint = constraint
         self.children = children
         
         self.configureCell = configureCell
@@ -140,9 +137,22 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
     }
 }
 
-extension CollectionViewCell: ViewSettingable {
+extension CollectionViewCell: ViewStylizable {
     public func stylize(for view: UIView) {
         style.apply(with: view as! Cell)
+    }
+}
+
+extension CollectionViewCell: ViewChildActivatable, ViewUpdateDecidable {
+    public func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
+        children
+            .forEach {
+                let child = $0.view()
+                if child.superview == nil {
+                    view.addSubview(child)
+                }
+                $0.activate(for: child, viewUpdateSet: mixViewUpdateStatus(parent: set))
+        }
     }
 }
 
@@ -155,7 +165,10 @@ extension CollectionViewCell {
 
 extension CollectionViewCell: CollectionViewItemDelegatable {
     public func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: IndexPath) {
-        configureCell?(cell as! Cell, (self, collectionView, indexPath))
+        let cell = cell as! Cell
+        stylize(for: cell)
+        activateChildren(for: cell, parentViewUpdateSet: viewUpdateSet())
+        configureCell?(cell, (self, collectionView, indexPath))
     }
     
     public func size(for collectionView: UICollectionView, indexPath: IndexPath) -> CGSize? {
