@@ -8,21 +8,6 @@
 
 import Foundation
 
-public struct CollectionReusableViewStyle: Style {
-    public var viewStyle: ViewStyle?
-    
-    public init() { }
-    public func apply(with reusableView: UICollectionReusableView) {
-        reusableView.backgroundColor = viewStyle?.backgroundColor?.color
-    }
-}
-
-extension CollectionReusableViewStyle: SuiftEquatable {
-    public static func == (lhs: CollectionReusableViewStyle, rhs: CollectionReusableViewStyle) -> Bool {
-        return lhs.viewStyle == rhs.viewStyle
-    }
-}
-
 public struct CollectionReusableView<V: UICollectionReusableView>: Rootable {
     let _reusableView: V
     

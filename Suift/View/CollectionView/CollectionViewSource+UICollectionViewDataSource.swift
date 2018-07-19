@@ -280,8 +280,8 @@ fileprivate extension CollectionViewSource {
         return item as? CollectionViewItemDelegatable
     }
     
-    func headerFooterDelegate(headerFooter: CollectionViewSectionHeaderFooterViewable) -> CollectionViewSectionHeaderFooterDelegateType? {
-        return headerFooter as? CollectionViewSectionHeaderFooterDelegateType
+    func headerFooterDelegate(headerFooter: CollectionViewSectionHeaderFooterViewable) -> CollectionViewSectionHeaderFooterDelegatable? {
+        return headerFooter as? CollectionViewSectionHeaderFooterDelegatable
     }
     
     func headerOrFooter(for kind: CollectionViewSectionHeaderFooterKind, section: Int) -> CollectionViewSectionHeaderFooterViewable? {

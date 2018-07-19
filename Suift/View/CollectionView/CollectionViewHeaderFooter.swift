@@ -38,7 +38,7 @@ public protocol CollectionViewSectionHeaderFooterViewable: CollectionViewReusabl
     var kind: CollectionViewSectionHeaderFooterKind { get }
 }
 
-protocol CollectionViewSectionHeaderFooterDelegateType {
+protocol CollectionViewSectionHeaderFooterDelegatable {
     func configureView(_ collectionView: UICollectionView, view: UICollectionReusableView, section: Int)
     func sizeFor(_ collectionView: UICollectionView, section: Int) -> CGSize?
     func willDisplay(_ collectionView: UICollectionView, view: UICollectionReusableView, indexPath: IndexPath)
@@ -86,7 +86,7 @@ extension CollectionViewSectionHeaderFooter: CollectionViewReusable {
     }
 }
 
-extension CollectionViewSectionHeaderFooter: CollectionViewSectionHeaderFooterDelegateType {
+extension CollectionViewSectionHeaderFooter: CollectionViewSectionHeaderFooterDelegatable {
     func configureView(_ collectionView: UICollectionView, view: UICollectionReusableView, section: Int) {
         guard let view = view as? View else {
             fatalError()
