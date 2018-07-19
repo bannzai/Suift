@@ -53,6 +53,11 @@ extension SecondViewController: Buildable {
                         elements: ["hoge", "fuga", "piyo"],
                         header: CollectionViewSectionHeaderFooter(
                             kind: .header,
+                            style: CollectionReusableViewStyle {
+                                $0.viewStyle = ViewStyle {
+                                    $0.backgroundColor = Color.RGB(red: 1, green: 0, blue: 1)
+                                }
+                            },
                             configureView: { reusableView, info in
                                 reusableView.backgroundColor = .yellow
                         },
