@@ -48,12 +48,20 @@ extension SecondViewController: Buildable {
                     ]
             },
             source: CollectionViewSource(elements: [1,2,3]) { (integer) -> [CollectionViewSection] in
-                    return [
-                        CollectionViewSection(
-                            elements: ["hoge", "fuga", "piyo"],
-                            itemsClosure: { (string) -> [CollectionViewItem] in
-                                return [
-                                    CollectionViewCell(
+                return [
+                    CollectionViewSection(
+                        elements: ["hoge", "fuga", "piyo"],
+                        header: CollectionViewSectionHeaderFooter(
+                            kind: .header,
+                            configureView: { (reusableView, info) in
+                                reusableView.backgroundColor = .yellow
+                        },
+                            sizeFor: { (info) -> CGSize? in
+                                return CGSize(width: UIScreen.main.bounds.width, height: 100)
+                        }),
+                        itemsClosure: { (string) -> [CollectionViewItem] in
+                            return [
+                                CollectionViewCell(
                                         identifier: "CollectionViewCell",
                                         style: CollectionViewCellStyle {
                                             $0.viewStyle = ViewStyle {
