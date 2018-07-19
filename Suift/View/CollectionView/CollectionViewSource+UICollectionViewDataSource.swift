@@ -268,7 +268,7 @@ fileprivate extension CollectionViewSource {
         return sectionDelegate(section: sections[section])
     }
     
-    func sectionDelegate(section: CollectionViewSection) -> CollectionViewSectionDelegatable? {
+    func sectionDelegate(section: CollectionViewSectionProtocol) -> CollectionViewSectionDelegatable? {
         return section as? CollectionViewSectionDelegatable
     }
     
