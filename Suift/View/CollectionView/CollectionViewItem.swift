@@ -23,7 +23,7 @@ extension CollectionViewCellStyle: SuiftEquatable {
     }
 }
 
-public protocol CollectionViewItem: Reusable {
+public protocol CollectionViewItem: CollectionViewReusable {
     
 }
 
