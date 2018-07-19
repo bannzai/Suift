@@ -62,39 +62,38 @@ extension SecondViewController: Buildable {
                         itemsClosure: { (string) -> [CollectionViewItem] in
                             return [
                                 CollectionViewCell(
-                                        identifier: "CollectionViewCell",
-                                        style: CollectionViewCellStyle {
-                                            $0.viewStyle = ViewStyle {
-                                                $0.backgroundColor = UIColor.gray
-                                            }
-                                        },
-                                        children: [
-                                            Label(
-                                                style: LabelStyle {
-                                                    $0.viewStyle = ViewStyle {
-                                                        $0.backgroundColor = UIColor.blue
-                                                    }
-                                                },
-                                                constraint: LayoutMaker { view, superview, subviews in
-                                                    return [
-                                                        view.topAnchor.constraint(equalTo: superview.topAnchor),
-                                                        view.leftAnchor.constraint(equalTo: superview.leftAnchor),
-                                                        view.rightAnchor.constraint(equalTo: superview.rightAnchor),
-                                                        view.heightAnchor.constraint(equalToConstant: 44),
-                                                        ]
-                                                }
-                                            )
-                                        ],
-                                        configureCell: { (cell, itemInfo) in
-                                            cell.backgroundColor = .red
+                                    identifier: "CollectionViewCell",
+                                    style: CollectionViewCellStyle {
+                                        $0.viewStyle = ViewStyle {
+                                            $0.backgroundColor = UIColor.gray
+                                        }
                                     },
-                                        sizeFor: { (itemInfo) -> CGSize in
-                                            return CGSize(width: 200, height: 200)
-                                    })
-                                ]
-                        }
-                        )
-                    ]
+                                    children: [
+                                        Label(
+                                            style: LabelStyle {
+                                                $0.viewStyle = ViewStyle {
+                                                    $0.backgroundColor = UIColor.blue
+                                                }
+                                            },
+                                            constraint: LayoutMaker { view, superview, subviews in
+                                                return [
+                                                    view.topAnchor.constraint(equalTo: superview.topAnchor),
+                                                    view.leftAnchor.constraint(equalTo: superview.leftAnchor),
+                                                    view.rightAnchor.constraint(equalTo: superview.rightAnchor),
+                                                    view.heightAnchor.constraint(equalToConstant: 44),
+                                                    ]
+                                            }
+                                        )
+                                    ],
+                                    configureCell: { (cell, itemInfo) in
+                                        cell.backgroundColor = .red
+                                },
+                                    sizeFor: { (itemInfo) -> CGSize in
+                                        return CGSize(width: 200, height: 200)
+                                })
+                            ]
+                    })
+                ]
             }
         )
         //        return View(
