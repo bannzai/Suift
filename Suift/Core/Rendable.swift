@@ -27,3 +27,21 @@ extension Rendable where Self: ViewActivatable, Self: Viewable {
         activate(for: view(), viewUpdateSet: viewUpdateSet())
     }
 }
+
+extension Rendable where Self: ViewActivatable, Self: Viewable, Self: Reloadable {
+    public func renderFirst(parentView: UIView) {
+        let view = self.view()
+        if view.superview == nil {
+            parentView.addSubview(view)
+        }
+        
+        activate(for: view, viewUpdateSet: allEnabledViewUpdateSet())
+        reload()
+    }
+    
+    public func render() {
+        activate(for: view(), viewUpdateSet: viewUpdateSet())
+        reload()
+    }
+}
+
