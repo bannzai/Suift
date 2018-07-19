@@ -39,3 +39,13 @@ internal extension ViewUpdateDecidable {
     }
 }
 
+internal extension ViewUpdateDecidable {
+    func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
+        let set = viewUpdateSet()
+        return (
+            style: parent.style && set.style,
+            layout: parent.style && set.layout,
+            activateChildren: parent.activateChildren && set.activateChildren
+        )
+    }
+}

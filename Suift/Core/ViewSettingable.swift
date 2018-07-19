@@ -8,23 +8,11 @@
 
 import Foundation
 
-public protocol ViewSettingable: ViewStylizable, ViewUpdateDecidable {
+public protocol ViewSettingable: ViewStylizable, ViewLayoutable, ViewChildActivatable, ViewUpdateDecidable {
     var constraint: LayoutMaker { get }
     var children: [ViewChildable] { get }
 }
 
-// For Rootable
-extension ViewSettingable {
-    fileprivate func mixViewUpdateStatus(parent: ViewUpdateSet) -> ViewUpdateSet {
-        let set = viewUpdateSet()
-        return (
-            style: parent.style && set.style,
-            layout: parent.style && set.layout,
-            activateChildren: parent.activateChildren && set.activateChildren
-        )
-    }
-    
-}
 
 extension ViewSettingable where Self: ViewActivatable {
     public func layout(for view: UIView) {
