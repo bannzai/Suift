@@ -71,6 +71,9 @@ open class CollectionViewSectionHeaderFooter<View: UICollectionReusableView>: Co
     open var size: CGSize?
     open let kind: CollectionViewSectionHeaderFooterKind
     
+    public let style: CollectionReusableViewStyle // FIXME: move to Viewable
+    public let children: [ViewChildable]
+    
     open let configureView: ((View, CollectionViewSectionHeaderFooterInformation) -> Void)?
     open let sizeFor: ((CollectionViewSectionHeaderFooterInformation) -> CGSize?)?
     open let willDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)?
@@ -80,6 +83,9 @@ open class CollectionViewSectionHeaderFooter<View: UICollectionReusableView>: Co
         identifier: String? = nil,
         kind: CollectionViewSectionHeaderFooterKind,
         
+        style: CollectionReusableViewStyle,
+        children: [ViewChildable] = [],
+
         configureView: ((View, CollectionViewSectionHeaderFooterInformation) -> Void)? = nil,
         sizeFor: ((CollectionViewSectionHeaderFooterInformation) -> CGSize?)? = nil,
         willDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)? = nil,
@@ -87,6 +93,9 @@ open class CollectionViewSectionHeaderFooter<View: UICollectionReusableView>: Co
         ) {
         self.identifier = identifier ?? View.className
         self.kind = kind
+        
+        self.style = style
+        self.children = children
 
         self.configureView = configureView
         self.sizeFor = sizeFor
@@ -101,11 +110,22 @@ extension CollectionViewSectionHeaderFooter: CollectionViewReusable {
     }
 }
 
+extension CollectionViewSectionHeaderFooter: ViewStylizable {
+    public func stylize(for view: UIView) {
+        style.apply(with: view as! View)
+    }
+}
+
+extension CollectionViewSectionHeaderFooter: ViewChildActivatable { }
+extension CollectionViewSectionHeaderFooter: ViewUpdateDecidable { }
+
 extension CollectionViewSectionHeaderFooter: CollectionViewSectionHeaderFooterDelegatable {
     func configureView(_ collectionView: UICollectionView, view: UICollectionReusableView, section: Int) {
         guard let view = view as? View else {
             fatalError()
         }
+        stylize(for: view)
+        activateChildren(for: view, parentViewUpdateSet: viewUpdateSet())
         configureView?(view, (self, collectionView, section))
     }
     
