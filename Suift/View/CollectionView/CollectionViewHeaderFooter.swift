@@ -46,39 +46,44 @@ protocol CollectionViewSectionHeaderFooterDelegateType {
 }
 
 open class CollectionViewSectionHeaderFooter<View: UICollectionReusableView>: CollectionViewSectionHeaderFooterViewable {
+
     public typealias CollectionViewSectionHeaderFooterInformation = (headerFooter: CollectionViewSectionHeaderFooter<View>, collectionView: UICollectionView, section: Int)
     public typealias CollectionViewSectionHeaderFooterLayoutInformation = (headerFooter: CollectionViewSectionHeaderFooter<View>, collectionView: UICollectionView, layout: UICollectionViewLayout, section: Int)
     public typealias CollectionViewSectionHeaderFooterSupplymentaryView = (headerFooter: CollectionViewSectionHeaderFooter<View>, collectionView: UICollectionView,  indexPath: IndexPath)
     
-    public init(kind: CollectionViewSectionHeaderFooterKind) {
-        self.kind = kind
-    }
-    
-    public init(kind: CollectionViewSectionHeaderFooterKind, closure: ((CollectionViewSectionHeaderFooter<View>) -> Void)) {
-        self.kind = kind
-        closure(self)
-    }
-    
-    fileprivate var _reuseIdentifier: String?
-    open var reuseIdentifier: String? {
-        set {
-            _reuseIdentifier = newValue
-        }
-        get {
-            if let identifier = _reuseIdentifier {
-                return identifier
-            }
-            return nil
-        }
-    }
-    
+    public let identifier: String
+
     open var size: CGSize?
     open let kind: CollectionViewSectionHeaderFooterKind
     
-    open var configureView: ((View, CollectionViewSectionHeaderFooterInformation) -> Void)?
-    open var sizeFor: ((CollectionViewSectionHeaderFooterInformation) -> CGSize?)?
-    open var willDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)?
-    open var didEndDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)?
+    open let configureView: ((View, CollectionViewSectionHeaderFooterInformation) -> Void)?
+    open let sizeFor: ((CollectionViewSectionHeaderFooterInformation) -> CGSize?)?
+    open let willDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)?
+    open let didEndDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)?
+    
+    public init(
+        identifier: String? = nil,
+        kind: CollectionViewSectionHeaderFooterKind,
+        
+        configureView: ((View, CollectionViewSectionHeaderFooterInformation) -> Void)? = nil,
+        sizeFor: ((CollectionViewSectionHeaderFooterInformation) -> CGSize?)? = nil,
+        willDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)? = nil,
+        didEndDisplay: ((View, CollectionViewSectionHeaderFooterSupplymentaryView) -> Void)? = nil
+        ) {
+        self.identifier = identifier ?? View.className
+        self.kind = kind
+
+        self.configureView = configureView
+        self.sizeFor = sizeFor
+        self.willDisplay = willDisplay
+        self.didEndDisplay = didEndDisplay
+    }
+}
+
+extension CollectionViewSectionHeaderFooter: CollectionViewReusable {
+    public func register(to collectionView: UICollectionView) {
+        collectionView.register(View.self, forSupplementaryViewOfKind: kind.rawValue, withReuseIdentifier: identifier)
+    }
 }
 
 extension CollectionViewSectionHeaderFooter: CollectionViewSectionHeaderFooterDelegateType {
