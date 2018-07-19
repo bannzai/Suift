@@ -33,8 +33,7 @@ public enum CollectionViewSectionHeaderFooterKind: String {
     }
 }
 
-public protocol CollectionViewSectionHeaderFooterViewable {
-    var reuseIdentifier: String? { get }
+public protocol CollectionViewSectionHeaderFooterViewable: CollectionViewReusable {
     var size: CGSize? { get set }
     var kind: CollectionViewSectionHeaderFooterKind { get }
 }
