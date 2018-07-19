@@ -36,7 +36,7 @@ extension SecondViewController: Buildable {
             view: collectionView,
             style: CollectionViewStyle {
                 $0.viewStyle = ViewStyle {
-                    $0.backgroundColor = UIColor.white
+                    $0.backgroundColor = UIColor.brown
                 }
             },
             constraint: LayoutMaker { view, superview, views in
