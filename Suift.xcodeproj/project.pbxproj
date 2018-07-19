@@ -41,7 +41,6 @@
 		BA7C1F8A20FF6D0C005CDE74 /* ViewChildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8920FF6D0C005CDE74 /* ViewChildable.swift */; };
 		BA7C1F902100A170005CDE74 /* Rendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C1F8F2100A170005CDE74 /* Rendable.swift */; };
 		BAAB707520EF7DBB008CB799 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB707420EF7DBB008CB799 /* Equatable.swift */; };
-		BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */; };
 		BAF6DFC320F3718600721A61 /* ViewStylizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC220F3718600721A61 /* ViewStylizable.swift */; };
 		BAF6DFC520F3727100721A61 /* Reloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6DFC420F3727100721A61 /* Reloadable.swift */; };
 /* End PBXBuildFile section */
@@ -94,7 +93,6 @@
 		BA7C1F8920FF6D0C005CDE74 /* ViewChildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChildable.swift; sourceTree = "<group>"; };
 		BA7C1F8F2100A170005CDE74 /* Rendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rendable.swift; sourceTree = "<group>"; };
 		BAAB707420EF7DBB008CB799 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
-		BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingable.swift; sourceTree = "<group>"; };
 		BAF6DFC220F3718600721A61 /* ViewStylizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylizable.swift; sourceTree = "<group>"; };
 		BAF6DFC420F3727100721A61 /* Reloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reloadable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,7 +228,6 @@
 				BA61AD5A20EE5D5C00066C03 /* Rootable.swift */,
 				BA7C1F8F2100A170005CDE74 /* Rendable.swift */,
 				BA7C1F8720FF6A9C005CDE74 /* ViewActivatable.swift */,
-				BAF6DFC020F36A4100721A61 /* ViewSettingable.swift */,
 				BA7C1F8920FF6D0C005CDE74 /* ViewChildable.swift */,
 				BA34285E20EB33A700FD39C5 /* Viewable.swift */,
 				BAF6DFC420F3727100721A61 /* Reloadable.swift */,
@@ -373,7 +370,6 @@
 				BA2952F920F3484700710FBE /* CollectionView.swift in Sources */,
 				BA7C1F902100A170005CDE74 /* Rendable.swift in Sources */,
 				BA29530320F3525400710FBE /* CollectionViewSource.swift in Sources */,
-				BAF6DFC120F36A4100721A61 /* ViewSettingable.swift in Sources */,
 				BA5BD44B20EA447800EFC3F6 /* View.swift in Sources */,
 				BA61AD6520EF6CC500066C03 /* ViewUpdateDecidable.swift in Sources */,
 				BA5BD46A20EA896400EFC3F6 /* AttributedTextable.swift in Sources */,
