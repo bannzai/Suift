@@ -252,7 +252,7 @@ extension CollectionViewSource: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if let footer = sections[section].header,
+        if let footer = sections[section].footer,
             let size = sectionHeaderFooterSizeFor(headerFooter: footer, collectionView: collectionView, section: section) {
             return size
         }
