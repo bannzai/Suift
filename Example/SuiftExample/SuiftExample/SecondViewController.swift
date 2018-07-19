@@ -22,7 +22,6 @@ class SecondViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
     }
 
     deinit {
@@ -61,9 +60,6 @@ extension SecondViewController: Buildable {
                                                 $0.backgroundColor = UIColor.gray
                                             }
                                         },
-                                        constraint: LayoutMaker { view, superview, subviews in
-                                            return []
-                                        },
                                         children: [
                                             Label(
                                                 style: LabelStyle {
@@ -74,9 +70,9 @@ extension SecondViewController: Buildable {
                                                 constraint: LayoutMaker { view, superview, subviews in
                                                     return [
                                                         view.topAnchor.constraint(equalTo: superview.topAnchor),
-                                                        view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
                                                         view.leftAnchor.constraint(equalTo: superview.leftAnchor),
                                                         view.rightAnchor.constraint(equalTo: superview.rightAnchor),
+                                                        view.heightAnchor.constraint(equalToConstant: 44),
                                                         ]
                                                 }
                                             )
