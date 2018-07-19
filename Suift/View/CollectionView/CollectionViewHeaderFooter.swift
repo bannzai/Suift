@@ -33,6 +33,21 @@ public enum CollectionViewSectionHeaderFooterKind {
     }
 }
 
+public struct CollectionReusableViewStyle: Style {
+    public var viewStyle: ViewStyle?
+    
+    public init() { }
+    public func apply(with reusableView: UICollectionReusableView) {
+        reusableView.backgroundColor = viewStyle?.backgroundColor?.color
+    }
+}
+
+extension CollectionReusableViewStyle: SuiftEquatable {
+    public static func == (lhs: CollectionReusableViewStyle, rhs: CollectionReusableViewStyle) -> Bool {
+        return lhs.viewStyle == rhs.viewStyle
+    }
+}
+
 public protocol CollectionViewSectionHeaderFooterViewable: CollectionViewReusable {
     var size: CGSize? { get set }
     var kind: CollectionViewSectionHeaderFooterKind { get }
