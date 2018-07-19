@@ -58,9 +58,7 @@ extension SecondViewController: Buildable {
                                     $0.backgroundColor = Color.RGB(red: 1, green: 0, blue: 1)
                                 }
                             },
-                            configureView: { reusableView, info in
-                                reusableView.backgroundColor = .yellow
-                        },
+                            configureView: { reusableView, info in },
                             sizeFor: { info -> CGSize? in
                                 return CGSize(width: UIScreen.main.bounds.width, height: 100)
                         }),
