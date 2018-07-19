@@ -72,6 +72,10 @@ internal extension CollectionViewSource {
             .flatMap { $0.items.map { $0 } }
             .forEach { $0.register(to: collectionView) }
         
+        sections.forEach {
+            $0.header?.register(to: collectionView)
+            $0.footer?.register(to: collectionView)
+        }
     }
     
     func item(for indexPath: IndexPath) -> CollectionViewItem {
