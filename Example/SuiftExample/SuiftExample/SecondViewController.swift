@@ -49,7 +49,7 @@ extension SecondViewController: Buildable {
             },
             source: CollectionViewSource(elements: [1,2,3]) { (integer) -> [CollectionViewSection] in
                     return [
-                        CollectionViewSectionImpl(
+                        CollectionViewSection(
                             elements: ["hoge", "fuga", "piyo"],
                             itemsClosure: { (string) -> [CollectionViewItem] in
                                 return [

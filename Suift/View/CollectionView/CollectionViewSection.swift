@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CollectionViewSection {
+public protocol CollectionViewSectionProtocol {
     var items: [CollectionViewItem] { get set }
     
     var header: CollectionViewSectionHeaderFooterViewable? { get }
@@ -24,8 +24,8 @@ public protocol CollectionViewSectionDelegatable {
     func minimumInteritemSpacing(collectionView: UICollectionView, collectionViewLayout: UICollectionViewLayout, section: Int) -> CGFloat?
 }
 
-public struct CollectionViewSectionImpl: CollectionViewSection {
-    public typealias SectionArgument = (Section: CollectionViewSectionImpl, collectionView: UICollectionView, collectionViewLayout: UICollectionViewLayout, section: Int)
+public struct CollectionViewSection: CollectionViewSectionProtocol {
+    public typealias SectionArgument = (Section: CollectionViewSection, collectionView: UICollectionView, collectionViewLayout: UICollectionViewLayout, section: Int)
     public var items: [CollectionViewItem]
     
     public var header: CollectionViewSectionHeaderFooterViewable?
@@ -88,7 +88,7 @@ public struct CollectionViewSectionImpl: CollectionViewSection {
 }
 
 
-extension CollectionViewSectionImpl: CollectionViewSectionDelegatable {
+extension CollectionViewSection: CollectionViewSectionDelegatable {
     public func inset(collectionView: UICollectionView, collectionViewLayout: UICollectionViewLayout, section: Int) -> UIEdgeInsets? {
         return inset?((self, collectionView, collectionViewLayout, section))
     }
