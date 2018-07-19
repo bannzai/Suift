@@ -85,7 +85,7 @@ public struct CollectionViewCell<Cell: UICollectionViewCell>: CollectionViewItem
         identifier: String? = nil,
         
         style: CollectionViewCellStyle,
-        children: [ViewChildable],
+        children: [ViewChildable] = [],
 
         configureCell: ((Cell, ItemArgument) -> Void)? = nil,
         sizeFor: ((ItemArgument) -> CGSize)? = nil,
