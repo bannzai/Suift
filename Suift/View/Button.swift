@@ -77,7 +77,7 @@ public struct Button<V: UIButton>: Rootable {
     
     public let style: ButtonStyle
     public let constraint: LayoutMaker
-    public let children: [ViewableProxy]
+    public let children: [ViewChildable]
     public let delegate: ButtonDelegate
     
     public init(
@@ -85,7 +85,7 @@ public struct Button<V: UIButton>: Rootable {
         style: ButtonStyle,
         constraint: LayoutMaker,
         event: ButtonEvent,
-        children: [ViewableProxy] = []
+        children: [ViewChildable] = []
         ) {
         if let button = button {
             self._button = button
@@ -100,9 +100,8 @@ public struct Button<V: UIButton>: Rootable {
         _button.register(event: event)
     }
 
-    public func stylize() {
-        let view = self.view() as! V
-        style.apply(with: view)
+    public func stylize(for view: UIView) {
+        style.apply(with: view as! V)
     }
 
     public func view() -> UIView {

@@ -8,21 +8,9 @@
 
 import UIKit
 
-public protocol Buildable: ViewableProxy, ViewUpdateDecidable {
+public protocol Buildable: ViewUpdateDecidable {
     var rootBag: RootBag { get }
     func build() -> Rootable
-}
-
-extension Buildable {
-    public func proxy() -> Viewable {
-        return build()
-    }
-}
-
-extension Buildable where Self: Viewable {
-    public func proxy() -> Viewable {
-        return self
-    }
 }
 
 extension Buildable {
@@ -34,17 +22,12 @@ extension Buildable {
 extension Buildable where Self: UIViewController {
     public func render() {
         if let root = rootBag.bag {
-            root.activate(viewUpdateSet: viewUpdateSet())
+            root.render()
             return
         }
         
         let root = build()
-        let view = root.view()
-        if view.superview == nil {
-            self.view.addSubview(view)
-        }
-        
-        root.activate(viewUpdateSet: allEnabledViewUpdateSet())
+        root.renderFirst(parentView: self.view)
         rootBag.set(root: root)
     }
 }
@@ -52,17 +35,12 @@ extension Buildable where Self: UIViewController {
 extension Buildable where Self: UIView {
     public func render() {
         if let root = rootBag.bag {
-            root.activate(viewUpdateSet: viewUpdateSet())
+            root.render()
             return
         }
         
         let root = build()
-        let view = root.view()
-        if view.superview == nil {
-            addSubview(view)
-        }
-        
-        root.activate(viewUpdateSet: allEnabledViewUpdateSet())
+        root.renderFirst(parentView: self)
         rootBag.set(root: root)
     }
 }

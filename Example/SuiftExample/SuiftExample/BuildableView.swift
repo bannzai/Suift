@@ -20,23 +20,22 @@ class BuildableView: UIView, Viewable {
         render()
     }
     
-    func stylize() {
-        let view = self.view()
+    func stylize(for view: UIView) {
         ViewStyle { $0.backgroundColor = UIColor.brown }.apply(with: view)
     }
     
-    func layout() {
+    func layout(for view: UIView) {
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: superview!.topAnchor),
-            leftAnchor.constraint(equalTo: superview!.leftAnchor),
-            rightAnchor.constraint(equalTo: superview!.rightAnchor),
+            topAnchor.constraint(equalTo: view.superview!.topAnchor),
+            leftAnchor.constraint(equalTo: view.superview!.leftAnchor),
+            rightAnchor.constraint(equalTo: view.superview!.rightAnchor),
             heightAnchor.constraint(equalToConstant: 30),
             ]
         )
     }
     
-    func activateChildren(parentViewUpdateSet set: ViewUpdateSet) {
-        
+    func activateChildren(for view: UIView, parentViewUpdateSet set: ViewUpdateSet) {
+        // none
     }
 
     func view() -> UIView {

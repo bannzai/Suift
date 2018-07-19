@@ -32,13 +32,13 @@ public struct Label<V: UILabel>: Rootable {
     
     public let style: LabelStyle
     public let constraint: LayoutMaker
-    public let children: [ViewableProxy]
+    public let children: [ViewChildable]
 
     public init(
         label: V? = nil,
         style: LabelStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = []
+        children: [ViewChildable] = []
         ) {
         if let label = label {
             self._label = label
@@ -50,9 +50,8 @@ public struct Label<V: UILabel>: Rootable {
         self.children = children
     }
     
-    public func stylize() {
-        let view = self.view() as! V
-        style.apply(with: view)
+    public func stylize(for view: UIView) {
+        style.apply(with: _label)
     }
     
     public func view() -> UIView {

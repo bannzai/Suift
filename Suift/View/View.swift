@@ -28,13 +28,13 @@ public struct View<V: UIView>: Rootable {
     
     public let style: ViewStyle // FIXME: move to Viewable
     public let constraint: LayoutMaker
-    public var children: [ViewableProxy]
+    public var children: [ViewChildable]
     
     public init(
         view: V? = nil,
         style: ViewStyle,
         constraint: LayoutMaker,
-        children: [ViewableProxy] = []
+        children: [ViewChildable] = []
         ) {
         if let view = view {
             self._view = view
@@ -47,8 +47,7 @@ public struct View<V: UIView>: Rootable {
     }
     
     // FIXME: move to Viewable
-    public func stylize() {
-        let view = self.view()
+    public func stylize(for view: UIView) {
         style.apply(with: view)
     }
 
