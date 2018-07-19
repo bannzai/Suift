@@ -10,6 +10,8 @@ import Foundation
 
 public protocol Reusable {
     var identifier: String { get }
-    
+}
+
+public protocol CollectionViewReusable: Reusable {
     func register(to collectionView: UICollectionView)
 }
